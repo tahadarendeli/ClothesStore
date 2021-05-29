@@ -21,7 +21,7 @@ class CatalogueViewCollectionViewCell: UICollectionViewCell {
         self.productName.text = product.name
         self.productPrice.text = CurrencyHelper.getMoneyString(product.price ?? 0)
         self.cellView.dropShadow(radius: 10, opacity: 0.1, color: .black)
-        let placeHolderImage = UIImage(named: "placeholderImage")
+        let placeHolderImage = UIImage(named: Strings.Images.placeholder.rawValue)
         
         if let image = product.image, let url = URL(string: image) {
             productImage.getImage(with: url, completion: nil)

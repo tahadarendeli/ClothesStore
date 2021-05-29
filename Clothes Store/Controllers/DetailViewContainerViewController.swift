@@ -36,7 +36,7 @@ class DetailViewContainerViewController: UIViewController{
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "detailContainer"{
+        if segue.identifier == Identifiers.detailContainer.rawValue {
             let dest = segue.destination as! ProductDetailTableViewController
             dest.product = product
         }

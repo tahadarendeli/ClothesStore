@@ -46,7 +46,7 @@ extension WishlistViewController: UITableViewDelegate{
 
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
 
-        let deleteAction = UIContextualAction.init(style:.destructive, title: "Remove", handler: { (action, view, completion) in
+        let deleteAction = UIContextualAction.init(style:.destructive, title:  Strings.Texts.remove.rawValue, handler: { (action, view, completion) in
             
             Haptic.feedBack()
           
