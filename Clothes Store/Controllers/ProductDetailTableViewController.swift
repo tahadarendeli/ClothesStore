@@ -26,6 +26,10 @@ class ProductDetailTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        configureViews()
+    }
+    
+    private func configureViews() {
         productName.text = product?.name
         productPrice.text = CurrencyHelper.getMoneyString(product?.price ?? 0)
 
@@ -52,7 +56,6 @@ class ProductDetailTableViewController: UITableViewController {
         } else {
             productImageView.image = placeHolderImage
         }
-       
     }
 
     // MARK: - Table view data source & delegates

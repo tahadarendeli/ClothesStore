@@ -18,6 +18,8 @@ enum Strings {
     enum Identifiers: String {
         case detailContainer = "detailContainer"
         case productCell = "productCell"
+        case basketCell = "basketCell"
+        case wishlistCell = "savedCell"
     }
     
     enum Images: String {
