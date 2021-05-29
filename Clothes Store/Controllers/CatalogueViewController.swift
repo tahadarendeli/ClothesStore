@@ -27,8 +27,8 @@ class CatalogueViewController: UIViewController {
 
         ProductsDataService.getProducts { (products, error) in
             if error != nil{
-                let alert = UIAlertController(title: "Error", message: "There has been an error getting the data. Please check your network connection and try again", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Retry", style: .default, handler: { (action) in
+                let alert = UIAlertController(title: Strings.Texts.error.rawValue, message: Strings.Texts.alertMessage.rawValue, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: Strings.Texts.retry.rawValue, style: .default, handler: { (action) in
                     self.getProducts()
                     alert.dismiss(animated: true, completion: nil)
                 }))
@@ -51,7 +51,7 @@ extension CatalogueViewController: UICollectionViewDelegate, UICollectionViewDat
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "productCell", for: indexPath) as! CatalogueViewCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Strings.Identifiers.productCell.rawValue, for: indexPath) as! CatalogueViewCollectionViewCell
         
         let product = products[indexPath.row]
         cell.configureWithProduct(product: product)
@@ -67,7 +67,7 @@ extension CatalogueViewController: UICollectionViewDelegate, UICollectionViewDat
 
         let product = products[indexPath.row]
 
-        let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "detailContainer") as! DetailViewContainerViewController
+        let detailVC = self.storyboard?.instantiateViewController(withIdentifier: Strings.Identifiers.detailContainer.rawValue) as! DetailViewContainerViewController
         let navigationVC = UINavigationController(rootViewController: detailVC)
         detailVC.product = product
         Haptic.feedBack()

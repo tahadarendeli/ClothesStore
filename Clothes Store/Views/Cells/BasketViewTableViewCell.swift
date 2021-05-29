@@ -24,7 +24,7 @@ class BasketViewTableViewCell: UITableViewCell{
         self.productName.text = product.name
         self.productPrice.text = CurrencyHelper.getMoneyString(product.price ?? 0)
         self.cellView.dropShadow(radius: 10, opacity: 0.1, color: .black)
-        self.quantity.text = "Qty: \(product.stock ?? 1)"
+        self.quantity.text = "\(Strings.Texts.quantity.rawValue): \(product.stock ?? 1)"
 
     }
 }

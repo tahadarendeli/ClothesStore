@@ -70,7 +70,7 @@ extension UIAlertController{
 
     class func show(_ title: String, message: String, from controller: UIViewController) {
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        alert.addAction(UIAlertAction(title: Strings.Texts.ok.rawValue, style: .default))
         controller.present(alert, animated: true)
     }
 }

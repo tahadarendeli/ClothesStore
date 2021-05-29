@@ -40,12 +40,12 @@ class ProductDetailTableViewController: UITableViewController {
         productCategory.text = product?.category?.rawValue
         productStockCount.text = "\(product?.stock ?? 0)"
         if (product?.stock ?? 0) > 0 {
-            productInStock.text = "In Stock"
+            productInStock.text = Strings.Texts.inStock.rawValue
         }else{
-            productInStock.text = "Out of Stock"
+            productInStock.text = Strings.Texts.outStock.rawValue
         }
         
-        let placeHolderImage = UIImage(named: "placeholderImage")
+        let placeHolderImage = UIImage(named: Strings.Images.placeholder.rawValue)
         
         if let image = product?.image, let url = URL(string: image) {
             productImageView.getImage(with: url, completion: nil)

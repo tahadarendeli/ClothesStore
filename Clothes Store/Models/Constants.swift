@@ -13,6 +13,29 @@ enum URLCall : String {
     case catalogue = "https://api.npoint.io/0f78766a6d68832d309d"
 }
 
+enum Strings {
+    
+    enum Identifiers: String {
+        case detailContainer = "detailContainer"
+        case productCell = "productCell"
+    }
+    
+    enum Images: String {
+        case placeholder = "placeholderImage"
+    }
+    
+    enum Texts: String {
+        case error = "Error"
+        case alertMessage = "There has been an error getting the data. Please check your network connection and try again"
+        case retry = "Retry"
+        case remove = "Remove"
+        case inStock = "In Stock"
+        case outStock = "Out of Stock"
+        case ok = "OK"
+        case quantity = "Qty"
+    }
+}
+
 extension UIColor{
 
     class var primaryColour: UIColor{
