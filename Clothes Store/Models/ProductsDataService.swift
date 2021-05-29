@@ -10,12 +10,12 @@ import Foundation
 
 final class ProductsDataService {
     
-    class func getProducts(completion: @escaping (Products?, Error?) -> Void) {
+    class func getProducts(completion: @escaping (Result<Products, Error>?) -> Void) {
         
         let requestUrl = URLCall.catalogue.rawValue
         
-        ServiceManager.get(for: Products.self, mainUrl: requestUrl, completion: { result, error in
-            completion(result, error)
+        ServiceManager.get(for: Products.self, mainUrl: requestUrl, completion: { result in
+            completion(result)
         })
     }
 }

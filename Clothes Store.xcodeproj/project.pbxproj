@@ -31,6 +31,8 @@
 		F31B9DC626623195006C6C19 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31B9DC526623195006C6C19 /* ImageCache.swift */; };
 		F31B9DCC266268CF006C6C19 /* BasketMemoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31B9DCB266268CF006C6C19 /* BasketMemoryService.swift */; };
 		F31B9DCF26626A9B006C6C19 /* WishlistMemoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31B9DCE26626A9B006C6C19 /* WishlistMemoryService.swift */; };
+		F31B9DD426629442006C6C19 /* CatalogueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31B9DD326629442006C6C19 /* CatalogueView.swift */; };
+		F31B9DD926629924006C6C19 /* CatalogueViewHostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31B9DD826629924006C6C19 /* CatalogueViewHostingViewController.swift */; };
 		F33B15C2266189360082130B /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33B15C1266189360082130B /* ServiceManager.swift */; };
 		F35418C62661A8CF00470445 /* ImageServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35418C52661A8CF00470445 /* ImageServiceManager.swift */; };
 /* End PBXBuildFile section */
@@ -62,6 +64,8 @@
 		F31B9DC526623195006C6C19 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		F31B9DCB266268CF006C6C19 /* BasketMemoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketMemoryService.swift; sourceTree = "<group>"; };
 		F31B9DCE26626A9B006C6C19 /* WishlistMemoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistMemoryService.swift; sourceTree = "<group>"; };
+		F31B9DD326629442006C6C19 /* CatalogueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueView.swift; sourceTree = "<group>"; };
+		F31B9DD826629924006C6C19 /* CatalogueViewHostingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueViewHostingViewController.swift; sourceTree = "<group>"; };
 		F33B15C1266189360082130B /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
 		F35418C52661A8CF00470445 /* ImageServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageServiceManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -135,6 +139,8 @@
 				BE5F282722F238FC00F2C97D /* BasketViewController.swift */,
 				BE5F27F922F035AF00F2C97D /* CatalogueViewController.swift */,
 				BE5F282522F1F4A400F2C97D /* TabBarController.swift */,
+				F31B9DD326629442006C6C19 /* CatalogueView.swift */,
+				F31B9DD826629924006C6C19 /* CatalogueViewHostingViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -288,6 +294,8 @@
 				BE5F27FA22F035AF00F2C97D /* CatalogueViewController.swift in Sources */,
 				BE5F281222F05FFA00F2C97D /* CurrencyHelpers.swift in Sources */,
 				BE5F282422F1A13600F2C97D /* HUD.swift in Sources */,
+				F31B9DD426629442006C6C19 /* CatalogueView.swift in Sources */,
+				F31B9DD926629924006C6C19 /* CatalogueViewHostingViewController.swift in Sources */,
 				F31B9DC626623195006C6C19 /* ImageCache.swift in Sources */,
 				F35418C62661A8CF00470445 /* ImageServiceManager.swift in Sources */,
 				BE5F282E22F24F8800F2C97D /* SavedViewTableViewCell.swift in Sources */,
@@ -447,6 +455,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XYK77XC4T9;
 				INFOPLIST_FILE = "$(SRCROOT)/Clothes Store/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -465,6 +474,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XYK77XC4T9;
 				INFOPLIST_FILE = "$(SRCROOT)/Clothes Store/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

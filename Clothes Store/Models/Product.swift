@@ -9,18 +9,25 @@
 import Foundation
 
 // MARK: - Products
-struct Products: Codable {
+struct Products: Codable, Identifiable {
+    var id: String?
     var products: [Product]?
 }
 
 // MARK: - Product
-struct Product: Codable {
+final class Product: Codable {
     var productId, name: String?
     var category: Category?
     var price: Float?
     var stock: Int?
     var oldPrice: Float?
     var image: String?
+}
+
+extension Product: Identifiable {
+    var id: String? {
+        return productId
+    }
 }
 
 enum Category: String, Codable {

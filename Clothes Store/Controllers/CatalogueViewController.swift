@@ -25,8 +25,16 @@ class CatalogueViewController: UIViewController {
 
     func getProducts(){
 
-        ProductsDataService.getProducts { (products, error) in
-            if error != nil{
+        ProductsDataService.getProducts { [weak self] result in
+            
+            guard let self = self, let result = result else { return }
+            
+            switch result {
+            case .success(let products):
+                self.products = products.products ?? []
+                self.activity.isHidden = true
+                self.collectionView.reloadData()
+            case .failure(_):
                 let alert = UIAlertController(title: Strings.Texts.error.rawValue, message: Strings.Texts.alertMessage.rawValue, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: Strings.Texts.retry.rawValue, style: .default, handler: { (action) in
                     self.getProducts()
@@ -34,11 +42,6 @@ class CatalogueViewController: UIViewController {
                 }))
 
                 self.present(alert, animated: true, completion: nil)
-            }else{
-
-                self.products = products?.products ?? []
-                self.activity.isHidden = true
-                self.collectionView.reloadData()
             }
         }
     }

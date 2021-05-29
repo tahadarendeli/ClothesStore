@@ -217,14 +217,25 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="Vjw-FR-1Yg" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
+                        <segue destination="wpx-2V-7ed" kind="relationship" relationship="viewControllers" id="TeM-8C-lCx"/>
                         <segue destination="m0V-P5-Tro" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                         <segue destination="Pme-DL-mQU" kind="relationship" relationship="viewControllers" id="TVP-E3-Yf5"/>
+                        <segue destination="Vjw-FR-1Yg" kind="relationship" relationship="viewControllers" id="01y-bY-ubS"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-133" y="-3"/>
+        </scene>
+        <!--CATALOUGE-->
+        <scene sceneID="EuD-fY-oRI">
+            <objects>
+                <hostingController id="wpx-2V-7ed" customClass="CatalogueViewHostingViewController" customModule="Clothes_Store" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="CATALOUGE" image="doc.text.magnifyingglass" catalog="system" id="IqX-7K-0zK"/>
+                </hostingController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8eF-Up-V9z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1012" y="-1005"/>
         </scene>
         <!--CATALOGUE-->
         <scene sceneID="UQh-M8-kh4">
