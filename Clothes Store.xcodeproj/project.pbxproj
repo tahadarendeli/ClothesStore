@@ -33,6 +33,7 @@
 		F31B9DCF26626A9B006C6C19 /* WishlistMemoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31B9DCE26626A9B006C6C19 /* WishlistMemoryService.swift */; };
 		F31B9DD426629442006C6C19 /* CatalogueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31B9DD326629442006C6C19 /* CatalogueView.swift */; };
 		F31B9DD926629924006C6C19 /* CatalogueViewHostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31B9DD826629924006C6C19 /* CatalogueViewHostingViewController.swift */; };
+		F31B9DDE2662F032006C6C19 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31B9DDD2662F032006C6C19 /* ImageView.swift */; };
 		F33B15C2266189360082130B /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33B15C1266189360082130B /* ServiceManager.swift */; };
 		F35418C62661A8CF00470445 /* ImageServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35418C52661A8CF00470445 /* ImageServiceManager.swift */; };
 /* End PBXBuildFile section */
@@ -66,6 +67,7 @@
 		F31B9DCE26626A9B006C6C19 /* WishlistMemoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistMemoryService.swift; sourceTree = "<group>"; };
 		F31B9DD326629442006C6C19 /* CatalogueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueView.swift; sourceTree = "<group>"; };
 		F31B9DD826629924006C6C19 /* CatalogueViewHostingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueViewHostingViewController.swift; sourceTree = "<group>"; };
+		F31B9DDD2662F032006C6C19 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		F33B15C1266189360082130B /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
 		F35418C52661A8CF00470445 /* ImageServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageServiceManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -105,6 +107,7 @@
 				F31B9DCA26626888006C6C19 /* MemoryService */,
 				BE5F282A22F24DA700F2C97D /* Views */,
 				BE5F282B22F24DC500F2C97D /* Controllers */,
+				F31B9DDC2662EFFA006C6C19 /* SwiftUIViews */,
 				BE5F282C22F24E2100F2C97D /* Helpers */,
 				BE5F283322F2506600F2C97D /* Resources */,
 				BE5F283422F2508700F2C97D /* Supporting Files */,
@@ -139,7 +142,6 @@
 				BE5F282722F238FC00F2C97D /* BasketViewController.swift */,
 				BE5F27F922F035AF00F2C97D /* CatalogueViewController.swift */,
 				BE5F282522F1F4A400F2C97D /* TabBarController.swift */,
-				F31B9DD326629442006C6C19 /* CatalogueView.swift */,
 				F31B9DD826629924006C6C19 /* CatalogueViewHostingViewController.swift */,
 			);
 			path = Controllers;
@@ -193,6 +195,15 @@
 				F31B9DCE26626A9B006C6C19 /* WishlistMemoryService.swift */,
 			);
 			path = MemoryService;
+			sourceTree = "<group>";
+		};
+		F31B9DDC2662EFFA006C6C19 /* SwiftUIViews */ = {
+			isa = PBXGroup;
+			children = (
+				F31B9DD326629442006C6C19 /* CatalogueView.swift */,
+				F31B9DDD2662F032006C6C19 /* ImageView.swift */,
+			);
+			path = SwiftUIViews;
 			sourceTree = "<group>";
 		};
 		F33B15C0266189190082130B /* Networking */ = {
@@ -284,6 +295,7 @@
 				BE5F283222F2502D00F2C97D /* CatalogueViewCollectionCell.swift in Sources */,
 				BE5F282822F238FC00F2C97D /* BasketViewController.swift in Sources */,
 				BE5F282622F1F4A400F2C97D /* TabBarController.swift in Sources */,
+				F31B9DDE2662F032006C6C19 /* ImageView.swift in Sources */,
 				F31B9DCF26626A9B006C6C19 /* WishlistMemoryService.swift in Sources */,
 				BE5F283022F24FF800F2C97D /* BasketViewTableViewCell.swift in Sources */,
 				BE5F282222F19C0300F2C97D /* HapticFeedback.swift in Sources */,
