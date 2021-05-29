@@ -61,7 +61,7 @@
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="heart" translatesAutoresizingMaskIntoConstraints="NO" id="cEp-jq-agd">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="heart.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="cEp-jq-agd">
                                                             <rect key="frame" x="119" y="8" width="24" height="22"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                                         </imageView>
@@ -132,7 +132,7 @@
                                                     <rect key="frame" x="20" y="22" width="80" height="80"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="photo" translatesAutoresizingMaskIntoConstraints="NO" id="n9D-WV-6yK">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="photo.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="n9D-WV-6yK">
                                                             <rect key="frame" x="15" y="15" width="50" height="50"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <color key="tintColor" red="1" green="0.39343535899999998" blue="0.42544671890000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -163,7 +163,7 @@
                                                     <rect key="frame" x="332" y="0.0" width="82" height="67"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                                     <color key="tintColor" red="1" green="0.39343535899999998" blue="0.42544671890000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    <state key="normal" image="addToBasket">
+                                                    <state key="normal" image="cart.badge.plus" catalog="system">
                                                         <color key="titleColor" red="0.85413116219999996" green="0.36529368159999998" blue="0.33323866130000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </state>
                                                     <connections>
@@ -230,7 +230,7 @@
         <scene sceneID="UQh-M8-kh4">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Vjw-FR-1Yg" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="CATALOGUE" image="search" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="CATALOGUE" image="doc.text.magnifyingglass" catalog="system" id="acW-dT-cKf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Saf-Yj-ZG8">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -249,7 +249,7 @@
         <scene sceneID="iB9-iC-Zfj">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="m0V-P5-Tro" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="WISHLIST" image="saved" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="WISHLIST" image="arrow.down.heart.fill" catalog="system" id="cPa-gy-q4n"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="fSk-uL-RrH">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -268,7 +268,7 @@
         <scene sceneID="QT2-yw-6io">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Pme-DL-mQU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="BASKET" image="basket" id="Ukz-DD-yld"/>
+                    <tabBarItem key="tabBarItem" title="BASKET" image="cart" catalog="system" id="Ukz-DD-yld"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="4qx-oO-Y9B">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -306,7 +306,7 @@
                                                     <rect key="frame" x="20" y="22" width="80" height="80"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="photo" translatesAutoresizingMaskIntoConstraints="NO" id="mv2-rt-ePM">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="photo.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="mv2-rt-ePM">
                                                             <rect key="frame" x="15" y="15" width="50" height="50"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <color key="tintColor" red="1" green="0.39343535899999998" blue="0.42544671890000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -548,7 +548,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Product detail" largeTitleDisplayMode="never" id="iuH-Jq-tyd">
                         <barButtonItem key="backBarButtonItem" title="Back" id="3yR-IW-wiz"/>
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="close" id="qCx-c5-PdJ">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="xmark" catalog="system" id="qCx-c5-PdJ">
                             <inset key="imageInsets" minX="0.0" minY="3" maxX="3" maxY="-5"/>
                             <color key="tintColor" red="1" green="0.39343535899999998" blue="0.42544671890000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
@@ -734,13 +734,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="addToBasket" width="32" height="32"/>
-        <image name="basket" width="30" height="30"/>
-        <image name="close" width="50" height="50"/>
-        <image name="heart" width="28" height="28"/>
-        <image name="photo" width="100" height="100"/>
+        <image name="arrow.down.heart.fill" catalog="system" width="128" height="109"/>
+        <image name="cart" catalog="system" width="128" height="102"/>
+        <image name="cart.badge.plus" catalog="system" width="128" height="106"/>
+        <image name="doc.text.magnifyingglass" catalog="system" width="113" height="128"/>
+        <image name="heart.fill" catalog="system" width="128" height="109"/>
+        <image name="photo.fill" catalog="system" width="128" height="93"/>
         <image name="placeholderImage" width="97" height="129.5"/>
-        <image name="saved" width="30" height="30"/>
-        <image name="search" width="30" height="30"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
     </resources>
 </document>
