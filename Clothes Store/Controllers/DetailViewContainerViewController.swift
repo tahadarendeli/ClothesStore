@@ -20,6 +20,14 @@ class DetailViewContainerViewController: UIViewController{
 
     //Variables
     var product : Product!
+    
+    private var basketMemoryService: BasketMemoryService {
+        return BasketMemoryService.shared()
+    }
+    
+    private var wishlistMemoryService: WishlistMemoryService {
+        return WishlistMemoryService.shared()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,11 +58,13 @@ class DetailViewContainerViewController: UIViewController{
 
     @IBAction func addToCartAction(_ sender: Any) {
         Haptic.feedBack()
-
+        
+        basketMemoryService.add(product: product)
     }
 
     @IBAction func addToWishListAction(_ sender: Any) {
         Haptic.feedBack()
-
+        
+        wishlistMemoryService.add(product: product)
     }
 }

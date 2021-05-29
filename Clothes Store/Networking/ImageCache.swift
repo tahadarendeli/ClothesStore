@@ -11,9 +11,7 @@ import Foundation
 final class ImageCache {
     
     private static var sharedCache: ImageCache = {
-        let imageCache = ImageCache()
-        
-        return imageCache
+        return ImageCache()
     }()
     
     private let cache = NSCache<AnyObject, AnyObject>()
