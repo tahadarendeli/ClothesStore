@@ -25,7 +25,7 @@ class CatalogueViewController: UIViewController {
 
     func getProducts(){
 
-        DataService.getProducts { (products, error) in
+        ProductsDataService.getProducts { (products, error) in
             if error != nil{
                 let alert = UIAlertController(title: "Error", message: "There has been an error getting the data. Please check your network connection and try again", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Retry", style: .default, handler: { (action) in

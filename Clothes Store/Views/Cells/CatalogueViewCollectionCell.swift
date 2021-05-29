@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import AlamofireImage
 
 class CatalogueViewCollectionViewCell: UICollectionViewCell {
     
@@ -24,10 +23,8 @@ class CatalogueViewCollectionViewCell: UICollectionViewCell {
         self.cellView.dropShadow(radius: 10, opacity: 0.1, color: .black)
         let placeHolderImage = UIImage(named: "placeholderImage")
         
-        if let imageURL = URL(string: product.image ?? "") {
-            productImage.af.setImage(withURL:  imageURL,
-                                     placeholderImage:  placeHolderImage,
-                                     imageTransition: .crossDissolve(0.3))
+        if let image = product.image, let url = URL(string: image) {
+            productImage.getImage(with: url, completion: nil)
         } else {
             productImage.image = placeHolderImage
         }
@@ -37,7 +34,7 @@ class CatalogueViewCollectionViewCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        productImage.af.cancelImageRequest()
+        productImage.cancelImageRequest()
         productImage.image = nil
     }
 }
