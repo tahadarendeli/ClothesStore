@@ -28,7 +28,7 @@ final class CatalogueViewCollectionViewCell: UICollectionViewCell {
         } else {
             productImage.image = placeHolderImage
         }
-        
+        wishListed.isHidden = !WishlistMemoryService.shared().get().contains(where: { $0.productId == product.productId })
     }
     
     override func prepareForReuse() {

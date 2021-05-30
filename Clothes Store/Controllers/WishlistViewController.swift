@@ -52,6 +52,7 @@ final class WishlistViewController: UIViewController, BuyCellButtonTapped {
     private func reloadViews() {
         tableView.reloadData()
         noProductsLabel.isHidden = !products.isEmpty
+        tableView.separatorStyle = products.isEmpty ? .none : .singleLine
     }
 
     // MARK: - Actions

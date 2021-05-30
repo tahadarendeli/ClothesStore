@@ -15,6 +15,7 @@ final class BasketViewController: UIViewController {
     @IBOutlet private var noProductsLabel: UILabel!
     @IBOutlet private var total: UILabel!
     @IBOutlet private var checkoutButton: UIButton!
+    @IBOutlet private weak var checkoutView: UIView!
     
     //Variables
     private var basketMemoryService: BasketMemoryService {
@@ -45,7 +46,8 @@ final class BasketViewController: UIViewController {
     private func configureViews() {
         tableView.reloadData()
         noProductsLabel.isHidden = !products.isEmpty
-        
+        checkoutView.isHidden = products.isEmpty
+        tableView.separatorStyle = products.isEmpty ? .none : .singleLine
         
         total.text = CurrencyHelper.getMoneyString(calculateTotalPrice())
     }

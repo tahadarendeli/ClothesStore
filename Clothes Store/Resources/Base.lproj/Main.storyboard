@@ -60,9 +60,10 @@
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="heart.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="cEp-jq-agd">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="heart.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="cEp-jq-agd">
                                                             <rect key="frame" x="119" y="8" width="24" height="22"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                                            <color key="tintColor" red="1" green="0.35626077649999999" blue="0.43523806329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -176,6 +177,7 @@
                                         <connections>
                                             <outlet property="addToButton" destination="xet-Po-heQ" id="9SQ-Pc-vuu"/>
                                             <outlet property="cellView" destination="391-v7-OzB" id="WLs-ph-pKJ"/>
+                                            <outlet property="productImage" destination="n9D-WV-6yK" id="AsB-EB-qGQ"/>
                                             <outlet property="productName" destination="pfY-Cg-v4L" id="5Zi-9k-qMh"/>
                                             <outlet property="productPrice" destination="j4E-l9-EgQ" id="Ka3-8T-UTz"/>
                                         </connections>
@@ -219,6 +221,7 @@
                         <segue destination="wpx-2V-7ed" kind="relationship" relationship="viewControllers" id="ieE-CO-hg0"/>
                         <segue destination="m0V-P5-Tro" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                         <segue destination="Pme-DL-mQU" kind="relationship" relationship="viewControllers" id="TVP-E3-Yf5"/>
+                        <segue destination="Vjw-FR-1Yg" kind="relationship" relationship="viewControllers" id="Ibr-s3-MIo"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -356,6 +359,7 @@
                                         <inset key="separatorInset" minX="125" minY="0.0" maxX="20" maxY="0.0"/>
                                         <connections>
                                             <outlet property="cellView" destination="mrR-dH-anG" id="0AR-Vu-9Ou"/>
+                                            <outlet property="productImage" destination="mv2-rt-ePM" id="y1M-dQ-Auf"/>
                                             <outlet property="productName" destination="8TD-Fv-JGk" id="O5t-rz-iWR"/>
                                             <outlet property="productPrice" destination="f51-Ga-z5y" id="m18-lw-wcM"/>
                                             <outlet property="quantity" destination="40C-Ll-zNw" id="Nj9-RG-17T"/>
@@ -427,7 +431,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xxY-U1-Hmc"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="dMp-IN-XHa" firstAttribute="top" secondItem="DDt-kl-ciL" secondAttribute="bottom" id="7dX-Wv-luZ"/>
                             <constraint firstItem="dMp-IN-XHa" firstAttribute="leading" secondItem="xxY-U1-Hmc" secondAttribute="leading" id="7pj-PF-OQ1"/>
@@ -441,6 +445,7 @@
                     <navigationItem key="navigationItem" title="Basket" id="aqU-l3-z5c"/>
                     <connections>
                         <outlet property="checkoutButton" destination="9OA-t4-qhZ" id="MGq-mb-YKa"/>
+                        <outlet property="checkoutView" destination="dMp-IN-XHa" id="Tkf-7V-ZGh"/>
                         <outlet property="noProductsLabel" destination="op2-Ej-9WO" id="Av4-G0-Ypa"/>
                         <outlet property="tableView" destination="DDt-kl-ciL" id="U9y-FX-eOm"/>
                         <outlet property="total" destination="5zp-Oq-DD2" id="JBH-is-d8W"/>

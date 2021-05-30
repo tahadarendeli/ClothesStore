@@ -11,11 +11,12 @@ import UIKit
 final class SavedViewTableViewCell: UITableViewCell{
 
     //Views
-    @IBOutlet private var cellView: UIView!
-    @IBOutlet private var productName: UILabel!
-    @IBOutlet private var productPrice: UILabel!
-    @IBOutlet private var addToButton: UIButton!
-
+    @IBOutlet private weak var cellView: UIView!
+    @IBOutlet private weak var productImage: UIImageView!
+    @IBOutlet private weak var productName: UILabel!
+    @IBOutlet private weak var productPrice: UILabel!
+    @IBOutlet private weak var addToButton: UIButton!
+    
     //Variables
     weak var delegate : BuyCellButtonTapped?
 
@@ -25,6 +26,10 @@ final class SavedViewTableViewCell: UITableViewCell{
         self.productPrice.text = CurrencyHelper.getMoneyString(product.price ?? 0)
         self.cellView.dropShadow(radius: 10, opacity: 0.1, color: .black)
 
+        if let imageUrlString = product.image,
+           let imageUrl = URL(string: imageUrlString) {
+            self.productImage.getImage(with: imageUrl)
+        }
     }
 
     @IBAction func addToBasket(_ sender: Any) {
