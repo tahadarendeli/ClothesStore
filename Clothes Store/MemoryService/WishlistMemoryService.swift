@@ -7,18 +7,23 @@
 //
 
 import Foundation
+import Combine
 
-final class WishlistMemoryService {
+final class WishlistMemoryService: ProductMemoryServiceProtocol {
     
     private static let sharedMemoryService: WishlistMemoryService = {
         return WishlistMemoryService()
     }()
     
-    private var products: [Product] = []
+    let action = PassthroughSubject<Int, Never>()
     
-    private init() {
-        
+    private var products: [Product] = [] {
+        didSet {
+            action.send(products.count)
+        }
     }
+    
+    private init() { }
     
     class func shared() -> WishlistMemoryService {
         return sharedMemoryService
