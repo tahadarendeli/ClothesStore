@@ -20,13 +20,8 @@ final class WishlistViewController: UIViewController, BuyCellButtonTapped {
     @IBOutlet private var noProductsLabel: UILabel!
 
     //Variables
-    private var basketMemoryService: BasketMemoryService {
-        return BasketMemoryService.shared()
-    }
-    
-    private var wishlistMemoryService: WishlistMemoryService {
-        return WishlistMemoryService.shared()
-    }
+    private var basketMemoryService =  BasketMemoryService.shared()
+    private var wishlistMemoryService = WishlistMemoryService.shared()
     
     private var products: [Product] {
         return wishlistMemoryService.get()

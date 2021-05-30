@@ -7,9 +7,12 @@
 //
 
 import SwiftUI
+import Combine
 
 final class CatalougeViewModel: ObservableObject {
     @Published var result: Result<Products, Error>? = nil
+    @Published var wishlist: [Product] = []
+    private var observer: AnyCancellable?
     
     var value: Products? {
         try? result?.get()
@@ -19,6 +22,12 @@ final class CatalougeViewModel: ObservableObject {
         ProductsDataService.getProducts(){ result in
             self.result = result
         }
+    }
+    
+    func setObserver() {
+        observer = WishlistMemoryService.shared().action.sink(receiveValue: { [weak self] _ in
+            self?.wishlist = WishlistMemoryService.shared().get()
+        })
     }
 }
 
@@ -40,6 +49,7 @@ struct CatalougeView: View {
                         ProgressView()
                             .onAppear {
                                 products.load()
+                                products.setObserver()
                             }
                             .progressViewStyle(CircularProgressViewStyle(tint: Color(UIColor.primaryColour)))
                     }
@@ -47,7 +57,8 @@ struct CatalougeView: View {
                     ScrollView {
                         LazyVGrid(columns: layout, spacing: 15) {
                             ForEach(products) { product in
-                                CatalougeCellView(product: product)
+                                CatalougeCellView(product: product,
+                                                  didAddedToWishlist: self.products.wishlist.contains(where: { $0.productId == product.productId }))
                             }
                         }
                     }

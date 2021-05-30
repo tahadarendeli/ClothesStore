@@ -18,9 +18,7 @@ final class BasketViewController: UIViewController {
     @IBOutlet private weak var checkoutView: UIView!
     
     //Variables
-    private var basketMemoryService: BasketMemoryService {
-        return BasketMemoryService.shared()
-    }
+    private var basketMemoryService = BasketMemoryService.shared()
     private var products: [Product] {
         return basketMemoryService.get()
     }

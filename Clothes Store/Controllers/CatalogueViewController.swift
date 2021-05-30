@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Combine
 
 final class CatalogueViewController: UIViewController {
 
@@ -15,18 +16,19 @@ final class CatalogueViewController: UIViewController {
     @IBOutlet private var activity: UIActivityIndicatorView!
 
     //Variables
-    private var products : [Product] = []
+    private var observer: AnyCancellable?
+    private var productMemorySerivce = ProductMemoryService.shared()
+    private var products : [Product] {
+        return productMemorySerivce.get()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         getProducts()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        collectionView.reloadData()
+        observer = WishlistMemoryService.shared().action.sink(receiveValue: { [weak self] product in
+            self?.collectionView.reloadData()
+        })
     }
 
     private func getProducts(){
@@ -37,7 +39,7 @@ final class CatalogueViewController: UIViewController {
             
             switch result {
             case .success(let products):
-                self.products = products.products ?? []
+                self.productMemorySerivce.add(productList: products.products ?? [])
                 self.activity.isHidden = true
                 self.collectionView.reloadData()
             case .failure(_):

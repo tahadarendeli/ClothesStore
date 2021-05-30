@@ -10,9 +10,11 @@ import SwiftUI
 
 final class ObservableProduct: ObservableObject {
     @Published var product: Product
+    @Published var didAddedToWishlist: Bool
     
-    init(product: Product) {
+    init(product: Product, didAddedToWishlist: Bool) {
         self.product = product
+        self.didAddedToWishlist = didAddedToWishlist
     }
 }
 
@@ -20,8 +22,8 @@ struct CatalougeCellView: View {
     @ObservedObject private var observableProduct: ObservableProduct
     @State private var showingDetail = false
     
-    init(product: Product) {
-        observableProduct = ObservableProduct(product: product)
+    init(product: Product, didAddedToWishlist: Bool) {
+        observableProduct = ObservableProduct(product: product, didAddedToWishlist: didAddedToWishlist)
     }
     
     var body: some View {
@@ -29,39 +31,58 @@ struct CatalougeCellView: View {
         if let productName = observableProduct.product.name,
            let productPrice = observableProduct.product.price,
            let productImage = observableProduct.product.image {
-            VStack(alignment: .leading) {
-                ImageView(withURL: productImage)
-                    .cornerRadius(10.0)
-                    .padding([.top, .leading, .trailing], 8)
-                    .clipped()
+            
+            ZStack {
+                VStack(alignment: .leading) {
+                    ImageView(withURL: productImage)
+                        .cornerRadius(10.0)
+                        .padding([.top, .leading, .trailing], 8)
+                        .clipped()
+                    
+                    Text(productName)
+                        .font(.custom("HelveticaNeue-Light", size: 14))
+                        .lineLimit(2)
+                        .minimumScaleFactor(0.75)
+                        .foregroundColor(.init(UIColor.lightGray))
+                        .padding([.top,.leading, .trailing], 8)
+                    
+                    Text(CurrencyHelper.getMoneyString(productPrice))
+                        .font(.custom("HelveticaNeue-Bold", size: 18))
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.5)
+                        .foregroundColor(.init(UIColor.darkGray))
+                        .padding([.top, .leading, .trailing, .bottom], 8)
+                }
+                .frame(maxWidth: 151, maxHeight: 219)
+                .background(Color.white)
+                .cornerRadius(10.0)
+                .shadow(color: Color(.displayP3, red: 0.0, green: 0.0, blue: 0.0, opacity: 0.1),
+                        radius: 10,
+                        x: 0.0,
+                        y: 0.0)
+                .padding(.top, 15)
+                .onTapGesture {
+                    showingDetail = true
+                }
+                .sheet(isPresented: $showingDetail) {
+                    DetailViewControllerWrapper(product: observableProduct.product)
+                }
                 
-                Text(productName)
-                    .font(.custom("HelveticaNeue-Light", size: 14))
-                    .lineLimit(2)
-                    .minimumScaleFactor(0.75)
-                    .foregroundColor(.init(UIColor.lightGray))
-                    .padding([.top,.leading, .trailing], 8)
-                
-                Text(CurrencyHelper.getMoneyString(productPrice))
-                    .font(.custom("HelveticaNeue-Bold", size: 18))
-                    .lineLimit(1)
-                    .minimumScaleFactor(0.5)
-                    .foregroundColor(.init(UIColor.darkGray))
-                    .padding([.top, .leading, .trailing, .bottom], 8)
-            }
-            .frame(maxWidth: 151, maxHeight: 219)
-            .background(Color.white)
-            .cornerRadius(10.0)
-            .shadow(color: Color(.displayP3, red: 0.0, green: 0.0, blue: 0.0, opacity: 0.1),
-                    radius: 10,
-                    x: 0.0,
-                    y: 0.0)
-            .padding(.top, 15)
-            .onTapGesture {
-                showingDetail = true
-            }
-            .sheet(isPresented: $showingDetail) {
-                DetailViewControllerWrapper(product: observableProduct.product)
+                if observableProduct.didAddedToWishlist {
+                    HStack {
+                        Spacer()
+                        VStack(alignment: .trailing) {
+                            Image(systemName: "heart.fill")
+                                .resizable()
+                                .aspectRatio(1.0, contentMode: .fit)
+                                .frame(maxWidth: 22, maxHeight: 22)
+                                .padding(.top, 25)
+                                .padding(.trailing, 35)
+                                .foregroundColor(Color(.primaryColour))
+                            Spacer()
+                        }
+                    }
+                }
             }
         }
     }

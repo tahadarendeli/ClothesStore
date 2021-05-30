@@ -9,7 +9,7 @@
 import Foundation
 import Combine
 
-final class BasketMemoryService: ProductMemoryServiceProtocol {
+final class BasketMemoryService: MemoryServiceProtocol {
     
     private static let sharedMemoryService: BasketMemoryService = {
         return BasketMemoryService()

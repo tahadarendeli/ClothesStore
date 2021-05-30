@@ -38,7 +38,8 @@
 		F35418C62661A8CF00470445 /* ImageServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35418C52661A8CF00470445 /* ImageServiceManager.swift */; };
 		F3A2EB4C2663CF050062CE8F /* DetailViewControllerWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A2EB4B2663CF050062CE8F /* DetailViewControllerWrapper.swift */; };
 		F3A2EB502663D3350062CE8F /* CatalougeCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A2EB4F2663D3350062CE8F /* CatalougeCellView.swift */; };
-		F3A2EB5D2663E5690062CE8F /* ProductMemoryServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A2EB5C2663E5690062CE8F /* ProductMemoryServiceProtocol.swift */; };
+		F3A2EB5D2663E5690062CE8F /* MemoryServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A2EB5C2663E5690062CE8F /* MemoryServiceProtocol.swift */; };
+		F3A2EB652664301C0062CE8F /* ProductMemoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A2EB642664301B0062CE8F /* ProductMemoryService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,7 +76,8 @@
 		F35418C52661A8CF00470445 /* ImageServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageServiceManager.swift; sourceTree = "<group>"; };
 		F3A2EB4B2663CF050062CE8F /* DetailViewControllerWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewControllerWrapper.swift; sourceTree = "<group>"; };
 		F3A2EB4F2663D3350062CE8F /* CatalougeCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalougeCellView.swift; sourceTree = "<group>"; };
-		F3A2EB5C2663E5690062CE8F /* ProductMemoryServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductMemoryServiceProtocol.swift; sourceTree = "<group>"; };
+		F3A2EB5C2663E5690062CE8F /* MemoryServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryServiceProtocol.swift; sourceTree = "<group>"; };
+		F3A2EB642664301B0062CE8F /* ProductMemoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductMemoryService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,7 +199,8 @@
 		F31B9DCA26626888006C6C19 /* MemoryService */ = {
 			isa = PBXGroup;
 			children = (
-				F3A2EB5C2663E5690062CE8F /* ProductMemoryServiceProtocol.swift */,
+				F3A2EB5C2663E5690062CE8F /* MemoryServiceProtocol.swift */,
+				F3A2EB642664301B0062CE8F /* ProductMemoryService.swift */,
 				F31B9DCB266268CF006C6C19 /* BasketMemoryService.swift */,
 				F31B9DCE26626A9B006C6C19 /* WishlistMemoryService.swift */,
 			);
@@ -303,7 +306,7 @@
 				F31B9DCC266268CF006C6C19 /* BasketMemoryService.swift in Sources */,
 				BE5F283222F2502D00F2C97D /* CatalogueViewCollectionCell.swift in Sources */,
 				BE5F282822F238FC00F2C97D /* BasketViewController.swift in Sources */,
-				F3A2EB5D2663E5690062CE8F /* ProductMemoryServiceProtocol.swift in Sources */,
+				F3A2EB5D2663E5690062CE8F /* MemoryServiceProtocol.swift in Sources */,
 				BE5F282622F1F4A400F2C97D /* TabBarController.swift in Sources */,
 				F31B9DDE2662F032006C6C19 /* ImageView.swift in Sources */,
 				F31B9DCF26626A9B006C6C19 /* WishlistMemoryService.swift in Sources */,
@@ -324,6 +327,7 @@
 				BE5F282E22F24F8800F2C97D /* SavedViewTableViewCell.swift in Sources */,
 				BE5F281E22F0E00800F2C97D /* ProductDetailTableViewController.swift in Sources */,
 				F3A2EB502663D3350062CE8F /* CatalougeCellView.swift in Sources */,
+				F3A2EB652664301C0062CE8F /* ProductMemoryService.swift in Sources */,
 				BE5F280C22F05C3E00F2C97D /* ProductsDataService.swift in Sources */,
 				BE5F280E22F05C8600F2C97D /* Product.swift in Sources */,
 				BE5F281422F068C500F2C97D /* UIView+Extensions.swift in Sources */,

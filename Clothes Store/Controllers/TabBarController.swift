@@ -31,7 +31,7 @@ final class TabBarController: UITabBarController {
         wishlistObserver = WishlistMemoryService.shared().action.sink(receiveValue: { [weak self] count in
             guard let self = self else { return }
             
-            self.wishlistTabItem?.badgeValue = count.description
+            self.wishlistTabItem?.badgeValue = count > 0 ? count.description : nil
         })
     }
     
@@ -39,7 +39,7 @@ final class TabBarController: UITabBarController {
         basketObserver = BasketMemoryService.shared().action.sink(receiveValue: { [weak self] count in
             guard let self = self else { return }
             
-            self.basketTabItem?.badgeValue = count.description
+            self.basketTabItem?.badgeValue = count > 0 ? count.description : nil
         })
     }
     
