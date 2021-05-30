@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class TabBarController: UITabBarController {
+final class TabBarController: UITabBarController {
 
     //Views
     private var wishlistTabItem: UITabBarItem?

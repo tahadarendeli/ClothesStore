@@ -8,13 +8,13 @@
 
 import UIKit
 
-class CatalogueViewCollectionViewCell: UICollectionViewCell {
+final class CatalogueViewCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet var productName: UILabel!
-    @IBOutlet var productPrice: UILabel!
-    @IBOutlet var cellView: UIView!
-    @IBOutlet var wishListed: UIImageView!
-    @IBOutlet weak var productImage: UIImageView!
+    @IBOutlet private var productName: UILabel!
+    @IBOutlet private var productPrice: UILabel!
+    @IBOutlet private var cellView: UIView!
+    @IBOutlet private var wishListed: UIImageView!
+    @IBOutlet private weak var productImage: UIImageView!
     
     func configureWithProduct(product: Product){
         

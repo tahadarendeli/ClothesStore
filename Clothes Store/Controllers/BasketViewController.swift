@@ -8,14 +8,13 @@
 
 import UIKit
 
-
-class BasketViewController: UIViewController {
+final class BasketViewController: UIViewController {
     
     //Views
-    @IBOutlet var tableView: UITableView!
-    @IBOutlet var noProductsLabel: UILabel!
-    @IBOutlet var total: UILabel!
-    @IBOutlet var checkoutButton: UIButton!
+    @IBOutlet private var tableView: UITableView!
+    @IBOutlet private var noProductsLabel: UILabel!
+    @IBOutlet private var total: UILabel!
+    @IBOutlet private var checkoutButton: UIButton!
     
     //Variables
     private var basketMemoryService: BasketMemoryService {

@@ -8,20 +8,20 @@
 
 import UIKit
 
-class ProductDetailTableViewController: UITableViewController {
+final class ProductDetailTableViewController: UITableViewController {
 
     //Views
-    @IBOutlet var productPrice: UILabel!
-    @IBOutlet var productOldPrice: UILabel!
-    @IBOutlet var productInStock: UILabel!
-    @IBOutlet var productName: UILabel!
-    @IBOutlet var productCategory: UILabel!
-    @IBOutlet var productStockCount: UILabel!
-    @IBOutlet weak var productImageView: UIImageView!
+    @IBOutlet private var productPrice: UILabel!
+    @IBOutlet private var productOldPrice: UILabel!
+    @IBOutlet private var productInStock: UILabel!
+    @IBOutlet private var productName: UILabel!
+    @IBOutlet private var productCategory: UILabel!
+    @IBOutlet private var productStockCount: UILabel!
+    @IBOutlet private weak var productImageView: UIImageView!
     
     //Variables
     var product : Product?
-    var productImage : UIImage?
+    private var productImage : UIImage?
 
     override func viewDidLoad() {
         super.viewDidLoad()

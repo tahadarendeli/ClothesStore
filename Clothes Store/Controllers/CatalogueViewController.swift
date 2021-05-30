@@ -8,22 +8,28 @@
 
 import UIKit
 
-class CatalogueViewController: UIViewController {
+final class CatalogueViewController: UIViewController {
 
     //Views
-    @IBOutlet var collectionView: UICollectionView!
-    @IBOutlet var activity: UIActivityIndicatorView!
+    @IBOutlet private var collectionView: UICollectionView!
+    @IBOutlet private var activity: UIActivityIndicatorView!
 
     //Variables
-    var products : [Product] = []
+    private var products : [Product] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         getProducts()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        collectionView.reloadData()
+    }
 
-    func getProducts(){
+    private func getProducts(){
 
         ProductsDataService.getProducts { [weak self] result in
             

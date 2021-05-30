@@ -8,13 +8,13 @@
 
 import UIKit
 
-class SavedViewTableViewCell: UITableViewCell{
+final class SavedViewTableViewCell: UITableViewCell{
 
     //Views
-    @IBOutlet var cellView: UIView!
-    @IBOutlet var productName: UILabel!
-    @IBOutlet var productPrice: UILabel!
-    @IBOutlet var addToButton: UIButton!
+    @IBOutlet private var cellView: UIView!
+    @IBOutlet private var productName: UILabel!
+    @IBOutlet private var productPrice: UILabel!
+    @IBOutlet private var addToButton: UIButton!
 
     //Variables
     weak var delegate : BuyCellButtonTapped?

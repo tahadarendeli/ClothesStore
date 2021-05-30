@@ -8,13 +8,13 @@
 
 import UIKit
 
-class BasketViewTableViewCell: UITableViewCell{
+final class BasketViewTableViewCell: UITableViewCell{
 
     //Views
-    @IBOutlet var cellView: UIView!
-    @IBOutlet var productName: UILabel!
-    @IBOutlet var productPrice: UILabel!
-    @IBOutlet var quantity: UILabel!
+    @IBOutlet private var cellView: UIView!
+    @IBOutlet private var productName: UILabel!
+    @IBOutlet private var productPrice: UILabel!
+    @IBOutlet private var quantity: UILabel!
     
     //Variables
     weak var delegate : BuyCellButtonTapped?

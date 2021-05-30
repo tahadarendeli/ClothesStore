@@ -13,11 +13,11 @@ protocol BuyCellButtonTapped: class {
     func addProductToBasket(_ sender: SavedViewTableViewCell)
 }
 
-class WishlistViewController: UIViewController, BuyCellButtonTapped {
+final class WishlistViewController: UIViewController, BuyCellButtonTapped {
 
     //Views
-    @IBOutlet var tableView: UITableView!
-    @IBOutlet var noProductsLabel: UILabel!
+    @IBOutlet private var tableView: UITableView!
+    @IBOutlet private var noProductsLabel: UILabel!
 
     //Variables
     private var basketMemoryService: BasketMemoryService {
