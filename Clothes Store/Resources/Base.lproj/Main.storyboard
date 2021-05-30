@@ -2,13 +2,12 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Catalogue-->
+        <!--Catalouge-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
                 <viewController id="9pv-A4-QxB" customClass="CatalogueViewController" customModule="Clothes_Store" customModuleProvider="target" sceneMemberID="viewController">
@@ -98,7 +97,7 @@
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Catalogue" id="3v5-aF-IHk"/>
+                    <navigationItem key="navigationItem" title="Catalouge" id="3v5-aF-IHk"/>
                     <connections>
                         <outlet property="activity" destination="YdF-a2-YlO" id="WMU-JY-yXt"/>
                         <outlet property="collectionView" destination="XZK-0a-QLl" id="mOh-1U-5K8"/>
@@ -217,7 +216,7 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="wpx-2V-7ed" kind="relationship" relationship="viewControllers" id="TeM-8C-lCx"/>
+                        <segue destination="9UA-he-gP4" kind="relationship" relationship="viewControllers" id="RjO-og-VlI"/>
                         <segue destination="m0V-P5-Tro" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                         <segue destination="Pme-DL-mQU" kind="relationship" relationship="viewControllers" id="TVP-E3-Yf5"/>
                         <segue destination="Vjw-FR-1Yg" kind="relationship" relationship="viewControllers" id="01y-bY-ubS"/>
@@ -227,15 +226,15 @@
             </objects>
             <point key="canvasLocation" x="-133" y="-3"/>
         </scene>
-        <!--CATALOUGE-->
+        <!--Catalouge-->
         <scene sceneID="EuD-fY-oRI">
             <objects>
                 <hostingController id="wpx-2V-7ed" customClass="CatalogueViewHostingViewController" customModule="Clothes_Store" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="CATALOUGE" image="doc.text.magnifyingglass" catalog="system" id="IqX-7K-0zK"/>
+                    <navigationItem key="navigationItem" title="Catalouge" id="v5a-ra-RvG"/>
                 </hostingController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8eF-Up-V9z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1012" y="-1005"/>
+            <point key="canvasLocation" x="1922" y="-988"/>
         </scene>
         <!--CATALOGUE-->
         <scene sceneID="UQh-M8-kh4">
@@ -742,6 +741,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HvH-PG-MEI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2819" y="364"/>
+        </scene>
+        <!--CATALOGUE-->
+        <scene sceneID="lkD-3Y-fGO">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9UA-he-gP4" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="CATALOGUE" image="doc.text.magnifyingglass" catalog="system" id="MRg-dG-oMt"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="rMc-gi-7To">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="wpx-2V-7ed" kind="relationship" relationship="rootViewController" id="8qf-aD-68V"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZMV-rZ-wyK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1012" y="-988"/>
         </scene>
     </scenes>
     <resources>

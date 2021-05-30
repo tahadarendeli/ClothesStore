@@ -13,6 +13,6 @@ import SwiftUI
 class CatalogueViewHostingViewController: UIHostingController<CatalogueView> {
     required init?(coder aDecoder: NSCoder){
         super.init(coder: aDecoder, rootView: CatalogueView())
+        
     }
-    
 }
