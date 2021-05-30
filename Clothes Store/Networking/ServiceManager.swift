@@ -10,28 +10,36 @@ import Foundation
 
 final class ServiceManager {
     
-    static func get<T: Decodable>(for: T.Type, mainUrl: String, path: String = "", completion: @escaping (T?, Error?) -> Void ) {
+    static func get<T: Decodable>(for: T.Type, mainUrl: String, path: String = "", completion: @escaping (Result<T, Error>?) -> Void) {
         let configuration = URLSessionConfiguration.default
         configuration.waitsForConnectivity = true
         
         let session = URLSession(configuration: configuration)
         
-        let mainUrl = mainUrl
         guard let url = URL(string: mainUrl + path) else {
             debugPrint("Invalid URL")
             return
         }
-        let urlRequest = URLRequest(url: url)
         
-        session.dataTask(with: urlRequest){ data, response, error in
+        let urlRequest = URLRequest(url: url)
+        session.dataTask(with: urlRequest) { data, response, error in
+            
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
             if let data = data {
                 let decoder = JSONDecoder()
                 let response = try? decoder.decode(T.self, from: data)
                 
                 DispatchQueue.main.async {
-                    completion(response, error)
+                    if let response = response {
+                        completion(.success(response))
+                    }
                 }
             }
+            
         }.resume()
     }
     
