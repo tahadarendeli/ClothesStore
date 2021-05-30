@@ -228,7 +228,7 @@
         <!--Catalouge-->
         <scene sceneID="EuD-fY-oRI">
             <objects>
-                <hostingController id="wpx-2V-7ed" customClass="CatalogueViewHostingViewController" customModule="Clothes_Store" customModuleProvider="target" sceneMemberID="viewController">
+                <hostingController id="wpx-2V-7ed" customClass="CatalougeViewHostingViewController" customModule="Clothes_Store" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="CATALOUGE" image="doc.text.magnifyingglass" catalog="system" id="O69-3g-wl4"/>
                     <navigationItem key="navigationItem" title="Catalouge" id="v5a-ra-RvG"/>
                 </hostingController>

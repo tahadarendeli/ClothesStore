@@ -10,6 +10,7 @@ import SwiftUI
 
 final class ImageLoader: ObservableObject {
     @Published var image: UIImage!
+    
     private var task: URLSessionTask?
     private var url: URL! {
         didSet {
