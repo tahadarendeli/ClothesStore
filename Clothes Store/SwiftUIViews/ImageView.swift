@@ -62,7 +62,8 @@ struct ImageView: View {
         if let image = imageLoader.image {
             Image(uiImage: image)
                 .resizable()
-                .aspectRatio(contentMode: .fit)
+                .aspectRatio(1.0, contentMode: .fill)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
     }
 }
