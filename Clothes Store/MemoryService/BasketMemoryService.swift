@@ -7,18 +7,23 @@
 //
 
 import Foundation
+import Combine
 
-final class BasketMemoryService {
+final class BasketMemoryService: ProductMemoryServiceProtocol {
     
     private static let sharedMemoryService: BasketMemoryService = {
         return BasketMemoryService()
     }()
     
-    private var products: [Product] = []
+    let action = PassthroughSubject<Int, Never>()
     
-    private init() {
-        
+    private var products: [Product] = [] {
+        didSet {
+            action.send(products.count)
+        }
     }
+    
+    private init() { }
     
     class func shared() -> BasketMemoryService {
         return sharedMemoryService
@@ -36,7 +41,7 @@ final class BasketMemoryService {
             
         } else if let stock = product.stock, stock > 0 {
             
-            var newProduct = product
+            let newProduct = product
             newProduct.stock = 1
             products.append(newProduct)
             

@@ -6,26 +6,49 @@
 //  Copyright © 2021 Deloitte. All rights reserved.
 //
 import UIKit
+import Combine
 
 class TabBarController: UITabBarController {
 
     //Views
-    var tabItem : UITabBarItem?
+    private var wishlistTabItem: UITabBarItem?
+    private var basketTabItem: UITabBarItem?
+    
+    //Observers
+    private var wishlistObserver: AnyCancellable?
+    private var basketObserver: AnyCancellable?
 
     //Variables
   
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setWishlistOberserver()
+        setBasketObserver()
+    }
+    
+    private func setWishlistOberserver() {
+        wishlistObserver = WishlistMemoryService.shared().action.sink(receiveValue: { [weak self] count in
+            guard let self = self else { return }
+            
+            self.wishlistTabItem?.badgeValue = count.description
+        })
+    }
+    
+    private func setBasketObserver() {
+        basketObserver = BasketMemoryService.shared().action.sink(receiveValue: { [weak self] count in
+            guard let self = self else { return }
+            
+            self.basketTabItem?.badgeValue = count.description
+        })
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
         if let tabItems = tabBar.items {
-            // In this case we want to modify the badge number of the third tab:
-            tabItem = tabItems[2]
+            wishlistTabItem = tabItems[1]
+            basketTabItem = tabItems[2]
         }
-
     }
 }
