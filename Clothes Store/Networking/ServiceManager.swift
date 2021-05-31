@@ -25,11 +25,14 @@ enum ErrorManager: LocalizedError {
 
 final class ServiceManager {
     
-    static func get<T: Decodable>(for: T.Type, mainUrl: String, path: String = "", completion: @escaping (Result<T, Error>?) -> Void) {
+    private lazy var session: URLSession = {
         let configuration = URLSessionConfiguration.default
         configuration.waitsForConnectivity = true
         
-        let session = URLSession(configuration: configuration)
+        return URLSession(configuration: configuration)
+    }()
+    
+    func get<T: Decodable>(for: T.Type, mainUrl: String, path: String = "", completion: @escaping (Result<T, Error>?) -> Void) {
         
         guard let url = URL(string: mainUrl + path) else {
             debugPrint(Strings.Errors.invalidURL.rawValue)
@@ -45,6 +48,7 @@ final class ServiceManager {
                 completion(.failure(error))
                 return
             }
+            
             do {
                 if let data = data {
                     let decoder = JSONDecoder()
@@ -59,11 +63,8 @@ final class ServiceManager {
         }.resume()
     }
     
-    static func getImage(with imageUrl: URL, completion: @escaping (Result<Data, Error>?) -> Void) -> URLSessionTask? {
-        let configuration = URLSessionConfiguration.default
-        configuration.waitsForConnectivity = true
+    func getImage(with imageUrl: URL, completion: @escaping (Result<Data, Error>?) -> Void) -> URLSessionTask? {
         
-        let session = URLSession(configuration: configuration)
         let urlRequest = URLRequest(url: imageUrl)
         
         if let cachedImageData = ImageCache.shared().getImageData(with: imageUrl) {

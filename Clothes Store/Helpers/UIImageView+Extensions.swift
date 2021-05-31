@@ -11,22 +11,30 @@ import UIKit
 
 extension UIImageView {
     
-    struct TaskHolder {
-        static var task: URLSessionTask?
-    }
-    
-    private var task: URLSessionTask? {
-        get {
-            return TaskHolder.task
+    final class TaskHolder {
+        private static let sharedTaskHolder: TaskHolder = .init()
+        
+        private init() { }
+        
+        class func shared() -> TaskHolder {
+            return sharedTaskHolder
         }
         
-        set(newTask) {
-            TaskHolder.task = newTask
+        var task: URLSessionTask?
+        
+        func cancelTask() {
+            task?.cancel()
+        }
+    }
+    
+    private var taskHolder: TaskHolder {
+        get {
+            return TaskHolder.shared()
         }
     }
     
     func getImage(with url: URL, completion: ((UIImage?) -> ())? = nil) {
-        task = ImageServiceManager.getImage(with: url, completion: { image in
+        taskHolder.task = ImageDataService().getImage(with: url, completion: { image in
             DispatchQueue.main.async {
                 self.image = image
                 completion?(image)
@@ -35,7 +43,7 @@ extension UIImageView {
     }
     
     func cancelImageRequest() {
-        task?.cancel()
+        taskHolder.cancelTask()
     }
 }
 

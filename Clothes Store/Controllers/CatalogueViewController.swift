@@ -25,7 +25,7 @@ final class CatalogueViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        collectionView.register(UINib(nibName: "CatalogueViewCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: Strings.Identifiers.productCell.rawValue)
+        collectionView.register(UINib(nibName: Strings.Identifiers.catalogueCellNibName.rawValue, bundle: nil), forCellWithReuseIdentifier: Strings.Identifiers.productCell.rawValue)
         getProducts()
         observer = WishlistMemoryService.shared().action.sink(receiveValue: { [weak self] product in
             self?.updateCollectionView()

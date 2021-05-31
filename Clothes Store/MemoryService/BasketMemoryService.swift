@@ -12,7 +12,6 @@ import Combine
 final class BasketMemoryService: MemoryServiceProtocol {
     
     private static let sharedMemoryService: BasketMemoryService = .init()
-
     
     let action = PassthroughSubject<Int, Never>()
     

@@ -39,7 +39,7 @@ final class BasketViewController: UIViewController {
     private func configureTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UINib(nibName: "BasketViewTableViewCell", bundle: nil), forCellReuseIdentifier: Strings.Identifiers.basketCell.rawValue)
+        tableView.register(UINib(nibName: Strings.Identifiers.basketCellNibName.rawValue, bundle: nil), forCellReuseIdentifier: Strings.Identifiers.basketCell.rawValue)
     }
     
     private func configureViews() {

@@ -38,7 +38,7 @@
 		F35086B12665493F000BF458 /* CatalogueViewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F35086B02665493F000BF458 /* CatalogueViewCollectionViewCell.xib */; };
 		F35086BB26654D0F000BF458 /* SavedViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F35086BA26654D0F000BF458 /* SavedViewTableViewCell.xib */; };
 		F35086BF26654D45000BF458 /* BasketViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F35086BE26654D45000BF458 /* BasketViewTableViewCell.xib */; };
-		F35418C62661A8CF00470445 /* ImageServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35418C52661A8CF00470445 /* ImageServiceManager.swift */; };
+		F35418C62661A8CF00470445 /* ImageDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35418C52661A8CF00470445 /* ImageDataService.swift */; };
 		F3A2EB4C2663CF050062CE8F /* DetailViewControllerWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A2EB4B2663CF050062CE8F /* DetailViewControllerWrapper.swift */; };
 		F3A2EB502663D3350062CE8F /* CatalogueCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A2EB4F2663D3350062CE8F /* CatalogueCellView.swift */; };
 		F3A2EB5D2663E5690062CE8F /* MemoryServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A2EB5C2663E5690062CE8F /* MemoryServiceProtocol.swift */; };
@@ -79,7 +79,7 @@
 		F35086B02665493F000BF458 /* CatalogueViewCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CatalogueViewCollectionViewCell.xib; sourceTree = "<group>"; };
 		F35086BA26654D0F000BF458 /* SavedViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SavedViewTableViewCell.xib; sourceTree = "<group>"; };
 		F35086BE26654D45000BF458 /* BasketViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BasketViewTableViewCell.xib; sourceTree = "<group>"; };
-		F35418C52661A8CF00470445 /* ImageServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageServiceManager.swift; sourceTree = "<group>"; };
+		F35418C52661A8CF00470445 /* ImageDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDataService.swift; sourceTree = "<group>"; };
 		F3A2EB4B2663CF050062CE8F /* DetailViewControllerWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewControllerWrapper.swift; sourceTree = "<group>"; };
 		F3A2EB4F2663D3350062CE8F /* CatalogueCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueCellView.swift; sourceTree = "<group>"; };
 		F3A2EB5C2663E5690062CE8F /* MemoryServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryServiceProtocol.swift; sourceTree = "<group>"; };
@@ -135,7 +135,7 @@
 				BE5F280D22F05C8600F2C97D /* Product.swift */,
 				BE5F280F22F05D0300F2C97D /* Constants.swift */,
 				BE5F280B22F05C3E00F2C97D /* ProductsDataService.swift */,
-				F35418C52661A8CF00470445 /* ImageServiceManager.swift */,
+				F35418C52661A8CF00470445 /* ImageDataService.swift */,
 				F31B9DC526623195006C6C19 /* ImageCache.swift */,
 			);
 			path = Models;
@@ -359,7 +359,7 @@
 				F31B9DD426629442006C6C19 /* CatalogueView.swift in Sources */,
 				F31B9DD926629924006C6C19 /* CatalogueViewHostingViewController.swift in Sources */,
 				F31B9DC626623195006C6C19 /* ImageCache.swift in Sources */,
-				F35418C62661A8CF00470445 /* ImageServiceManager.swift in Sources */,
+				F35418C62661A8CF00470445 /* ImageDataService.swift in Sources */,
 				BE5F282E22F24F8800F2C97D /* SavedViewTableViewCell.swift in Sources */,
 				BE5F281E22F0E00800F2C97D /* ProductDetailTableViewController.swift in Sources */,
 				F3A2EB502663D3350062CE8F /* CatalogueCellView.swift in Sources */,

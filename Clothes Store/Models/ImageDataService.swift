@@ -1,5 +1,5 @@
 //
-//  ImageServiceManager.swift
+//  ImageDataService.swift
 //  Clothes Store
 //
 //  Created by Mentor on 29.05.2021.
@@ -9,10 +9,10 @@
 import Foundation
 import UIKit
 
-final class ImageServiceManager {
+final class ImageDataService {
     
-    static func getImage(with imageUrl: URL, completion: @escaping (UIImage?) -> Void) -> URLSessionTask? {
-        let task = ServiceManager.getImage(with: imageUrl, completion: { result in
+    func getImage(with imageUrl: URL, completion: @escaping (UIImage?) -> Void) -> URLSessionTask? {
+        let task = ServiceManager().getImage(with: imageUrl, completion: { result in
             guard let result = result else { return }
             
             switch result {

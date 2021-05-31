@@ -40,7 +40,7 @@ final class ImageLoader: ObservableObject {
     }
     
     private func load() {
-        task = ImageServiceManager.getImage(with: url, completion: { image in
+        task = ImageDataService().getImage(with: url, completion: { image in
             if let image = image {
                 DispatchQueue.main.async {
                     self.image = image

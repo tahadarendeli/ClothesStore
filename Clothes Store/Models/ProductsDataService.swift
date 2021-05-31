@@ -14,7 +14,7 @@ final class ProductsDataService {
         
         let requestUrl = URLCall.catalogue.rawValue
         
-        ServiceManager.get(for: Products.self, mainUrl: requestUrl, completion: { result in
+        ServiceManager().get(for: Products.self, mainUrl: requestUrl, completion: { result in
             completion(result)
         })
     }

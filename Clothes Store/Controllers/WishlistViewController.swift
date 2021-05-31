@@ -42,13 +42,14 @@ final class WishlistViewController: UIViewController, BuyCellButtonTapped {
     private func configureTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UINib(nibName: "SavedViewTableViewCell", bundle: nil), forCellReuseIdentifier: Strings.Identifiers.wishlistCell.rawValue)
+        tableView.register(UINib(nibName: Strings.Identifiers.wishlistCellNibName.rawValue, bundle: nil), forCellReuseIdentifier: Strings.Identifiers.wishlistCell.rawValue)
     }
     
     private func reloadViews() {
         tableView.reloadData()
         noProductsLabel.isHidden = !products.isEmpty
         tableView.separatorStyle = products.isEmpty ? .none : .singleLine
+        AnimateMe.animateLabel(noProductsLabel)
     }
 
     // MARK: - Actions
