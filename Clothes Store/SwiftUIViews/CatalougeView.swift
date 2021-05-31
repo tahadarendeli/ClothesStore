@@ -20,7 +20,9 @@ final class CatalougeViewModel: ObservableObject {
     
     func load() {
         ProductsDataService.getProducts(){ result in
-            self.result = result
+            DispatchQueue.main.async {
+                self.result = result
+            }
         }
     }
     

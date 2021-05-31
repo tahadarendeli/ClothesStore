@@ -40,9 +40,10 @@ final class BasketMemoryService: MemoryServiceProtocol {
             }
             
         } else if let stock = product.stock, stock > 0 {
-            
-            let newProduct = product
+    
+            let newProduct = Product.copy(of: product)
             newProduct.stock = 1
+            
             products.append(newProduct)
             
         }

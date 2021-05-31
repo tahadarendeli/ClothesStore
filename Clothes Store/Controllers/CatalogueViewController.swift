@@ -30,6 +30,13 @@ final class CatalogueViewController: UIViewController {
             self?.collectionView.reloadData()
         })
     }
+    
+    private func updateCollectionView() {
+        DispatchQueue.main.async {
+            self.activity.isHidden = true
+            self.collectionView.reloadData()
+        }
+    }
 
     private func getProducts(){
 
@@ -40,8 +47,7 @@ final class CatalogueViewController: UIViewController {
             switch result {
             case .success(let products):
                 self.productMemorySerivce.add(productList: products.products ?? [])
-                self.activity.isHidden = true
-                self.collectionView.reloadData()
+                self.updateCollectionView()
             case .failure(_):
                 let alert = UIAlertController(title: Strings.Texts.error.rawValue, message: Strings.Texts.alertMessage.rawValue, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: Strings.Texts.retry.rawValue, style: .default, handler: { (action) in

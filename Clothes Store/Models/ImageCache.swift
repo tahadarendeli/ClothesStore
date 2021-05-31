@@ -15,7 +15,7 @@ final class ImageCache {
     }()
     
     private let cache = NSCache<AnyObject, AnyObject>()
-    private let lock = NSLock()
+    private let queue = DispatchQueue(label: "barrier", attributes: .concurrent)
     
     private init() {
     }
@@ -25,8 +25,6 @@ final class ImageCache {
     }
     
     func getImageData(with url: URL) -> Data? {
-        lock.lock(); defer { lock.unlock() }
-        
         if let imageData = cache.object(forKey: url as AnyObject) as? Data {
             return imageData
         }
@@ -35,8 +33,8 @@ final class ImageCache {
     }
     
     func insertImage(data: Data, with url: URL) {
-        lock.lock(); defer { lock.unlock() }
-        
-        cache.setObject(data as AnyObject, forKey: url as AnyObject)
+        queue.async(flags: .barrier) {
+            self.cache.setObject(data as AnyObject, forKey: url as AnyObject)
+        }
     }
 }

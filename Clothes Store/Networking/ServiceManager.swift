@@ -8,6 +8,21 @@
 
 import Foundation
 
+enum ErrorManager: LocalizedError {
+    case invalidURL, parseJSON, unknown
+    
+    var errorDescription: String? {
+        switch self {
+        case .invalidURL:
+            return Strings.Errors.invalidURL.rawValue
+        case .parseJSON:
+            return Strings.Errors.parseJSON.rawValue
+        case .unknown:
+            return Strings.Errors.unknown.rawValue
+        }
+    }
+}
+
 final class ServiceManager {
     
     static func get<T: Decodable>(for: T.Type, mainUrl: String, path: String = "", completion: @escaping (Result<T, Error>?) -> Void) {
@@ -17,7 +32,9 @@ final class ServiceManager {
         let session = URLSession(configuration: configuration)
         
         guard let url = URL(string: mainUrl + path) else {
-            debugPrint("Invalid URL")
+            debugPrint(Strings.Errors.invalidURL.rawValue)
+            completion(.failure(ErrorManager.invalidURL))
+            
             return
         }
         
@@ -28,22 +45,21 @@ final class ServiceManager {
                 completion(.failure(error))
                 return
             }
-            
-            if let data = data {
-                let decoder = JSONDecoder()
-                let response = try? decoder.decode(T.self, from: data)
-                
-                DispatchQueue.main.async {
-                    if let response = response {
-                        completion(.success(response))
-                    }
+            do {
+                if let data = data {
+                    let decoder = JSONDecoder()
+                    let response = try decoder.decode(T.self, from: data)
+                    
+                    completion(.success(response))
                 }
+            } catch {
+                completion(.failure(ErrorManager.unknown))
             }
             
         }.resume()
     }
     
-    static func getImage(with imageUrl: URL, completion: @escaping (Data) -> Void) -> URLSessionTask? {
+    static func getImage(with imageUrl: URL, completion: @escaping (Result<Data, Error>?) -> Void) -> URLSessionTask? {
         let configuration = URLSessionConfiguration.default
         configuration.waitsForConnectivity = true
         
@@ -51,25 +67,24 @@ final class ServiceManager {
         let urlRequest = URLRequest(url: imageUrl)
         
         if let cachedImageData = ImageCache.shared().getImageData(with: imageUrl) {
-            DispatchQueue.main.async {
-                completion(cachedImageData)
-            }
+            completion(.success(cachedImageData))
             
             return nil
         }
         
         let task = session.dataTask(with: urlRequest){ data, response, error in
-            guard error == nil else {
-                debugPrint(error.debugDescription)
+            if let error = error {
+                debugPrint(error.localizedDescription)
+                completion(.failure(error))
                 return
             }
             
             if let data = data {
-                DispatchQueue.main.async {
-                    completion(data)
-                }
+                completion(.success(data))
                 ImageCache.shared().insertImage(data: data, with: imageUrl)
             }
+            
+            completion(.failure(ErrorManager.unknown))
         }
         
         task.resume()

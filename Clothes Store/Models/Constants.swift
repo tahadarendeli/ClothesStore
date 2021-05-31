@@ -36,6 +36,12 @@ enum Strings {
         case ok = "OK"
         case quantity = "Qty"
     }
+    
+    enum Errors: String {
+        case invalidURL = "Invalid URL"
+        case parseJSON = "JSON Parse Failed"
+        case unknown = "Unknown Error"
+    }
 }
 
 extension UIColor{

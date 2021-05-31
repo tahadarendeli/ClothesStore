@@ -27,8 +27,10 @@ extension UIImageView {
     
     func getImage(with url: URL, completion: ((UIImage?) -> ())? = nil) {
         task = ImageServiceManager.getImage(with: url, completion: { image in
-            self.image = image
-            completion?(image)
+            DispatchQueue.main.async {
+                self.image = image
+                completion?(image)
+            }
         })
     }
     
