@@ -12,9 +12,9 @@ final class ObservableProduct: ObservableObject {
     @Published var product: Product
     @Published var didAddedToWishlist: Bool
     
-    init(product: Product, didAddedToWishlist: Bool) {
+    init(product: Product, didAddToWishlist: Bool) {
         self.product = product
-        self.didAddedToWishlist = didAddedToWishlist
+        self.didAddedToWishlist = didAddToWishlist
     }
 }
 
@@ -22,8 +22,8 @@ struct CatalougeCellView: View {
     @ObservedObject private var observableProduct: ObservableProduct
     @State private var showingDetail = false
     
-    init(product: Product, didAddedToWishlist: Bool) {
-        observableProduct = ObservableProduct(product: product, didAddedToWishlist: didAddedToWishlist)
+    init(product: Product, didAddToWishlist: Bool) {
+        observableProduct = ObservableProduct(product: product, didAddToWishlist: didAddToWishlist)
     }
     
     var body: some View {
@@ -40,14 +40,14 @@ struct CatalougeCellView: View {
                         .clipped()
                     
                     Text(productName)
-                        .font(.custom("HelveticaNeue-Light", size: 14))
+                        .font(.light())
                         .lineLimit(2)
                         .minimumScaleFactor(0.75)
                         .foregroundColor(.init(UIColor.lightGray))
                         .padding([.top,.leading, .trailing], 8)
                     
                     Text(CurrencyHelper.getMoneyString(productPrice))
-                        .font(.custom("HelveticaNeue-Bold", size: 18))
+                        .font(.bold())
                         .lineLimit(1)
                         .minimumScaleFactor(0.5)
                         .foregroundColor(.init(UIColor.darkGray))
@@ -72,7 +72,7 @@ struct CatalougeCellView: View {
                     HStack {
                         Spacer()
                         VStack(alignment: .trailing) {
-                            Image(systemName: "heart.fill")
+                            Image(systemName: Strings.Images.wishlisted.rawValue)
                                 .resizable()
                                 .aspectRatio(1.0, contentMode: .fit)
                                 .frame(maxWidth: 22, maxHeight: 22)

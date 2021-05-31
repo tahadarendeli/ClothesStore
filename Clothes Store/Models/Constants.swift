@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 enum URLCall : String {
     case catalogue = "https://api.npoint.io/0f78766a6d68832d309d"
@@ -24,6 +25,7 @@ enum Strings {
     
     enum Images: String {
         case placeholder = "placeholderImage"
+        case wishlisted = "heart.fill"
     }
     
     enum Texts: String {
@@ -41,6 +43,16 @@ enum Strings {
         case invalidURL = "Invalid URL"
         case parseJSON = "JSON Parse Failed"
         case unknown = "Unknown Error"
+    }
+}
+
+extension Font {
+    public static func light(size: CGFloat = 14) -> Font {
+        return Font.custom("HelveticaNeue-Light", size: size)
+    }
+    
+    public static func bold(size: CGFloat = 18) -> Font {
+        return Font.custom("HelveticaNeue-Bold", size: size)
     }
 }
 

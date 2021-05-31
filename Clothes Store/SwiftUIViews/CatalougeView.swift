@@ -60,7 +60,7 @@ struct CatalougeView: View {
                         LazyVGrid(columns: layout, spacing: 15) {
                             ForEach(products) { product in
                                 CatalougeCellView(product: product,
-                                                  didAddedToWishlist: self.products.wishlist.contains(where: { $0.productId == product.productId }))
+                                                  didAddToWishlist: self.products.wishlist.contains(where: { $0.productId == product.productId }))
                             }
                         }
                     }
