@@ -33,27 +33,45 @@ struct CatalogueCellView: View {
            let productImage = observableProduct.product.image {
             
             ZStack {
-                VStack(alignment: .leading) {
-                    ImageView(withURL: productImage)
-                        .cornerRadius(10.0)
-                        .padding([.top, .leading, .trailing], 8)
-                        .clipped()
+                ZStack {
+                    VStack(alignment: .leading, spacing: 4) {
+                        ImageView(withURL: productImage)
+                            .cornerRadius(10.0)
+                            .aspectRatio(1.0, contentMode: .fill)
+                            .clipped()
+                        
+                        VStack(alignment: .leading, spacing: -1) {
+                            Text(productName)
+                                .font(.light())
+                                .lineLimit(2)
+                                .minimumScaleFactor(0.75)
+                                .foregroundColor(.init(UIColor.lightGray))
+                            
+                            Text(CurrencyHelper.getMoneyString(productPrice))
+                                .font(.bold())
+                                .lineLimit(1)
+                                .minimumScaleFactor(0.5)
+                                .foregroundColor(.init(UIColor.darkGray))
+                        }
+                    }
                     
-                    Text(productName)
-                        .font(.light())
-                        .lineLimit(2)
-                        .minimumScaleFactor(0.75)
-                        .foregroundColor(.init(UIColor.lightGray))
-                        .padding([.top,.leading, .trailing], 8)
+                    if observableProduct.didAddedToWishlist {
+                        HStack {
+                            Spacer()
+                            VStack(alignment: .trailing) {
+                                Image(systemName: Strings.Images.wishlisted.rawValue)
+                                    .resizable()
+                                    .aspectRatio(1.0, contentMode: .fit)
+                                    .frame(maxWidth: 22, maxHeight: 22)
+                                    .foregroundColor(Color(.primaryColour))
+                                Spacer()
+                            }
+                        }
+                    }
                     
-                    Text(CurrencyHelper.getMoneyString(productPrice))
-                        .font(.bold())
-                        .lineLimit(1)
-                        .minimumScaleFactor(0.5)
-                        .foregroundColor(.init(UIColor.darkGray))
-                        .padding([.top, .leading, .trailing, .bottom], 8)
                 }
-                .frame(maxWidth: 151, maxHeight: 219)
+                .padding([.top, .leading, .trailing], 8)
+                .padding(.bottom, 6)
                 .background(Color.white)
                 .cornerRadius(10.0)
                 .shadow(color: Color(.displayP3, red: 0.0, green: 0.0, blue: 0.0, opacity: 0.1),
@@ -67,23 +85,10 @@ struct CatalogueCellView: View {
                 .sheet(isPresented: $showingDetail) {
                     DetailViewControllerWrapper(product: observableProduct.product)
                 }
-                
-                if observableProduct.didAddedToWishlist {
-                    HStack {
-                        Spacer()
-                        VStack(alignment: .trailing) {
-                            Image(systemName: Strings.Images.wishlisted.rawValue)
-                                .resizable()
-                                .aspectRatio(1.0, contentMode: .fit)
-                                .frame(maxWidth: 22, maxHeight: 22)
-                                .padding(.top, 25)
-                                .padding(.trailing, 35)
-                                .foregroundColor(Color(.primaryColour))
-                            Spacer()
-                        }
-                    }
-                }
             }
+            .padding([.top, .bottom], 17)
+            .padding([.leading, .trailing], 15)
+            .background(Color.clear)
         }
     }
 }

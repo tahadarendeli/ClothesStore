@@ -57,7 +57,7 @@ struct CatalogueView: View {
                     }
                 } else if let products = products.value?.products {
                     ScrollView {
-                        LazyVGrid(columns: layout, spacing: 15) {
+                        LazyVGrid(columns: layout) {
                             ForEach(products) { product in
                                 CatalogueCellView(product: product,
                                                   didAddToWishlist: self.products.wishlist.contains(where: { $0.productId == product.productId }))
