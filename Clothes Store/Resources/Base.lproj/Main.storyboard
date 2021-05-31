@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Catalouge-->
+        <!--Catalogue-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
                 <viewController id="9pv-A4-QxB" customClass="CatalogueViewController" customModule="Clothes_Store" customModuleProvider="target" sceneMemberID="viewController">
@@ -98,7 +98,7 @@
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Catalouge" id="3v5-aF-IHk"/>
+                    <navigationItem key="navigationItem" title="Catalogue" id="3v5-aF-IHk"/>
                     <connections>
                         <outlet property="activity" destination="YdF-a2-YlO" id="WMU-JY-yXt"/>
                         <outlet property="collectionView" destination="XZK-0a-QLl" id="mOh-1U-5K8"/>
@@ -228,12 +228,12 @@
             </objects>
             <point key="canvasLocation" x="-133" y="-3"/>
         </scene>
-        <!--Catalouge-->
+        <!--Catalogue-->
         <scene sceneID="EuD-fY-oRI">
             <objects>
-                <hostingController id="wpx-2V-7ed" customClass="CatalougeViewHostingViewController" customModule="Clothes_Store" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="CATALOUGE" image="doc.text.magnifyingglass" catalog="system" id="O69-3g-wl4"/>
-                    <navigationItem key="navigationItem" title="Catalouge" id="v5a-ra-RvG"/>
+                <hostingController id="wpx-2V-7ed" customClass="CatalogueViewHostingViewController" customModule="Clothes_Store" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="CATALOGUE" image="doc.text.magnifyingglass" catalog="system" id="O69-3g-wl4"/>
+                    <navigationItem key="navigationItem" title="Catalogue" id="v5a-ra-RvG"/>
                 </hostingController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8eF-Up-V9z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

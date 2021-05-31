@@ -10,9 +10,8 @@ import Foundation
 import Combine
 
 class ProductMemoryService: MemoryServiceProtocol {
-    private static let sharedMemoryService: ProductMemoryService = {
-        return ProductMemoryService()
-    }()
+    
+    private static let sharedMemoryService: ProductMemoryService = .init()
     
     private var products: [Product] = []
     

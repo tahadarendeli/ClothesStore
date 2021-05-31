@@ -37,6 +37,7 @@ enum Strings {
         case outStock = "Out of Stock"
         case ok = "OK"
         case quantity = "Qty"
+        case catalogueTitle = "Catalogue"
     }
     
     enum Errors: String {

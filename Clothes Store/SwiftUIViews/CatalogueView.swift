@@ -1,5 +1,5 @@
 //
-//  CatalougeView.swift
+//  CatalogueView.swift
 //  Clothes Store
 //
 //  Created by Mentor on 29.05.2021.
@@ -9,7 +9,7 @@
 import SwiftUI
 import Combine
 
-final class CatalougeViewModel: ObservableObject {
+final class CatalogueViewModel: ObservableObject {
     @Published var result: Result<Products, Error>? = nil
     @Published var wishlist: [Product] = []
     private var observer: AnyCancellable?
@@ -33,8 +33,8 @@ final class CatalougeViewModel: ObservableObject {
     }
 }
 
-struct CatalougeView: View {
-    @ObservedObject var products = CatalougeViewModel()
+struct CatalogueView: View {
+    @ObservedObject var products = CatalogueViewModel()
     
     let layout = [
         GridItem(.flexible()),
@@ -59,7 +59,7 @@ struct CatalougeView: View {
                     ScrollView {
                         LazyVGrid(columns: layout, spacing: 15) {
                             ForEach(products) { product in
-                                CatalougeCellView(product: product,
+                                CatalogueCellView(product: product,
                                                   didAddToWishlist: self.products.wishlist.contains(where: { $0.productId == product.productId }))
                             }
                         }
@@ -67,7 +67,7 @@ struct CatalougeView: View {
                 }
             }
             .background(Color.clear)
-            .navigationBarTitle("Catalouge")
+            .navigationBarTitle(Strings.Texts.catalogueTitle.rawValue)
         }
     }
 }
@@ -75,7 +75,7 @@ struct CatalougeView: View {
 #if DEBUG
 struct CatalogueView_Previews: PreviewProvider {
     static var previews: some View {
-        CatalougeView()
+        CatalogueView()
     }
 }
 #endif

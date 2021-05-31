@@ -1,5 +1,5 @@
 //
-//  CatalougeViewHostingViewController.swift
+//  CatalogueViewHostingViewController.swift
 //  Clothes Store
 //
 //  Created by Mentor on 29.05.2021.
@@ -10,9 +10,9 @@ import Foundation
 import UIKit
 import SwiftUI
 
-final class CatalougeViewHostingViewController: UIHostingController<CatalougeView> {
+final class CatalogueViewHostingViewController: UIHostingController<CatalogueView> {
     required init?(coder aDecoder: NSCoder){
-        super.init(coder: aDecoder, rootView: CatalougeView())
+        super.init(coder: aDecoder, rootView: CatalogueView())
         
     }
 }

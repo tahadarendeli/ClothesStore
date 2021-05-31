@@ -1,5 +1,5 @@
 //
-//  CatalougeCellView.swift
+//  CatalogueCellView.swift
 //  Clothes Store
 //
 //  Created by Mentor on 30.05.2021.
@@ -18,7 +18,7 @@ final class ObservableProduct: ObservableObject {
     }
 }
 
-struct CatalougeCellView: View {
+struct CatalogueCellView: View {
     @ObservedObject private var observableProduct: ObservableProduct
     @State private var showingDetail = false
     

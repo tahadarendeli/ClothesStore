@@ -24,7 +24,7 @@ final class CatalogueViewCollectionViewCell: UICollectionViewCell {
         let placeHolderImage = UIImage(named: Strings.Images.placeholder.rawValue)
         
         if let image = product.image, let url = URL(string: image) {
-            productImage.getImage(with: url, completion: nil)
+            productImage.getImage(with: url)
         } else {
             productImage.image = placeHolderImage
         }

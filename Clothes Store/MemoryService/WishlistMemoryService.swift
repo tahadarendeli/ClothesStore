@@ -11,9 +11,7 @@ import Combine
 
 final class WishlistMemoryService: MemoryServiceProtocol {
     
-    private static let sharedMemoryService: WishlistMemoryService = {
-        return WishlistMemoryService()
-    }()
+    private static let sharedMemoryService: WishlistMemoryService = .init()
     
     let action = PassthroughSubject<Int, Never>()
     
