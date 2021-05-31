@@ -129,6 +129,8 @@
 				BE5F280D22F05C8600F2C97D /* Product.swift */,
 				BE5F280F22F05D0300F2C97D /* Constants.swift */,
 				BE5F280B22F05C3E00F2C97D /* ProductsDataService.swift */,
+				F35418C52661A8CF00470445 /* ImageServiceManager.swift */,
+				F31B9DC526623195006C6C19 /* ImageCache.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -222,8 +224,6 @@
 			isa = PBXGroup;
 			children = (
 				F33B15C1266189360082130B /* ServiceManager.swift */,
-				F35418C52661A8CF00470445 /* ImageServiceManager.swift */,
-				F31B9DC526623195006C6C19 /* ImageCache.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
