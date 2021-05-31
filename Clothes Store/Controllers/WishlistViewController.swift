@@ -42,6 +42,7 @@ final class WishlistViewController: UIViewController, BuyCellButtonTapped {
     private func configureTableView() {
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.register(UINib(nibName: "SavedViewTableViewCell", bundle: nil), forCellReuseIdentifier: Strings.Identifiers.wishlistCell.rawValue)
     }
     
     private func reloadViews() {

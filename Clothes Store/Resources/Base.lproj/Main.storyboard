@@ -25,65 +25,7 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
                                 </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="productCell" id="YTf-iM-aZU" customClass="CatalogueViewCollectionViewCell" customModule="Clothes_Store" customModuleProvider="target">
-                                        <rect key="frame" x="5" y="0.0" width="181" height="253"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="181" height="253"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8N8-bk-98U">
-                                                    <rect key="frame" x="15" y="17" width="151" height="219"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                                    <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="placeholderImage" translatesAutoresizingMaskIntoConstraints="NO" id="VUy-QM-fiP">
-                                                            <rect key="frame" x="8" y="8" width="135" height="135"/>
-                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusMe">
-                                                                    <real key="value" value="10"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="VmJ-At-rhk">
-                                                            <rect key="frame" x="8" y="147" width="135" height="40"/>
-                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
-                                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="iV8-5y-UGi">
-                                                            <rect key="frame" x="8" y="186" width="109" height="27"/>
-                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
-                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="heart.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="cEp-jq-agd">
-                                                            <rect key="frame" x="119" y="8" width="24" height="22"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                                            <color key="tintColor" red="1" green="0.35626077649999999" blue="0.43523806329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        </imageView>
-                                                    </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusMe">
-                                                            <real key="value" value="10"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </view>
-                                            </subviews>
-                                        </view>
-                                        <connections>
-                                            <outlet property="cellView" destination="8N8-bk-98U" id="YNU-zV-Eay"/>
-                                            <outlet property="productImage" destination="VUy-QM-fiP" id="U8g-Hi-ncV"/>
-                                            <outlet property="productName" destination="VmJ-At-rhk" id="Zfd-qR-yfM"/>
-                                            <outlet property="productPrice" destination="iV8-5y-UGi" id="NUD-R7-G8r"/>
-                                            <outlet property="wishListed" destination="cEp-jq-agd" id="7eu-Jv-tr6"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
+                                <cells/>
                                 <connections>
                                     <outlet property="dataSource" destination="9pv-A4-QxB" id="QQZ-in-cDZ"/>
                                     <outlet property="delegate" destination="9pv-A4-QxB" id="COC-59-aWd"/>
@@ -120,69 +62,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.9511183647260274" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="savedCell" rowHeight="125" id="Ois-Bj-okg" customClass="SavedViewTableViewCell" customModule="Clothes_Store" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="125"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ois-Bj-okg" id="tva-Tt-ZYs">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="125"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="391-v7-OzB">
-                                                    <rect key="frame" x="20" y="22" width="80" height="80"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="photo.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="n9D-WV-6yK">
-                                                            <rect key="frame" x="15" y="15" width="50" height="50"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <color key="tintColor" red="1" green="0.39343535899999998" blue="0.42544671890000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        </imageView>
-                                                    </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusMe">
-                                                            <real key="value" value="40"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pfY-Cg-v4L">
-                                                    <rect key="frame" x="130" y="22" width="179" height="51"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j4E-l9-EgQ">
-                                                    <rect key="frame" x="130" y="81" width="179" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                                                    <color key="textColor" red="1" green="0.39343535899999998" blue="0.42544671890000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xet-Po-heQ">
-                                                    <rect key="frame" x="332" y="0.0" width="82" height="67"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                                    <color key="tintColor" red="1" green="0.39343535899999998" blue="0.42544671890000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    <state key="normal" image="cart.badge.plus" catalog="system">
-                                                        <color key="titleColor" red="0.85413116219999996" green="0.36529368159999998" blue="0.33323866130000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="addToBasket:" destination="Ois-Bj-okg" eventType="touchUpInside" id="cqL-KE-pom"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.94622217465753422" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <inset key="separatorInset" minX="125" minY="0.0" maxX="20" maxY="0.0"/>
-                                        <connections>
-                                            <outlet property="addToButton" destination="xet-Po-heQ" id="9SQ-Pc-vuu"/>
-                                            <outlet property="cellView" destination="391-v7-OzB" id="WLs-ph-pKJ"/>
-                                            <outlet property="productImage" destination="n9D-WV-6yK" id="AsB-EB-qGQ"/>
-                                            <outlet property="productName" destination="pfY-Cg-v4L" id="5Zi-9k-qMh"/>
-                                            <outlet property="productPrice" destination="j4E-l9-EgQ" id="Ka3-8T-UTz"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
                                 <connections>
                                     <outlet property="delegate" destination="8rJ-Kc-sve" id="ABi-vD-bvm"/>
                                 </connections>
@@ -307,65 +186,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DDt-kl-ciL">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="737"/>
                                 <color key="backgroundColor" white="0.9511183647" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="basketCell" rowHeight="125" id="DJs-C3-CSH" customClass="BasketViewTableViewCell" customModule="Clothes_Store" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="125"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DJs-C3-CSH" id="BPN-h5-JPS">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="125"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mrR-dH-anG">
-                                                    <rect key="frame" x="20" y="22" width="80" height="80"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="photo.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="mv2-rt-ePM">
-                                                            <rect key="frame" x="15" y="15" width="50" height="50"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <color key="tintColor" red="1" green="0.39343535899999998" blue="0.42544671890000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        </imageView>
-                                                    </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusMe">
-                                                            <real key="value" value="40"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8TD-Fv-JGk">
-                                                    <rect key="frame" x="130" y="22" width="179" height="51"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
-                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f51-Ga-z5y">
-                                                    <rect key="frame" x="130" y="81" width="130" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                                                    <color key="textColor" red="1" green="0.39343535899999998" blue="0.42544671890000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="40C-Ll-zNw">
-                                                    <rect key="frame" x="264" y="81" width="130" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                                                    <color key="textColor" red="1" green="0.39343535899999998" blue="0.42544671890000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.94622217470000003" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <inset key="separatorInset" minX="125" minY="0.0" maxX="20" maxY="0.0"/>
-                                        <connections>
-                                            <outlet property="cellView" destination="mrR-dH-anG" id="0AR-Vu-9Ou"/>
-                                            <outlet property="productImage" destination="mv2-rt-ePM" id="y1M-dQ-Auf"/>
-                                            <outlet property="productName" destination="8TD-Fv-JGk" id="O5t-rz-iWR"/>
-                                            <outlet property="productPrice" destination="f51-Ga-z5y" id="m18-lw-wcM"/>
-                                            <outlet property="quantity" destination="40C-Ll-zNw" id="Nj9-RG-17T"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
                                 <connections>
                                     <outlet property="delegate" destination="uf9-9a-5EI" id="bLF-yX-OdD"/>
                                 </connections>
@@ -751,10 +571,7 @@
     <resources>
         <image name="arrow.down.heart.fill" catalog="system" width="128" height="109"/>
         <image name="cart" catalog="system" width="128" height="102"/>
-        <image name="cart.badge.plus" catalog="system" width="128" height="106"/>
         <image name="doc.text.magnifyingglass" catalog="system" width="113" height="128"/>
-        <image name="heart.fill" catalog="system" width="128" height="109"/>
-        <image name="photo.fill" catalog="system" width="128" height="93"/>
         <image name="placeholderImage" width="97" height="129.5"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
     </resources>

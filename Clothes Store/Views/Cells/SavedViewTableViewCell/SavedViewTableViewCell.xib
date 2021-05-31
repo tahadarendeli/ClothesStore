@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="savedCell" rowHeight="125" id="b6B-MK-OMk" customClass="SavedViewTableViewCell" customModule="Clothes_Store" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="125"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="b6B-MK-OMk" id="Puu-ev-Omv">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="125"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gbq-CI-xnd">
+                        <rect key="frame" x="20" y="22" width="80" height="80"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="photo.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="tuM-Fk-B1k">
+                                <rect key="frame" x="15" y="15" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="1" green="0.39343535899999998" blue="0.42544671890000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusMe">
+                                <real key="value" value="40"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ti1-yq-YwS">
+                        <rect key="frame" x="130" y="22" width="179" height="51"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmS-0d-mTj">
+                        <rect key="frame" x="130" y="81" width="179" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                        <color key="textColor" red="1" green="0.39343535899999998" blue="0.42544671890000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aNL-cM-N2W">
+                        <rect key="frame" x="332" y="0.0" width="82" height="67"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                        <color key="tintColor" red="1" green="0.39343535899999998" blue="0.42544671890000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <state key="normal" image="cart.badge.plus" catalog="system">
+                            <color key="titleColor" red="0.85413116219999996" green="0.36529368159999998" blue="0.33323866130000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </state>
+                        <connections>
+                            <action selector="addToBasket:" destination="b6B-MK-OMk" eventType="touchUpInside" id="08a-3W-rD5"/>
+                        </connections>
+                    </button>
+                </subviews>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.94622217470000003" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <inset key="separatorInset" minX="125" minY="0.0" maxX="20" maxY="0.0"/>
+            <connections>
+                <outlet property="addToButton" destination="aNL-cM-N2W" id="4CV-7u-41x"/>
+                <outlet property="cellView" destination="gbq-CI-xnd" id="jyR-Xz-NJ1"/>
+                <outlet property="productImage" destination="tuM-Fk-B1k" id="FpQ-su-nFI"/>
+                <outlet property="productName" destination="Ti1-yq-YwS" id="yK6-BT-Cs4"/>
+                <outlet property="productPrice" destination="hmS-0d-mTj" id="cvd-6s-to4"/>
+            </connections>
+            <point key="canvasLocation" x="70" y="149"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="cart.badge.plus" catalog="system" width="128" height="106"/>
+        <image name="photo.fill" catalog="system" width="128" height="93"/>
+    </resources>
+</document>

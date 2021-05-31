@@ -25,9 +25,10 @@ final class CatalogueViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        collectionView.register(UINib(nibName: "CatalogueViewCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: Strings.Identifiers.productCell.rawValue)
         getProducts()
         observer = WishlistMemoryService.shared().action.sink(receiveValue: { [weak self] product in
-            self?.collectionView.reloadData()
+            self?.updateCollectionView()
         })
     }
     
@@ -69,7 +70,7 @@ extension CatalogueViewController: UICollectionViewDelegate, UICollectionViewDat
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Strings.Identifiers.productCell.rawValue, for: indexPath) as! CatalogueViewCollectionViewCell
-        
+
         let product = products[indexPath.row]
         cell.configureWithProduct(product: product)
         return cell

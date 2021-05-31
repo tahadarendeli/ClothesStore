@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="productCell" id="xFe-3u-icq" customClass="CatalogueViewCollectionViewCell" customModule="Clothes_Store" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="181" height="253"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                <rect key="frame" x="0.0" y="0.0" width="181" height="253"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SFX-O0-coK">
+                        <rect key="frame" x="15" y="17" width="151" height="219"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholderImage" translatesAutoresizingMaskIntoConstraints="NO" id="Hvb-ff-NWY">
+                                <rect key="frame" x="8" y="8" width="135" height="135"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Hvb-ff-NWY" secondAttribute="height" multiplier="1:1" id="IvQ-kW-MnM"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusMe">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="vq9-dX-R4b">
+                                <rect key="frame" x="8" y="147" width="135" height="40"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="diq-qx-I4c">
+                                <rect key="frame" x="8" y="186" width="109" height="27"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="J49-ct-biS">
+                                <rect key="frame" x="123" y="8" width="20" height="17.5"/>
+                                <color key="tintColor" red="1" green="0.35626077649999999" blue="0.43523806329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Hvb-ff-NWY" secondAttribute="trailing" constant="8" id="4wX-IM-cg8"/>
+                            <constraint firstItem="Hvb-ff-NWY" firstAttribute="top" secondItem="SFX-O0-coK" secondAttribute="top" constant="8" id="8RP-Jw-41n"/>
+                            <constraint firstAttribute="bottom" secondItem="diq-qx-I4c" secondAttribute="bottom" constant="6" id="D1R-wi-cKp"/>
+                            <constraint firstItem="diq-qx-I4c" firstAttribute="trailing" secondItem="vq9-dX-R4b" secondAttribute="trailing" id="DIf-u4-kSv"/>
+                            <constraint firstItem="vq9-dX-R4b" firstAttribute="leading" secondItem="Hvb-ff-NWY" secondAttribute="leading" id="NGU-Jq-nEA"/>
+                            <constraint firstItem="diq-qx-I4c" firstAttribute="leading" secondItem="vq9-dX-R4b" secondAttribute="leading" id="NzI-mp-luT"/>
+                            <constraint firstItem="vq9-dX-R4b" firstAttribute="trailing" secondItem="Hvb-ff-NWY" secondAttribute="trailing" id="d3s-le-tzH"/>
+                            <constraint firstAttribute="trailing" secondItem="J49-ct-biS" secondAttribute="trailing" constant="8" id="fhf-rA-Lo8"/>
+                            <constraint firstItem="diq-qx-I4c" firstAttribute="top" secondItem="vq9-dX-R4b" secondAttribute="bottom" constant="-1" id="vcP-mC-FMD"/>
+                            <constraint firstItem="J49-ct-biS" firstAttribute="top" secondItem="SFX-O0-coK" secondAttribute="top" constant="6.5" id="xoW-Uf-aje"/>
+                            <constraint firstItem="Hvb-ff-NWY" firstAttribute="leading" secondItem="SFX-O0-coK" secondAttribute="leading" constant="8" id="yns-NE-90Y"/>
+                            <constraint firstItem="vq9-dX-R4b" firstAttribute="top" secondItem="Hvb-ff-NWY" secondAttribute="bottom" constant="4" id="zZi-ub-ZG9"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusMe">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="SFX-O0-coK" secondAttribute="trailing" constant="15" id="98J-D1-GUx"/>
+                <constraint firstItem="SFX-O0-coK" firstAttribute="top" secondItem="xFe-3u-icq" secondAttribute="top" constant="17" id="XRq-IH-uAS"/>
+                <constraint firstAttribute="bottom" secondItem="SFX-O0-coK" secondAttribute="bottom" constant="17" id="bnB-RP-OKK"/>
+                <constraint firstItem="SFX-O0-coK" firstAttribute="leading" secondItem="xFe-3u-icq" secondAttribute="leading" constant="15" id="jZB-fg-8LK"/>
+            </constraints>
+            <connections>
+                <outlet property="cellView" destination="SFX-O0-coK" id="rRx-VM-9zY"/>
+                <outlet property="productImage" destination="Hvb-ff-NWY" id="JhU-Vd-jNH"/>
+                <outlet property="productName" destination="vq9-dX-R4b" id="9eE-FQ-l4D"/>
+                <outlet property="productPrice" destination="diq-qx-I4c" id="19P-1f-1fd"/>
+                <outlet property="wishListed" destination="J49-ct-biS" id="9D1-Qc-3J8"/>
+            </connections>
+            <point key="canvasLocation" x="667" y="149"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="heart.fill" catalog="system" width="128" height="109"/>
+        <image name="placeholderImage" width="97" height="129.5"/>
+    </resources>
+</document>
