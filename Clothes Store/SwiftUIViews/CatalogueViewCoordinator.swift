@@ -13,9 +13,23 @@ final class CatalogueViewCoordinator: Coordinator {
     var children: [Coordinator]? = nil
     
     func start() {
-        var viewController: CoordinatingViewController = CatalogueViewHostingViewController(rootView: CatalogueView())
+        let store = CatalogueStore()
+        let presenter = CataloguePresenter(with: store)
+        let catalogueView = CatalogueView(store: store, presenter: presenter, coordinator: self)
+        let viewController: CatalogueViewHostingViewController = CatalogueViewHostingViewController(rootView: catalogueView)
+        
         viewController.coordinator = self
         
         navigationController?.setViewControllers([viewController], animated: false)
+    }
+    
+    func showDetail(product: CatalogueProduct) {
+        let rootViewController = DetailViewContainerViewController.instantiate(with: Strings.Identifiers.Storyboard.detail.rawValue)
+        let viewController = UINavigationController(rootViewController: rootViewController)
+        
+        rootViewController.product = product.0
+        
+        self.navigationController?.modalPresentationStyle = .formSheet
+        self.navigationController?.present(viewController, animated: true, completion: nil)
     }
 }

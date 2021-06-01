@@ -19,11 +19,11 @@ final class CatalogueCoordinator: Coordinator {
         navigationController?.setViewControllers([viewController], animated: false)
     }
     
-    func showDetail(product: Product) {
+    func showDetail(product: CatalogueProduct) {
         let rootViewController = DetailViewContainerViewController.instantiate(with: Strings.Identifiers.Storyboard.detail.rawValue)
         let viewController = UINavigationController(rootViewController: rootViewController)
         
-        rootViewController.product = product
+        rootViewController.product = product.0
         
         self.navigationController?.modalPresentationStyle = .formSheet
         self.navigationController?.present(viewController, animated: true, completion: nil)

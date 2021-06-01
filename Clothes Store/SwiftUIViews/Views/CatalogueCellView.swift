@@ -9,28 +9,29 @@
 import SwiftUI
 
 final class ObservableProduct: ObservableObject {
-    @Published var product: Product
-    @Published var didAddedToWishlist: Bool
+    @Published var product: CatalogueProduct
     
-    init(product: Product, didAddToWishlist: Bool) {
+    init(product: CatalogueProduct) {
         self.product = product
-        self.didAddedToWishlist = didAddToWishlist
     }
 }
 
 struct CatalogueCellView: View {
     @ObservedObject private var observableProduct: ObservableProduct
-    @State private var showingDetail = false
+    var coordinator: Coordinator?
     
-    init(product: Product, didAddToWishlist: Bool) {
-        observableProduct = ObservableProduct(product: product, didAddToWishlist: didAddToWishlist)
+    init(product: CatalogueProduct, coordinator: Coordinator?) {
+        observableProduct = ObservableProduct(product: product)
+        self.coordinator = coordinator
     }
     
     var body: some View {
+        let currentProduct = observableProduct.product.0
+        let didAddedToWishlist = observableProduct.product.1
         
-        if let productName = observableProduct.product.name,
-           let productPrice = observableProduct.product.price,
-           let productImage = observableProduct.product.image {
+        if let productName = currentProduct.name,
+           let productPrice = currentProduct.price,
+           let productImage = currentProduct.image {
             
             ZStack {
                 ZStack {
@@ -55,7 +56,7 @@ struct CatalogueCellView: View {
                         }
                     }
                     
-                    if observableProduct.didAddedToWishlist {
+                    if didAddedToWishlist {
                         HStack {
                             Spacer()
                             VStack(alignment: .trailing) {
@@ -80,10 +81,7 @@ struct CatalogueCellView: View {
                         y: 0.0)
                 .padding(.top, 15)
                 .onTapGesture {
-                    showingDetail = true
-                }
-                .sheet(isPresented: $showingDetail) {
-                    DetailViewControllerWrapper(product: observableProduct.product)
+                    (coordinator as? CatalogueViewCoordinator)?.showDetail(product: observableProduct.product)
                 }
             }
             .padding([.top, .bottom], 17)

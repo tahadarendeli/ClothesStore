@@ -6,25 +6,48 @@
 //  Copyright © 2021 RichieHope. All rights reserved.
 //
 
+import Combine
+
 protocol CataloguePresentation {
     func getProducts()
     func fetchProducts()
 }
 
+typealias CatalogueProduct = (Product, Bool)
+
 final class CataloguePresenter: CataloguePresentation {
     weak var view: CatalogueViewProtocol?
     
-    private var productMemorySerivce = ProductMemoryService.shared()
-    private var products : [Product] {
-        return productMemorySerivce.get()
+    private var observer: AnyCancellable?
+    private var productMemoryService = ProductMemoryService.shared()
+    private var wishlistMemoryService = WishlistMemoryService.shared()
+    
+    private var products : [CatalogueProduct] {
+        return productMemoryService.get().map({ product in
+                                                return (product, didWished(product))})
     }
     
-    init(with view: CatalogueViewProtocol) {
+    init(with view: CatalogueViewProtocol?) {
         self.view = view
+        
+        observer = WishlistMemoryService.shared().action.sink(receiveValue: { [weak self] _ in
+            guard let self = self else { return }
+            
+            self.getProducts()
+        })
+    }
+    
+    private func didWished(_ product: Product) -> Bool {
+        return getWishlistedProducts().contains(where: { wished in
+                                                    product.productId == wished.productId })
     }
     
     func getProducts() {
         view?.updateProductList(products: products)
+    }
+    
+    func getWishlistedProducts() -> [Product] {
+        return wishlistMemoryService.get()
     }
     
     func fetchProducts() {
@@ -34,7 +57,7 @@ final class CataloguePresenter: CataloguePresentation {
             
             switch result {
             case .success(let products):
-                self.productMemorySerivce.add(productList: products.products ?? [])
+                self.productMemoryService.add(productList: products.products ?? [])
                 self.getProducts()
             case .failure(_):
                 self.view?.failedFetchProducts()

@@ -19,7 +19,9 @@ final class CatalogueViewHostingViewController: UIHostingController<CatalogueVie
     }
     
     required init?(coder aDecoder: NSCoder){
-        super.init(coder: aDecoder, rootView: CatalogueView())
+        let store = CatalogueStore()
+        let presenter = CataloguePresenter(with: store)
+        super.init(coder: aDecoder, rootView: CatalogueView(store: store, presenter: presenter, coordinator: coordinator))
         
     }
 }

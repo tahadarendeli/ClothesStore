@@ -7,10 +7,9 @@
 //
 
 import UIKit
-import Combine
 
 protocol CatalogueViewProtocol: AnyObject {
-    func updateProductList(products: [Product])
+    func updateProductList(products: [CatalogueProduct])
     func failedFetchProducts()
 }
 
@@ -21,8 +20,7 @@ final class CatalogueViewController: UIViewController, CatalogueViewProtocol, Co
     @IBOutlet private var activity: UIActivityIndicatorView!
 
     //Variables
-    private var observer: AnyCancellable?
-    internal var products : [Product] = []
+    internal var products : [CatalogueProduct] = []
     
     var coordinator: Coordinator?
     
@@ -33,22 +31,21 @@ final class CatalogueViewController: UIViewController, CatalogueViewProtocol, Co
 
         collectionView.register(UINib(nibName: Strings.Identifiers.catalogueCellNibName.rawValue, bundle: nil), forCellWithReuseIdentifier: Strings.Identifiers.productCell.rawValue)
         presenter.fetchProducts()
-        observer = WishlistMemoryService.shared().action.sink(receiveValue: { [weak self] product in
-            self?.presenter.getProducts()
-        })
     }
     
     func failedFetchProducts() {
-        let alert = UIAlertController(title: Strings.Texts.error.rawValue, message: Strings.Texts.alertMessage.rawValue, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: Strings.Texts.retry.rawValue, style: .default, handler: { (action) in
-            self.presenter.getProducts()
-            alert.dismiss(animated: true, completion: nil)
-        }))
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: Strings.Texts.error.rawValue, message: Strings.Texts.alertMessage.rawValue, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: Strings.Texts.retry.rawValue, style: .default, handler: { (action) in
+                self.presenter.fetchProducts()
+                alert.dismiss(animated: true, completion: nil)
+            }))
 
-        self.present(alert, animated: true, completion: nil)
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
-    func updateProductList(products: [Product]) {
+    func updateProductList(products: [CatalogueProduct]) {
         DispatchQueue.main.async {
             self.products = products
             self.activity.isHidden = true
