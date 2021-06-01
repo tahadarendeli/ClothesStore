@@ -83,9 +83,9 @@ final class ServiceManager {
             if let data = data {
                 completion(.success(data))
                 ImageCache.shared().insertImage(data: data, with: imageUrl)
+            } else {
+                completion(.failure(ErrorManager.unknown))
             }
-            
-            completion(.failure(ErrorManager.unknown))
         }
         
         task.resume()

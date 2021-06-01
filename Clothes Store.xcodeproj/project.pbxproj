@@ -39,6 +39,13 @@
 		F35086BB26654D0F000BF458 /* SavedViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F35086BA26654D0F000BF458 /* SavedViewTableViewCell.xib */; };
 		F35086BF26654D45000BF458 /* BasketViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F35086BE26654D45000BF458 /* BasketViewTableViewCell.xib */; };
 		F35418C62661A8CF00470445 /* ImageDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35418C52661A8CF00470445 /* ImageDataService.swift */; };
+		F380836626661EBE00B63CCB /* CataloguePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F380836526661EBE00B63CCB /* CataloguePresenter.swift */; };
+		F380836A2666240B00B63CCB /* CatalogueViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38083692666240B00B63CCB /* CatalogueViewController+CollectionView.swift */; };
+		F380836D26662A2600B63CCB /* WishlistPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F380836C26662A2600B63CCB /* WishlistPresenter.swift */; };
+		F380837226662E6D00B63CCB /* WishlistViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F380837126662E6D00B63CCB /* WishlistViewController+TableView.swift */; };
+		F38083762666304A00B63CCB /* BasketPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38083752666304A00B63CCB /* BasketPresenter.swift */; };
+		F380837A2666347700B63CCB /* BasketViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38083792666347700B63CCB /* BasketViewController+TableView.swift */; };
+		F380837E266635B600B63CCB /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F380837D266635B600B63CCB /* DetailPresenter.swift */; };
 		F3A2EB4C2663CF050062CE8F /* DetailViewControllerWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A2EB4B2663CF050062CE8F /* DetailViewControllerWrapper.swift */; };
 		F3A2EB502663D3350062CE8F /* CatalogueCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A2EB4F2663D3350062CE8F /* CatalogueCellView.swift */; };
 		F3A2EB5D2663E5690062CE8F /* MemoryServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A2EB5C2663E5690062CE8F /* MemoryServiceProtocol.swift */; };
@@ -80,6 +87,13 @@
 		F35086BA26654D0F000BF458 /* SavedViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SavedViewTableViewCell.xib; sourceTree = "<group>"; };
 		F35086BE26654D45000BF458 /* BasketViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BasketViewTableViewCell.xib; sourceTree = "<group>"; };
 		F35418C52661A8CF00470445 /* ImageDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDataService.swift; sourceTree = "<group>"; };
+		F380836526661EBE00B63CCB /* CataloguePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CataloguePresenter.swift; sourceTree = "<group>"; };
+		F38083692666240B00B63CCB /* CatalogueViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CatalogueViewController+CollectionView.swift"; sourceTree = "<group>"; };
+		F380836C26662A2600B63CCB /* WishlistPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistPresenter.swift; sourceTree = "<group>"; };
+		F380837126662E6D00B63CCB /* WishlistViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WishlistViewController+TableView.swift"; sourceTree = "<group>"; };
+		F38083752666304A00B63CCB /* BasketPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketPresenter.swift; sourceTree = "<group>"; };
+		F38083792666347700B63CCB /* BasketViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BasketViewController+TableView.swift"; sourceTree = "<group>"; };
+		F380837D266635B600B63CCB /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
 		F3A2EB4B2663CF050062CE8F /* DetailViewControllerWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewControllerWrapper.swift; sourceTree = "<group>"; };
 		F3A2EB4F2663D3350062CE8F /* CatalogueCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueCellView.swift; sourceTree = "<group>"; };
 		F3A2EB5C2663E5690062CE8F /* MemoryServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryServiceProtocol.swift; sourceTree = "<group>"; };
@@ -152,11 +166,10 @@
 		BE5F282B22F24DC500F2C97D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				BE5F281922F0AF0A00F2C97D /* WishlistViewController.swift */,
-				BE5F281D22F0E00800F2C97D /* ProductDetailTableViewController.swift */,
-				BE5F281F22F0E4C600F2C97D /* DetailViewContainerViewController.swift */,
-				BE5F282722F238FC00F2C97D /* BasketViewController.swift */,
-				BE5F27F922F035AF00F2C97D /* CatalogueViewController.swift */,
+				F380837C2666359900B63CCB /* DetailScene */,
+				F38083742666303500B63CCB /* BasketScene */,
+				F380836F26662A2A00B63CCB /* WishlistScene */,
+				F380836426661E9E00B63CCB /* CatalogueScene */,
 				BE5F282522F1F4A400F2C97D /* TabBarController.swift */,
 				F31B9DD826629924006C6C19 /* CatalogueViewHostingViewController.swift */,
 			);
@@ -261,6 +274,46 @@
 			path = BasketViewTableViewCell;
 			sourceTree = "<group>";
 		};
+		F380836426661E9E00B63CCB /* CatalogueScene */ = {
+			isa = PBXGroup;
+			children = (
+				F380836526661EBE00B63CCB /* CataloguePresenter.swift */,
+				BE5F27F922F035AF00F2C97D /* CatalogueViewController.swift */,
+				F38083692666240B00B63CCB /* CatalogueViewController+CollectionView.swift */,
+			);
+			path = CatalogueScene;
+			sourceTree = "<group>";
+		};
+		F380836F26662A2A00B63CCB /* WishlistScene */ = {
+			isa = PBXGroup;
+			children = (
+				F380836C26662A2600B63CCB /* WishlistPresenter.swift */,
+				BE5F281922F0AF0A00F2C97D /* WishlistViewController.swift */,
+				F380837126662E6D00B63CCB /* WishlistViewController+TableView.swift */,
+			);
+			path = WishlistScene;
+			sourceTree = "<group>";
+		};
+		F38083742666303500B63CCB /* BasketScene */ = {
+			isa = PBXGroup;
+			children = (
+				F38083752666304A00B63CCB /* BasketPresenter.swift */,
+				BE5F282722F238FC00F2C97D /* BasketViewController.swift */,
+				F38083792666347700B63CCB /* BasketViewController+TableView.swift */,
+			);
+			path = BasketScene;
+			sourceTree = "<group>";
+		};
+		F380837C2666359900B63CCB /* DetailScene */ = {
+			isa = PBXGroup;
+			children = (
+				F380837D266635B600B63CCB /* DetailPresenter.swift */,
+				BE5F281D22F0E00800F2C97D /* ProductDetailTableViewController.swift */,
+				BE5F281F22F0E4C600F2C97D /* DetailViewContainerViewController.swift */,
+			);
+			path = DetailScene;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -346,12 +399,16 @@
 				BE5F282622F1F4A400F2C97D /* TabBarController.swift in Sources */,
 				F31B9DDE2662F032006C6C19 /* ImageView.swift in Sources */,
 				F31B9DCF26626A9B006C6C19 /* WishlistMemoryService.swift in Sources */,
+				F380837E266635B600B63CCB /* DetailPresenter.swift in Sources */,
 				BE5F283022F24FF800F2C97D /* BasketViewTableViewCell.swift in Sources */,
 				BE5F282222F19C0300F2C97D /* HapticFeedback.swift in Sources */,
 				F33B15C2266189360082130B /* ServiceManager.swift in Sources */,
+				F380837A2666347700B63CCB /* BasketViewController+TableView.swift in Sources */,
 				BE5F282022F0E4C600F2C97D /* DetailViewContainerViewController.swift in Sources */,
 				F31B9DC026622B55006C6C19 /* UIImageView+Extensions.swift in Sources */,
 				BE5F27F822F035AF00F2C97D /* AppDelegate.swift in Sources */,
+				F380836A2666240B00B63CCB /* CatalogueViewController+CollectionView.swift in Sources */,
+				F380836D26662A2600B63CCB /* WishlistPresenter.swift in Sources */,
 				F3A2EB4C2663CF050062CE8F /* DetailViewControllerWrapper.swift in Sources */,
 				BE5F27FA22F035AF00F2C97D /* CatalogueViewController.swift in Sources */,
 				BE5F281222F05FFA00F2C97D /* CurrencyHelpers.swift in Sources */,
@@ -360,10 +417,13 @@
 				F31B9DD926629924006C6C19 /* CatalogueViewHostingViewController.swift in Sources */,
 				F31B9DC626623195006C6C19 /* ImageCache.swift in Sources */,
 				F35418C62661A8CF00470445 /* ImageDataService.swift in Sources */,
+				F380837226662E6D00B63CCB /* WishlistViewController+TableView.swift in Sources */,
+				F38083762666304A00B63CCB /* BasketPresenter.swift in Sources */,
 				BE5F282E22F24F8800F2C97D /* SavedViewTableViewCell.swift in Sources */,
 				BE5F281E22F0E00800F2C97D /* ProductDetailTableViewController.swift in Sources */,
 				F3A2EB502663D3350062CE8F /* CatalogueCellView.swift in Sources */,
 				F3A2EB652664301C0062CE8F /* ProductMemoryService.swift in Sources */,
+				F380836626661EBE00B63CCB /* CataloguePresenter.swift in Sources */,
 				BE5F280C22F05C3E00F2C97D /* ProductsDataService.swift in Sources */,
 				BE5F280E22F05C8600F2C97D /* Product.swift in Sources */,
 				BE5F281422F068C500F2C97D /* UIView+Extensions.swift in Sources */,

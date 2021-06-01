@@ -8,7 +8,11 @@
 
 import UIKit
 
-final class DetailViewContainerViewController: UIViewController{
+protocol DetailViewProtocol: AnyObject {
+    func updateView(with product: Product)
+}
+
+final class DetailViewContainerViewController: UIViewController, DetailViewProtocol {
     
     //Views
     private var backButton : UIBarButtonItem!
@@ -18,15 +22,8 @@ final class DetailViewContainerViewController: UIViewController{
     @IBOutlet private var addedToBasketLabel: UILabel!
 
     //Variables
-    var product : Product!
-    
-    private var basketMemoryService: BasketMemoryService {
-        return BasketMemoryService.shared()
-    }
-    
-    private var wishlistMemoryService: WishlistMemoryService {
-        return WishlistMemoryService.shared()
-    }
+    private lazy var presenter: DetailPresentation = DetailPresenter(with: self)
+    var product: Product!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +34,10 @@ final class DetailViewContainerViewController: UIViewController{
     private func setUpButtons(){
         wishListButton.dropShadow(radius: 8, opacity: 0.2, color: .black)
         addToCartButton.dropShadow(radius: 8, opacity: 0.4, color: UIColor.primaryColour)
+    }
+    
+    func updateView(with product: Product) {
+        self.product = product
     }
 
     // MARK: - Navigation
@@ -57,12 +58,12 @@ final class DetailViewContainerViewController: UIViewController{
     @IBAction private func addToCartAction(_ sender: Any) {
         Haptic.feedBack()
         
-        basketMemoryService.add(product: product)
+        presenter.addProductToBakset(product: product)
     }
 
     @IBAction private func addToWishListAction(_ sender: Any) {
         Haptic.feedBack()
         
-        wishlistMemoryService.add(product: product)
+        presenter.addProductToWishlist(product: product)
     }
 }
