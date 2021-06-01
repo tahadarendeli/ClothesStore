@@ -10,13 +10,11 @@ import Combine
 
 protocol MemoryServiceProtocol {
     func add(product: Product)
-    func add(productList: [Product])
     func remove(product: Product)
     func get() -> [Product]
 }
 
 extension MemoryServiceProtocol {
     func add(product: Product) { }
-    func add(productList: [Product]) { }
     func remove(product: Product) { }
 }

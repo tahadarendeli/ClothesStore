@@ -28,7 +28,7 @@ final class CataloguePresenter: CataloguePresentation {
     }
     
     func fetchProducts() {
-        ProductsDataService.getProducts { [weak self] result in
+        ProductsDataService().getProducts { [weak self] result in
             
             guard let self = self, let result = result else { return }
             

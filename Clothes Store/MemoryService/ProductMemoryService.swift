@@ -9,7 +9,12 @@
 import Foundation
 import Combine
 
-class ProductMemoryService: MemoryServiceProtocol {
+protocol ProductMemoryServiceProtocol: MemoryServiceProtocol {
+    func add(productList: [Product])
+    func buy(product: Product)
+}
+
+final class ProductMemoryService: ProductMemoryServiceProtocol {
     
     private static let sharedMemoryService: ProductMemoryService = .init()
     
@@ -33,5 +38,20 @@ class ProductMemoryService: MemoryServiceProtocol {
     
     func get() -> [Product] {
         return products
+    }
+    
+    func buy(product: Product) {
+        let storedProduct = products.first(where: { $0.productId == product.productId })
+        
+        if let stockCount = storedProduct?.stock,
+           let quantity = product.stock {
+            
+            if stockCount > quantity {
+                storedProduct?.stock = stockCount - quantity
+            } else {
+                storedProduct?.stock = 0
+            }
+            
+        }
     }
 }

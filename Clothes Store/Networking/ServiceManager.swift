@@ -8,22 +8,7 @@
 
 import Foundation
 
-enum ErrorManager: LocalizedError {
-    case invalidURL, parseJSON, unknown
-    
-    var errorDescription: String? {
-        switch self {
-        case .invalidURL:
-            return Strings.Errors.invalidURL.rawValue
-        case .parseJSON:
-            return Strings.Errors.parseJSON.rawValue
-        case .unknown:
-            return Strings.Errors.unknown.rawValue
-        }
-    }
-}
-
-final class ServiceManager {
+final class ServiceManager: ServiceManagerProvidable {
     
     private lazy var session: URLSession = {
         let configuration = URLSessionConfiguration.default

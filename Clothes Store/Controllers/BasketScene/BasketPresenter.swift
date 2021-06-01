@@ -9,12 +9,14 @@
 protocol BasketPresentation {
     func getProducts()
     func removeProductFromBasket(product: Product)
+    func buy(_ products: [Product])
 }
 
 final class BasketPresenter: BasketPresentation {
     weak var view: BasketViewProtocol?
     
     private var basketMemoryService = BasketMemoryService.shared()
+    private var productMemoryService = ProductMemoryService.shared()
     
     private var products : [Product] {
         return basketMemoryService.get()
@@ -48,6 +50,15 @@ final class BasketPresenter: BasketPresentation {
         
         let checkoutText = CurrencyHelper.getMoneyString(totalPrice)
         view?.updateCheckoutText(with: checkoutText)
+    }
+    
+    func buy(_ products: [Product]) {
+        products.forEach({
+            productMemoryService.buy(product: $0)
+            removeProductFromBasket(product: $0)
+        })
+        
+        getProducts()
     }
 }
 

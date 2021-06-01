@@ -9,10 +9,13 @@
 import Foundation
 import UIKit
 
-final class ImageDataService {
+final class ImageDataService: DataServiceProtocol {
+    var service: ServiceManagerProvidable {
+        return BaseServiceManager.service
+    }
     
     func getImage(with imageUrl: URL, completion: @escaping (UIImage?) -> Void) -> URLSessionTask? {
-        let task = ServiceManager().getImage(with: imageUrl, completion: { result in
+        let task = service.getImage(with: imageUrl, completion: { result in
             guard let result = result else { return }
             
             switch result {

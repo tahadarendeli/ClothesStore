@@ -10,24 +10,28 @@ import SwiftUI
 import Combine
 
 final class CatalogueViewModel: ObservableObject {
-    @Published var result: Result<Products, Error>? = nil
+    @Published var productList: [Product] = []
     @Published var wishlist: [Product] = []
-    private var observer: AnyCancellable?
     
-    var value: Products? {
-        try? result?.get()
+    private var wishlistObserver: AnyCancellable?
+    
+    var value: [Product] {
+        productList
     }
     
     func load() {
-        ProductsDataService.getProducts(){ result in
+        ProductsDataService().getProducts(){ result in
+            let products = try? result?.get().products
+            ProductMemoryService.shared().add(productList: products ?? [])
+            
             DispatchQueue.main.async {
-                self.result = result
+                self.productList = ProductMemoryService.shared().get()
             }
         }
     }
     
     func setObserver() {
-        observer = WishlistMemoryService.shared().action.sink(receiveValue: { [weak self] _ in
+        wishlistObserver = WishlistMemoryService.shared().action.sink(receiveValue: { [weak self] _ in
             self?.wishlist = WishlistMemoryService.shared().get()
         })
     }
@@ -46,7 +50,7 @@ struct CatalogueView: View {
             ZStack {
                 Color(UIColor.backgroundColour).ignoresSafeArea()
                 
-                if products.value == nil {
+                if products.value.isEmpty {
                     VStack{
                         ProgressView()
                             .onAppear {
@@ -55,7 +59,7 @@ struct CatalogueView: View {
                             }
                             .progressViewStyle(CircularProgressViewStyle(tint: Color(UIColor.primaryColour)))
                     }
-                } else if let products = products.value?.products {
+                } else if let products = products.value {
                     ScrollView {
                         LazyVGrid(columns: layout) {
                             ForEach(products) { product in

@@ -8,13 +8,16 @@
 
 import Foundation
 
-final class ProductsDataService {
+final class ProductsDataService: DataServiceProtocol {
+    var service: ServiceManagerProvidable {
+        return BaseServiceManager.service
+    }
     
-    class func getProducts(completion: @escaping (Result<Products, Error>?) -> Void) {
+    func getProducts(completion: @escaping (Result<Products, Error>?) -> Void) {
         
         let requestUrl = URLCall.catalogue.rawValue
         
-        ServiceManager().get(for: Products.self, mainUrl: requestUrl, completion: { result in
+        service.get(for: Products.self, mainUrl: requestUrl, completion: { result in
             completion(result)
         })
     }

@@ -226,6 +226,7 @@
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="addToCartAction:" destination="90F-ml-7RE" eventType="touchUpInside" id="Zlo-E3-5gn"/>
+                                            <action selector="checkoutTapped:" destination="uf9-9a-5EI" eventType="touchUpInside" id="y7Z-fc-n4Z"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nFo-fY-mfD">

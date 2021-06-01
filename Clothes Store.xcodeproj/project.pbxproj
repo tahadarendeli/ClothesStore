@@ -46,6 +46,10 @@
 		F38083762666304A00B63CCB /* BasketPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38083752666304A00B63CCB /* BasketPresenter.swift */; };
 		F380837A2666347700B63CCB /* BasketViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38083792666347700B63CCB /* BasketViewController+TableView.swift */; };
 		F380837E266635B600B63CCB /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F380837D266635B600B63CCB /* DetailPresenter.swift */; };
+		F3808386266653FD00B63CCB /* DataServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3808385266653FD00B63CCB /* DataServiceProtocol.swift */; };
+		F380838A266656F200B63CCB /* BaseServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3808389266656F200B63CCB /* BaseServiceManager.swift */; };
+		F380838D2666572000B63CCB /* ServiceManagerProvidable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F380838C2666572000B63CCB /* ServiceManagerProvidable.swift */; };
+		F38083902666573E00B63CCB /* ErrorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F380838F2666573E00B63CCB /* ErrorManager.swift */; };
 		F3A2EB4C2663CF050062CE8F /* DetailViewControllerWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A2EB4B2663CF050062CE8F /* DetailViewControllerWrapper.swift */; };
 		F3A2EB502663D3350062CE8F /* CatalogueCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A2EB4F2663D3350062CE8F /* CatalogueCellView.swift */; };
 		F3A2EB5D2663E5690062CE8F /* MemoryServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A2EB5C2663E5690062CE8F /* MemoryServiceProtocol.swift */; };
@@ -94,6 +98,10 @@
 		F38083752666304A00B63CCB /* BasketPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketPresenter.swift; sourceTree = "<group>"; };
 		F38083792666347700B63CCB /* BasketViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BasketViewController+TableView.swift"; sourceTree = "<group>"; };
 		F380837D266635B600B63CCB /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
+		F3808385266653FD00B63CCB /* DataServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServiceProtocol.swift; sourceTree = "<group>"; };
+		F3808389266656F200B63CCB /* BaseServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseServiceManager.swift; sourceTree = "<group>"; };
+		F380838C2666572000B63CCB /* ServiceManagerProvidable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManagerProvidable.swift; sourceTree = "<group>"; };
+		F380838F2666573E00B63CCB /* ErrorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorManager.swift; sourceTree = "<group>"; };
 		F3A2EB4B2663CF050062CE8F /* DetailViewControllerWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewControllerWrapper.swift; sourceTree = "<group>"; };
 		F3A2EB4F2663D3350062CE8F /* CatalogueCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueCellView.swift; sourceTree = "<group>"; };
 		F3A2EB5C2663E5690062CE8F /* MemoryServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryServiceProtocol.swift; sourceTree = "<group>"; };
@@ -148,6 +156,7 @@
 			children = (
 				BE5F280D22F05C8600F2C97D /* Product.swift */,
 				BE5F280F22F05D0300F2C97D /* Constants.swift */,
+				F3808385266653FD00B63CCB /* DataServiceProtocol.swift */,
 				BE5F280B22F05C3E00F2C97D /* ProductsDataService.swift */,
 				F35418C52661A8CF00470445 /* ImageDataService.swift */,
 				F31B9DC526623195006C6C19 /* ImageCache.swift */,
@@ -171,7 +180,6 @@
 				F380836F26662A2A00B63CCB /* WishlistScene */,
 				F380836426661E9E00B63CCB /* CatalogueScene */,
 				BE5F282522F1F4A400F2C97D /* TabBarController.swift */,
-				F31B9DD826629924006C6C19 /* CatalogueViewHostingViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -235,6 +243,7 @@
 				F31B9DDD2662F032006C6C19 /* ImageView.swift */,
 				F3A2EB4F2663D3350062CE8F /* CatalogueCellView.swift */,
 				F3A2EB4B2663CF050062CE8F /* DetailViewControllerWrapper.swift */,
+				F31B9DD826629924006C6C19 /* CatalogueViewHostingViewController.swift */,
 			);
 			path = SwiftUIViews;
 			sourceTree = "<group>";
@@ -243,6 +252,9 @@
 			isa = PBXGroup;
 			children = (
 				F33B15C1266189360082130B /* ServiceManager.swift */,
+				F3808389266656F200B63CCB /* BaseServiceManager.swift */,
+				F380838C2666572000B63CCB /* ServiceManagerProvidable.swift */,
+				F380838F2666573E00B63CCB /* ErrorManager.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -399,11 +411,13 @@
 				BE5F282622F1F4A400F2C97D /* TabBarController.swift in Sources */,
 				F31B9DDE2662F032006C6C19 /* ImageView.swift in Sources */,
 				F31B9DCF26626A9B006C6C19 /* WishlistMemoryService.swift in Sources */,
+				F3808386266653FD00B63CCB /* DataServiceProtocol.swift in Sources */,
 				F380837E266635B600B63CCB /* DetailPresenter.swift in Sources */,
 				BE5F283022F24FF800F2C97D /* BasketViewTableViewCell.swift in Sources */,
 				BE5F282222F19C0300F2C97D /* HapticFeedback.swift in Sources */,
 				F33B15C2266189360082130B /* ServiceManager.swift in Sources */,
 				F380837A2666347700B63CCB /* BasketViewController+TableView.swift in Sources */,
+				F380838D2666572000B63CCB /* ServiceManagerProvidable.swift in Sources */,
 				BE5F282022F0E4C600F2C97D /* DetailViewContainerViewController.swift in Sources */,
 				F31B9DC026622B55006C6C19 /* UIImageView+Extensions.swift in Sources */,
 				BE5F27F822F035AF00F2C97D /* AppDelegate.swift in Sources */,
@@ -423,12 +437,14 @@
 				BE5F281E22F0E00800F2C97D /* ProductDetailTableViewController.swift in Sources */,
 				F3A2EB502663D3350062CE8F /* CatalogueCellView.swift in Sources */,
 				F3A2EB652664301C0062CE8F /* ProductMemoryService.swift in Sources */,
+				F38083902666573E00B63CCB /* ErrorManager.swift in Sources */,
 				F380836626661EBE00B63CCB /* CataloguePresenter.swift in Sources */,
 				BE5F280C22F05C3E00F2C97D /* ProductsDataService.swift in Sources */,
 				BE5F280E22F05C8600F2C97D /* Product.swift in Sources */,
 				BE5F281422F068C500F2C97D /* UIView+Extensions.swift in Sources */,
 				BE5F281A22F0AF0A00F2C97D /* WishlistViewController.swift in Sources */,
 				BE5F281022F05D0300F2C97D /* Constants.swift in Sources */,
+				F380838A266656F200B63CCB /* BaseServiceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

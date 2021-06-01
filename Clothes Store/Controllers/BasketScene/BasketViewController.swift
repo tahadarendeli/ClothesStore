@@ -58,4 +58,8 @@ final class BasketViewController: UIViewController, BasketViewProtocol {
     func updateCheckoutText(with text: String) {
         total.text = text
     }
+    
+    @IBAction func checkoutTapped(_ sender: Any) {
+        presenter.buy(products)
+    }
 }
