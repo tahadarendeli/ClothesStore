@@ -163,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				F33B15C0266189190082130B /* Networking */,
+				F376CFC62666AA830064EDD2 /* DataServices */,
 				BE5F282922F24D9A00F2C97D /* Models */,
 				F31B9DCA26626888006C6C19 /* MemoryService */,
 				BE5F282A22F24DA700F2C97D /* Views */,
@@ -180,10 +181,6 @@
 			children = (
 				BE5F280D22F05C8600F2C97D /* Product.swift */,
 				BE5F280F22F05D0300F2C97D /* Constants.swift */,
-				F3808385266653FD00B63CCB /* DataServiceProtocol.swift */,
-				BE5F280B22F05C3E00F2C97D /* ProductsDataService.swift */,
-				F35418C52661A8CF00470445 /* ImageDataService.swift */,
-				F31B9DC526623195006C6C19 /* ImageCache.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -280,6 +277,7 @@
 				F3808389266656F200B63CCB /* BaseServiceManager.swift */,
 				F380838C2666572000B63CCB /* ServiceManagerProvidable.swift */,
 				F380838F2666573E00B63CCB /* ErrorManager.swift */,
+				F31B9DC526623195006C6C19 /* ImageCache.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -309,6 +307,16 @@
 				BE5F282F22F24FF800F2C97D /* BasketViewTableViewCell.swift */,
 			);
 			path = BasketViewTableViewCell;
+			sourceTree = "<group>";
+		};
+		F376CFC62666AA830064EDD2 /* DataServices */ = {
+			isa = PBXGroup;
+			children = (
+				F3808385266653FD00B63CCB /* DataServiceProtocol.swift */,
+				BE5F280B22F05C3E00F2C97D /* ProductsDataService.swift */,
+				F35418C52661A8CF00470445 /* ImageDataService.swift */,
+			);
+			path = DataServices;
 			sourceTree = "<group>";
 		};
 		F380836426661E9E00B63CCB /* CatalogueScene */ = {
