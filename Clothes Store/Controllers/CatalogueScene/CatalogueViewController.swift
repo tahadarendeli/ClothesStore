@@ -34,13 +34,15 @@ final class CatalogueViewController: UIViewController, CatalogueViewProtocol, Co
     }
     
     func failedFetchProducts() {
-        let alert = UIAlertController(title: Strings.Texts.error.rawValue, message: Strings.Texts.alertMessage.rawValue, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: Strings.Texts.retry.rawValue, style: .default, handler: { (action) in
-            self.presenter.getProducts()
-            alert.dismiss(animated: true, completion: nil)
-        }))
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: Strings.Texts.error.rawValue, message: Strings.Texts.alertMessage.rawValue, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: Strings.Texts.retry.rawValue, style: .default, handler: { (action) in
+                self.presenter.fetchProducts()
+                alert.dismiss(animated: true, completion: nil)
+            }))
 
-        self.present(alert, animated: true, completion: nil)
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     func updateProductList(products: [CatalogueProduct]) {

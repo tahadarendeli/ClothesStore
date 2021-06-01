@@ -37,6 +37,7 @@ struct CatalogueView: View {
     var presenter: CataloguePresentation
     var coordinator: Coordinator?
     @ObservedObject var store: CatalogueStore
+    @State private var showAlert = true
     
     init(store: CatalogueStore, presenter: CataloguePresentation, coordinator: Coordinator?) {
         self.store = store
@@ -74,17 +75,20 @@ struct CatalogueView: View {
                 }
                 
             case .error:
-                VStack {
+                VStack{
                     
+                }.alert(isPresented: $showAlert) {
+                    Alert(title: Text(Strings.Texts.error.rawValue),
+                          message: Text(Strings.Texts.alertMessage.rawValue),
+                          dismissButton: .default(Text(Strings.Texts.retry.rawValue), action: {
+                            self.showAlert = true
+                            self.store.state = .loading
+                            self.presenter.fetchProducts()
+                          }))
                 }
-                
             }
         }
         .background(Color.clear)
         .navigationBarTitle(Strings.Texts.catalogueTitle.rawValue)
-    }
-    
-    func didItemTapped() {
-        print("Item Tapped")
     }
 }
