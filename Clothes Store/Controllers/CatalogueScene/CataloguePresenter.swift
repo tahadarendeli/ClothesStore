@@ -38,15 +38,16 @@ final class CataloguePresenter: CataloguePresentation {
     }
     
     private func didWished(_ product: Product) -> Bool {
-        return wishlistMemoryService.get() .contains(where: { wished in
-                                                        product.productId == wished.productId })
+        return getWishlistedProducts().contains(where: { wished in
+                                                    product.productId == wished.productId })
     }
     
     func getProducts() {
         view?.updateProductList(products: products)
     }
     
-    func getWishlistedProducts() {
+    func getWishlistedProducts() -> [Product] {
+        return wishlistMemoryService.get()
     }
     
     func fetchProducts() {
