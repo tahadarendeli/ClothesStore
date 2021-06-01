@@ -25,10 +25,10 @@ final class MainCoordinator: Coordinator {
     }
     
     func generateChildCoordinators() {
-        children?.append(generateGenericCoordinator(for: CatalogueCoordinator.self))
+        children?.append(generateGenericCoordinator(for: CatalogueViewCoordinator.self))
+//        children?.append(generateGenericCoordinator(for: CatalogueCoordinator.self)) // For UIKit Implementation toggle to this one.
         children?.append(generateGenericCoordinator(for: WishlistCoordinator.self))
         children?.append(generateGenericCoordinator(for: BasketCoordinator.self))
-        children?.append(generateGenericCoordinator(for: CatalogueViewCoordinator.self))
     }
     
     func generateGenericCoordinator<T: Coordinator>(for type: T.Type) -> T {

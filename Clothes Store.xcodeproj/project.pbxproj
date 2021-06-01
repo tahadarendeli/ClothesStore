@@ -62,7 +62,6 @@
 		F38083A22666824300B63CCB /* WishlistCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38083A12666824300B63CCB /* WishlistCoordinator.swift */; };
 		F38083A62666834000B63CCB /* BasketCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38083A52666834000B63CCB /* BasketCoordinator.swift */; };
 		F38083AA26668EA500B63CCB /* CatalogueViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38083A926668EA500B63CCB /* CatalogueViewCoordinator.swift */; };
-		F3A2EB4C2663CF050062CE8F /* DetailViewControllerWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A2EB4B2663CF050062CE8F /* DetailViewControllerWrapper.swift */; };
 		F3A2EB502663D3350062CE8F /* CatalogueCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A2EB4F2663D3350062CE8F /* CatalogueCellView.swift */; };
 		F3A2EB5D2663E5690062CE8F /* MemoryServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A2EB5C2663E5690062CE8F /* MemoryServiceProtocol.swift */; };
 		F3A2EB652664301C0062CE8F /* ProductMemoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A2EB642664301B0062CE8F /* ProductMemoryService.swift */; };
@@ -126,7 +125,6 @@
 		F38083A12666824300B63CCB /* WishlistCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistCoordinator.swift; sourceTree = "<group>"; };
 		F38083A52666834000B63CCB /* BasketCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketCoordinator.swift; sourceTree = "<group>"; };
 		F38083A926668EA500B63CCB /* CatalogueViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueViewCoordinator.swift; sourceTree = "<group>"; };
-		F3A2EB4B2663CF050062CE8F /* DetailViewControllerWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewControllerWrapper.swift; sourceTree = "<group>"; };
 		F3A2EB4F2663D3350062CE8F /* CatalogueCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueCellView.swift; sourceTree = "<group>"; };
 		F3A2EB5C2663E5690062CE8F /* MemoryServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryServiceProtocol.swift; sourceTree = "<group>"; };
 		F3A2EB642664301B0062CE8F /* ProductMemoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductMemoryService.swift; sourceTree = "<group>"; };
@@ -196,6 +194,7 @@
 		BE5F282B22F24DC500F2C97D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F3808396266676E000B63CCB /* MainCoordinator.swift */,
 				BE5F282522F1F4A400F2C97D /* TabBarController.swift */,
 				F38083922666764400B63CCB /* Coordinator */,
 				F380837C2666359900B63CCB /* DetailScene */,
@@ -264,7 +263,6 @@
 				F38083AC26669B6600B63CCB /* Views */,
 				F38083A926668EA500B63CCB /* CatalogueViewCoordinator.swift */,
 				F31B9DD826629924006C6C19 /* CatalogueViewHostingViewController.swift */,
-				F3A2EB4B2663CF050062CE8F /* DetailViewControllerWrapper.swift */,
 				F376CFC12666A3AC0064EDD2 /* CatalogueView.storyboard */,
 			);
 			path = SwiftUIViews;
@@ -371,7 +369,6 @@
 			children = (
 				F380839D266680D500B63CCB /* Storyboarded.swift */,
 				F38083932666765300B63CCB /* Coordinator.swift */,
-				F3808396266676E000B63CCB /* MainCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -490,7 +487,6 @@
 				F3808397266676E000B63CCB /* MainCoordinator.swift in Sources */,
 				F380836A2666240B00B63CCB /* CatalogueViewController+CollectionView.swift in Sources */,
 				F380836D26662A2600B63CCB /* WishlistPresenter.swift in Sources */,
-				F3A2EB4C2663CF050062CE8F /* DetailViewControllerWrapper.swift in Sources */,
 				F38083942666765300B63CCB /* Coordinator.swift in Sources */,
 				BE5F27FA22F035AF00F2C97D /* CatalogueViewController.swift in Sources */,
 				BE5F281222F05FFA00F2C97D /* CurrencyHelpers.swift in Sources */,

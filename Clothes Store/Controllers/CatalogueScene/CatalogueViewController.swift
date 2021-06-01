@@ -7,10 +7,9 @@
 //
 
 import UIKit
-import Combine
 
 protocol CatalogueViewProtocol: AnyObject {
-    func updateProductList(products: [Product])
+    func updateProductList(products: [CatalogueProduct])
     func failedFetchProducts()
 }
 
@@ -21,8 +20,7 @@ final class CatalogueViewController: UIViewController, CatalogueViewProtocol, Co
     @IBOutlet private var activity: UIActivityIndicatorView!
 
     //Variables
-    private var observer: AnyCancellable?
-    internal var products : [Product] = []
+    internal var products : [CatalogueProduct] = []
     
     var coordinator: Coordinator?
     
@@ -33,9 +31,6 @@ final class CatalogueViewController: UIViewController, CatalogueViewProtocol, Co
 
         collectionView.register(UINib(nibName: Strings.Identifiers.catalogueCellNibName.rawValue, bundle: nil), forCellWithReuseIdentifier: Strings.Identifiers.productCell.rawValue)
         presenter.fetchProducts()
-        observer = WishlistMemoryService.shared().action.sink(receiveValue: { [weak self] product in
-            self?.presenter.getProducts()
-        })
     }
     
     func failedFetchProducts() {
@@ -48,7 +43,7 @@ final class CatalogueViewController: UIViewController, CatalogueViewProtocol, Co
         self.present(alert, animated: true, completion: nil)
     }
     
-    func updateProductList(products: [Product]) {
+    func updateProductList(products: [CatalogueProduct]) {
         DispatchQueue.main.async {
             self.products = products
             self.activity.isHidden = true

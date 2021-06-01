@@ -9,36 +9,40 @@
 import SwiftUI
 import Combine
 
-final class CatalogueViewModel: ObservableObject {
-    @Published var productList: [Product] = []
-    @Published var wishlist: [Product] = []
+class CatalogueStore: ObservableObject {
+    @Published var state: State = .loading
     
-    private var wishlistObserver: AnyCancellable?
-    
-    var value: [Product] {
-        productList
+    enum State {
+        case loading
+        case loaded(products: [CatalogueProduct])
+        case error
     }
-    
-    func load() {
-        ProductsDataService().getProducts(){ result in
-            let products = try? result?.get().products
-            ProductMemoryService.shared().add(productList: products ?? [])
-            
-            DispatchQueue.main.async {
-                self.productList = ProductMemoryService.shared().get()
-            }
+}
+
+extension CatalogueStore: CatalogueViewProtocol {
+    func updateProductList(products: [CatalogueProduct]) {
+        DispatchQueue.main.async {
+            self.state = .loaded(products: products)
         }
     }
     
-    func setObserver() {
-        wishlistObserver = WishlistMemoryService.shared().action.sink(receiveValue: { [weak self] _ in
-            self?.wishlist = WishlistMemoryService.shared().get()
-        })
+    func failedFetchProducts() {
+        DispatchQueue.main.async {
+            self.state = .error
+        }
     }
 }
 
 struct CatalogueView: View {
-    @ObservedObject var products = CatalogueViewModel()
+    var presenter: CataloguePresentation
+    var coordinator: Coordinator?
+    @ObservedObject var store: CatalogueStore
+    
+    init(store: CatalogueStore, presenter: CataloguePresentation, coordinator: Coordinator?) {
+        self.store = store
+        self.presenter = presenter
+        self.coordinator = coordinator
+    }
     
     let layout = [
         GridItem(.flexible()),
@@ -49,35 +53,38 @@ struct CatalogueView: View {
         ZStack {
             Color(UIColor.backgroundColour).ignoresSafeArea()
             
-            if products.value.isEmpty {
+            switch store.state {
+            
+            case .loading:
                 VStack{
                     ProgressView()
-                        .onAppear {
-                            products.load()
-                            products.setObserver()
-                        }
+                        .onAppear(perform: presenter.fetchProducts)
                         .progressViewStyle(CircularProgressViewStyle(tint: Color(UIColor.primaryColour)))
                 }
-            } else if let products = products.value {
+                
+            case .loaded(let products):
+                
                 ScrollView {
                     LazyVGrid(columns: layout) {
-                        ForEach(products) { product in
+                        ForEach(products, id: \.0.productId) { product in
                             CatalogueCellView(product: product,
-                                              didAddToWishlist: self.products.wishlist.contains(where: { $0.productId == product.productId }))
+                                              coordinator: coordinator)
                         }
                     }
                 }
+                
+            case .error:
+                VStack {
+                    
+                }
+                
             }
         }
         .background(Color.clear)
         .navigationBarTitle(Strings.Texts.catalogueTitle.rawValue)
     }
-}
-
-#if DEBUG
-struct CatalogueView_Previews: PreviewProvider {
-    static var previews: some View {
-        CatalogueView()
+    
+    func didItemTapped() {
+        print("Item Tapped")
     }
 }
-#endif

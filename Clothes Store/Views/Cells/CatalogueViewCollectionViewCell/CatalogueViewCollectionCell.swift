@@ -16,19 +16,21 @@ final class CatalogueViewCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var wishListed: UIImageView!
     @IBOutlet private weak var productImage: UIImageView!
     
-    func configureWithProduct(product: Product){
+    func configureWithProduct(product: CatalogueProduct){
+        let selectedProduct = product.0
+        let didWishlisted = product.1
         
-        self.productName.text = product.name
-        self.productPrice.text = CurrencyHelper.getMoneyString(product.price ?? 0)
+        self.productName.text = selectedProduct.name
+        self.productPrice.text = CurrencyHelper.getMoneyString(selectedProduct.price ?? 0)
         self.cellView.dropShadow(radius: 10, opacity: 0.1, color: .black)
         let placeHolderImage = UIImage(named: Strings.Images.placeholder.rawValue)
         
-        if let image = product.image, let url = URL(string: image) {
+        if let image = selectedProduct.image, let url = URL(string: image) {
             productImage.getImage(with: url)
         } else {
             productImage.image = placeHolderImage
         }
-        wishListed.isHidden = !WishlistMemoryService.shared().get().contains(where: { $0.productId == product.productId })
+        wishListed.isHidden = !didWishlisted
     }
     
     override func prepareForReuse() {
