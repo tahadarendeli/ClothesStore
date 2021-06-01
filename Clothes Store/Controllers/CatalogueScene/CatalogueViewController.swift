@@ -14,7 +14,7 @@ protocol CatalogueViewProtocol: AnyObject {
     func failedFetchProducts()
 }
 
-final class CatalogueViewController: UIViewController, CatalogueViewProtocol {
+final class CatalogueViewController: UIViewController, CatalogueViewProtocol, Coordinating, Storyboarded {
 
     //Views
     @IBOutlet private var collectionView: UICollectionView!
@@ -23,6 +23,8 @@ final class CatalogueViewController: UIViewController, CatalogueViewProtocol {
     //Variables
     private var observer: AnyCancellable?
     internal var products : [Product] = []
+    
+    var coordinator: Coordinator?
     
     private lazy var presenter: CataloguePresentation = CataloguePresenter(with: self)
 

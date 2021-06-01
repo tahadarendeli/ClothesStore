@@ -9,10 +9,9 @@
 import UIKit
 
 protocol DetailViewProtocol: AnyObject {
-    func updateView(with product: Product)
 }
 
-final class DetailViewContainerViewController: UIViewController, DetailViewProtocol {
+final class DetailViewContainerViewController: UIViewController, DetailViewProtocol, Storyboarded {
     
     //Views
     private var backButton : UIBarButtonItem!
@@ -34,10 +33,6 @@ final class DetailViewContainerViewController: UIViewController, DetailViewProto
     private func setUpButtons(){
         wishListButton.dropShadow(radius: 8, opacity: 0.2, color: .black)
         addToCartButton.dropShadow(radius: 8, opacity: 0.4, color: UIColor.primaryColour)
-    }
-    
-    func updateView(with product: Product) {
-        self.product = product
     }
 
     // MARK: - Navigation

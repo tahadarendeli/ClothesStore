@@ -10,7 +10,14 @@ import Foundation
 import UIKit
 import SwiftUI
 
-final class CatalogueViewHostingViewController: UIHostingController<CatalogueView> {
+final class CatalogueViewHostingViewController: UIHostingController<CatalogueView>, Coordinating, Storyboarded {
+    var coordinator: Coordinator?
+
+    override init(rootView: CatalogueView) {
+        super.init(rootView: rootView)
+        self.rootView = rootView
+    }
+    
     required init?(coder aDecoder: NSCoder){
         super.init(coder: aDecoder, rootView: CatalogueView())
         

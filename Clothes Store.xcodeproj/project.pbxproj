@@ -39,6 +39,11 @@
 		F35086BB26654D0F000BF458 /* SavedViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F35086BA26654D0F000BF458 /* SavedViewTableViewCell.xib */; };
 		F35086BF26654D45000BF458 /* BasketViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F35086BE26654D45000BF458 /* BasketViewTableViewCell.xib */; };
 		F35418C62661A8CF00470445 /* ImageDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35418C52661A8CF00470445 /* ImageDataService.swift */; };
+		F376CFB426669FDD0064EDD2 /* Catalogue.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F376CFB326669FDD0064EDD2 /* Catalogue.storyboard */; };
+		F376CFB82666A2BD0064EDD2 /* Wishlist.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F376CFB72666A2BD0064EDD2 /* Wishlist.storyboard */; };
+		F376CFBB2666A2C80064EDD2 /* Basket.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F376CFBA2666A2C80064EDD2 /* Basket.storyboard */; };
+		F376CFBE2666A2D30064EDD2 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F376CFBD2666A2D30064EDD2 /* Detail.storyboard */; };
+		F376CFC22666A3AC0064EDD2 /* CatalogueView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F376CFC12666A3AC0064EDD2 /* CatalogueView.storyboard */; };
 		F380836626661EBE00B63CCB /* CataloguePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F380836526661EBE00B63CCB /* CataloguePresenter.swift */; };
 		F380836A2666240B00B63CCB /* CatalogueViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38083692666240B00B63CCB /* CatalogueViewController+CollectionView.swift */; };
 		F380836D26662A2600B63CCB /* WishlistPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F380836C26662A2600B63CCB /* WishlistPresenter.swift */; };
@@ -50,6 +55,13 @@
 		F380838A266656F200B63CCB /* BaseServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3808389266656F200B63CCB /* BaseServiceManager.swift */; };
 		F380838D2666572000B63CCB /* ServiceManagerProvidable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F380838C2666572000B63CCB /* ServiceManagerProvidable.swift */; };
 		F38083902666573E00B63CCB /* ErrorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F380838F2666573E00B63CCB /* ErrorManager.swift */; };
+		F38083942666765300B63CCB /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38083932666765300B63CCB /* Coordinator.swift */; };
+		F3808397266676E000B63CCB /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3808396266676E000B63CCB /* MainCoordinator.swift */; };
+		F380839A2666771F00B63CCB /* CatalogueCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38083992666771F00B63CCB /* CatalogueCoordinator.swift */; };
+		F380839E266680D500B63CCB /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = F380839D266680D500B63CCB /* Storyboarded.swift */; };
+		F38083A22666824300B63CCB /* WishlistCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38083A12666824300B63CCB /* WishlistCoordinator.swift */; };
+		F38083A62666834000B63CCB /* BasketCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38083A52666834000B63CCB /* BasketCoordinator.swift */; };
+		F38083AA26668EA500B63CCB /* CatalogueViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38083A926668EA500B63CCB /* CatalogueViewCoordinator.swift */; };
 		F3A2EB4C2663CF050062CE8F /* DetailViewControllerWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A2EB4B2663CF050062CE8F /* DetailViewControllerWrapper.swift */; };
 		F3A2EB502663D3350062CE8F /* CatalogueCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A2EB4F2663D3350062CE8F /* CatalogueCellView.swift */; };
 		F3A2EB5D2663E5690062CE8F /* MemoryServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A2EB5C2663E5690062CE8F /* MemoryServiceProtocol.swift */; };
@@ -91,6 +103,11 @@
 		F35086BA26654D0F000BF458 /* SavedViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SavedViewTableViewCell.xib; sourceTree = "<group>"; };
 		F35086BE26654D45000BF458 /* BasketViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BasketViewTableViewCell.xib; sourceTree = "<group>"; };
 		F35418C52661A8CF00470445 /* ImageDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDataService.swift; sourceTree = "<group>"; };
+		F376CFB326669FDD0064EDD2 /* Catalogue.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Catalogue.storyboard; sourceTree = "<group>"; };
+		F376CFB72666A2BD0064EDD2 /* Wishlist.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Wishlist.storyboard; sourceTree = "<group>"; };
+		F376CFBA2666A2C80064EDD2 /* Basket.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Basket.storyboard; sourceTree = "<group>"; };
+		F376CFBD2666A2D30064EDD2 /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
+		F376CFC12666A3AC0064EDD2 /* CatalogueView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CatalogueView.storyboard; sourceTree = "<group>"; };
 		F380836526661EBE00B63CCB /* CataloguePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CataloguePresenter.swift; sourceTree = "<group>"; };
 		F38083692666240B00B63CCB /* CatalogueViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CatalogueViewController+CollectionView.swift"; sourceTree = "<group>"; };
 		F380836C26662A2600B63CCB /* WishlistPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistPresenter.swift; sourceTree = "<group>"; };
@@ -102,6 +119,13 @@
 		F3808389266656F200B63CCB /* BaseServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseServiceManager.swift; sourceTree = "<group>"; };
 		F380838C2666572000B63CCB /* ServiceManagerProvidable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManagerProvidable.swift; sourceTree = "<group>"; };
 		F380838F2666573E00B63CCB /* ErrorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorManager.swift; sourceTree = "<group>"; };
+		F38083932666765300B63CCB /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		F3808396266676E000B63CCB /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		F38083992666771F00B63CCB /* CatalogueCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueCoordinator.swift; sourceTree = "<group>"; };
+		F380839D266680D500B63CCB /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
+		F38083A12666824300B63CCB /* WishlistCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistCoordinator.swift; sourceTree = "<group>"; };
+		F38083A52666834000B63CCB /* BasketCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketCoordinator.swift; sourceTree = "<group>"; };
+		F38083A926668EA500B63CCB /* CatalogueViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueViewCoordinator.swift; sourceTree = "<group>"; };
 		F3A2EB4B2663CF050062CE8F /* DetailViewControllerWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewControllerWrapper.swift; sourceTree = "<group>"; };
 		F3A2EB4F2663D3350062CE8F /* CatalogueCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueCellView.swift; sourceTree = "<group>"; };
 		F3A2EB5C2663E5690062CE8F /* MemoryServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryServiceProtocol.swift; sourceTree = "<group>"; };
@@ -175,11 +199,12 @@
 		BE5F282B22F24DC500F2C97D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				BE5F282522F1F4A400F2C97D /* TabBarController.swift */,
+				F38083922666764400B63CCB /* Coordinator */,
 				F380837C2666359900B63CCB /* DetailScene */,
 				F38083742666303500B63CCB /* BasketScene */,
 				F380836F26662A2A00B63CCB /* WishlistScene */,
 				F380836426661E9E00B63CCB /* CatalogueScene */,
-				BE5F282522F1F4A400F2C97D /* TabBarController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -239,11 +264,11 @@
 		F31B9DDC2662EFFA006C6C19 /* SwiftUIViews */ = {
 			isa = PBXGroup;
 			children = (
-				F31B9DD326629442006C6C19 /* CatalogueView.swift */,
-				F31B9DDD2662F032006C6C19 /* ImageView.swift */,
-				F3A2EB4F2663D3350062CE8F /* CatalogueCellView.swift */,
-				F3A2EB4B2663CF050062CE8F /* DetailViewControllerWrapper.swift */,
+				F38083AC26669B6600B63CCB /* Views */,
+				F38083A926668EA500B63CCB /* CatalogueViewCoordinator.swift */,
 				F31B9DD826629924006C6C19 /* CatalogueViewHostingViewController.swift */,
+				F3A2EB4B2663CF050062CE8F /* DetailViewControllerWrapper.swift */,
+				F376CFC12666A3AC0064EDD2 /* CatalogueView.storyboard */,
 			);
 			path = SwiftUIViews;
 			sourceTree = "<group>";
@@ -289,6 +314,8 @@
 		F380836426661E9E00B63CCB /* CatalogueScene */ = {
 			isa = PBXGroup;
 			children = (
+				F376CFB326669FDD0064EDD2 /* Catalogue.storyboard */,
+				F38083992666771F00B63CCB /* CatalogueCoordinator.swift */,
 				F380836526661EBE00B63CCB /* CataloguePresenter.swift */,
 				BE5F27F922F035AF00F2C97D /* CatalogueViewController.swift */,
 				F38083692666240B00B63CCB /* CatalogueViewController+CollectionView.swift */,
@@ -299,6 +326,8 @@
 		F380836F26662A2A00B63CCB /* WishlistScene */ = {
 			isa = PBXGroup;
 			children = (
+				F376CFB72666A2BD0064EDD2 /* Wishlist.storyboard */,
+				F38083A12666824300B63CCB /* WishlistCoordinator.swift */,
 				F380836C26662A2600B63CCB /* WishlistPresenter.swift */,
 				BE5F281922F0AF0A00F2C97D /* WishlistViewController.swift */,
 				F380837126662E6D00B63CCB /* WishlistViewController+TableView.swift */,
@@ -309,6 +338,8 @@
 		F38083742666303500B63CCB /* BasketScene */ = {
 			isa = PBXGroup;
 			children = (
+				F376CFBA2666A2C80064EDD2 /* Basket.storyboard */,
+				F38083A52666834000B63CCB /* BasketCoordinator.swift */,
 				F38083752666304A00B63CCB /* BasketPresenter.swift */,
 				BE5F282722F238FC00F2C97D /* BasketViewController.swift */,
 				F38083792666347700B63CCB /* BasketViewController+TableView.swift */,
@@ -319,11 +350,32 @@
 		F380837C2666359900B63CCB /* DetailScene */ = {
 			isa = PBXGroup;
 			children = (
+				F376CFBD2666A2D30064EDD2 /* Detail.storyboard */,
 				F380837D266635B600B63CCB /* DetailPresenter.swift */,
 				BE5F281D22F0E00800F2C97D /* ProductDetailTableViewController.swift */,
 				BE5F281F22F0E4C600F2C97D /* DetailViewContainerViewController.swift */,
 			);
 			path = DetailScene;
+			sourceTree = "<group>";
+		};
+		F38083922666764400B63CCB /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				F380839D266680D500B63CCB /* Storyboarded.swift */,
+				F38083932666765300B63CCB /* Coordinator.swift */,
+				F3808396266676E000B63CCB /* MainCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		F38083AC26669B6600B63CCB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F31B9DD326629442006C6C19 /* CatalogueView.swift */,
+				F31B9DDD2662F032006C6C19 /* ImageView.swift */,
+				F3A2EB4F2663D3350062CE8F /* CatalogueCellView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -389,8 +441,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F35086BB26654D0F000BF458 /* SavedViewTableViewCell.xib in Resources */,
+				F376CFB82666A2BD0064EDD2 /* Wishlist.storyboard in Resources */,
 				BE5F280422F035B100F2C97D /* LaunchScreen.storyboard in Resources */,
+				F376CFBE2666A2D30064EDD2 /* Detail.storyboard in Resources */,
 				BE5F280122F035B100F2C97D /* Assets.xcassets in Resources */,
+				F376CFB426669FDD0064EDD2 /* Catalogue.storyboard in Resources */,
+				F376CFBB2666A2C80064EDD2 /* Basket.storyboard in Resources */,
+				F376CFC22666A3AC0064EDD2 /* CatalogueView.storyboard in Resources */,
 				BE5F27FF22F035AF00F2C97D /* Main.storyboard in Resources */,
 				F35086BF26654D45000BF458 /* BasketViewTableViewCell.xib in Resources */,
 				F35086B12665493F000BF458 /* CatalogueViewCollectionViewCell.xib in Resources */,
@@ -419,11 +476,14 @@
 				F380837A2666347700B63CCB /* BasketViewController+TableView.swift in Sources */,
 				F380838D2666572000B63CCB /* ServiceManagerProvidable.swift in Sources */,
 				BE5F282022F0E4C600F2C97D /* DetailViewContainerViewController.swift in Sources */,
+				F38083A22666824300B63CCB /* WishlistCoordinator.swift in Sources */,
 				F31B9DC026622B55006C6C19 /* UIImageView+Extensions.swift in Sources */,
 				BE5F27F822F035AF00F2C97D /* AppDelegate.swift in Sources */,
+				F3808397266676E000B63CCB /* MainCoordinator.swift in Sources */,
 				F380836A2666240B00B63CCB /* CatalogueViewController+CollectionView.swift in Sources */,
 				F380836D26662A2600B63CCB /* WishlistPresenter.swift in Sources */,
 				F3A2EB4C2663CF050062CE8F /* DetailViewControllerWrapper.swift in Sources */,
+				F38083942666765300B63CCB /* Coordinator.swift in Sources */,
 				BE5F27FA22F035AF00F2C97D /* CatalogueViewController.swift in Sources */,
 				BE5F281222F05FFA00F2C97D /* CurrencyHelpers.swift in Sources */,
 				BE5F282422F1A13600F2C97D /* HUD.swift in Sources */,
@@ -434,15 +494,19 @@
 				F380837226662E6D00B63CCB /* WishlistViewController+TableView.swift in Sources */,
 				F38083762666304A00B63CCB /* BasketPresenter.swift in Sources */,
 				BE5F282E22F24F8800F2C97D /* SavedViewTableViewCell.swift in Sources */,
+				F380839E266680D500B63CCB /* Storyboarded.swift in Sources */,
+				F38083A62666834000B63CCB /* BasketCoordinator.swift in Sources */,
 				BE5F281E22F0E00800F2C97D /* ProductDetailTableViewController.swift in Sources */,
 				F3A2EB502663D3350062CE8F /* CatalogueCellView.swift in Sources */,
 				F3A2EB652664301C0062CE8F /* ProductMemoryService.swift in Sources */,
 				F38083902666573E00B63CCB /* ErrorManager.swift in Sources */,
 				F380836626661EBE00B63CCB /* CataloguePresenter.swift in Sources */,
 				BE5F280C22F05C3E00F2C97D /* ProductsDataService.swift in Sources */,
+				F380839A2666771F00B63CCB /* CatalogueCoordinator.swift in Sources */,
 				BE5F280E22F05C8600F2C97D /* Product.swift in Sources */,
 				BE5F281422F068C500F2C97D /* UIView+Extensions.swift in Sources */,
 				BE5F281A22F0AF0A00F2C97D /* WishlistViewController.swift in Sources */,
+				F38083AA26668EA500B63CCB /* CatalogueViewCoordinator.swift in Sources */,
 				BE5F281022F05D0300F2C97D /* Constants.swift in Sources */,
 				F380838A266656F200B63CCB /* BaseServiceManager.swift in Sources */,
 			);

@@ -21,9 +21,19 @@ enum Strings {
         case productCell = "productCell"
         case basketCell = "basketCell"
         case wishlistCell = "savedCell"
+        
         case basketCellNibName = "BasketViewTableViewCell"
         case wishlistCellNibName = "SavedViewTableViewCell"
         case catalogueCellNibName = "CatalogueViewCollectionViewCell"
+        
+        enum Storyboard: String {
+            case catalogue = "Catalogue"
+            case wishlist = "Wishlist"
+            case basket = "Basket"
+            case detail = "Detail"
+            case catalogueView = "CatalogueView"
+            case main = "Main"
+        }
     }
     
     enum Images: String {

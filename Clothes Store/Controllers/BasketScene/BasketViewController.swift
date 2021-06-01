@@ -13,7 +13,7 @@ protocol BasketViewProtocol: AnyObject {
     func updateCheckoutText(with text: String)
 }
 
-final class BasketViewController: UIViewController, BasketViewProtocol {
+final class BasketViewController: UIViewController, BasketViewProtocol, Coordinating, Storyboarded {
     
     //Views
     @IBOutlet private var tableView: UITableView!
@@ -25,6 +25,8 @@ final class BasketViewController: UIViewController, BasketViewProtocol {
     //Variables
     internal lazy var presenter: BasketPresentation = BasketPresenter(with: self)
     internal var products: [Product] = []
+    
+    var coordinator: Coordinator?
 
     override func viewDidLoad() {
         super.viewDidLoad()

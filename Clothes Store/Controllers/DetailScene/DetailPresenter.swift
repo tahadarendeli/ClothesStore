@@ -17,10 +17,6 @@ final class DetailPresenter: DetailPresentation {
     private var basketMemoryService = BasketMemoryService.shared()
     private var wishlistMemoryService = WishlistMemoryService.shared()
     
-    private var products : [Product] {
-        return basketMemoryService.get()
-    }
-    
     init(with view: DetailViewProtocol) {
         self.view = view
     }

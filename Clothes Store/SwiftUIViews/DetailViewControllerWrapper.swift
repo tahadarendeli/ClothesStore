@@ -13,7 +13,7 @@ struct DetailViewControllerWrapper: UIViewControllerRepresentable {
     let product: Product
     
     func makeUIViewController(context: Context) -> UINavigationController {
-        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: Strings.Identifiers.detailContainer.rawValue) as DetailViewContainerViewController
+        let viewController = DetailViewContainerViewController.instantiate(with: Strings.Identifiers.Storyboard.detail.rawValue)
         let navigationController = UINavigationController(rootViewController: viewController)
         
         viewController.product = product

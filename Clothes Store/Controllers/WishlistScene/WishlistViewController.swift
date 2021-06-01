@@ -16,7 +16,7 @@ protocol BuyCellButtonTapped: class {
     func addProductToBasket(_ sender: SavedViewTableViewCell)
 }
 
-final class WishlistViewController: UIViewController, BuyCellButtonTapped, WishlistViewProtocol {
+final class WishlistViewController: UIViewController, BuyCellButtonTapped, WishlistViewProtocol, Coordinating, Storyboarded {
 
     //Views
     @IBOutlet private var tableView: UITableView!
@@ -25,6 +25,8 @@ final class WishlistViewController: UIViewController, BuyCellButtonTapped, Wishl
     //Variable
     internal lazy var presenter: WishlistPresentation = WishlistPresenter(with: self)
     internal var products: [Product] = []
+    
+    var coordinator: Coordinator?
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -46,33 +46,31 @@ struct CatalogueView: View {
     ]
     
     var body: some View {
-        NavigationView {
-            ZStack {
-                Color(UIColor.backgroundColour).ignoresSafeArea()
-                
-                if products.value.isEmpty {
-                    VStack{
-                        ProgressView()
-                            .onAppear {
-                                products.load()
-                                products.setObserver()
-                            }
-                            .progressViewStyle(CircularProgressViewStyle(tint: Color(UIColor.primaryColour)))
-                    }
-                } else if let products = products.value {
-                    ScrollView {
-                        LazyVGrid(columns: layout) {
-                            ForEach(products) { product in
-                                CatalogueCellView(product: product,
-                                                  didAddToWishlist: self.products.wishlist.contains(where: { $0.productId == product.productId }))
-                            }
+        ZStack {
+            Color(UIColor.backgroundColour).ignoresSafeArea()
+            
+            if products.value.isEmpty {
+                VStack{
+                    ProgressView()
+                        .onAppear {
+                            products.load()
+                            products.setObserver()
+                        }
+                        .progressViewStyle(CircularProgressViewStyle(tint: Color(UIColor.primaryColour)))
+                }
+            } else if let products = products.value {
+                ScrollView {
+                    LazyVGrid(columns: layout) {
+                        ForEach(products) { product in
+                            CatalogueCellView(product: product,
+                                              didAddToWishlist: self.products.wishlist.contains(where: { $0.productId == product.productId }))
                         }
                     }
                 }
             }
-            .background(Color.clear)
-            .navigationBarTitle(Strings.Texts.catalogueTitle.rawValue)
         }
+        .background(Color.clear)
+        .navigationBarTitle(Strings.Texts.catalogueTitle.rawValue)
     }
 }
 

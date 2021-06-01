@@ -30,13 +30,9 @@ extension CatalogueViewController: UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
         let product = products[indexPath.row]
-
-        let detailVC = self.storyboard?.instantiateViewController(withIdentifier: Strings.Identifiers.detailContainer.rawValue) as! DetailViewContainerViewController
-        let navigationVC = UINavigationController(rootViewController: detailVC)
-        detailVC.product = product
+        
+        (coordinator as? CatalogueCoordinator)?.showDetail(product: product)
         
         Haptic.feedBack()
-        
-        self.present(navigationVC, animated: true, completion: nil)
     }
 }
