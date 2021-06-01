@@ -9,7 +9,7 @@
 import SwiftUI
 import Combine
 
-class CatalogueStore: ObservableObject {
+final class CatalogueStore: ObservableObject {
     @Published var state: State = .loading
     
     enum State {
