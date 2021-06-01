@@ -8,16 +8,21 @@
 
 import Foundation
 
-final class ServiceManager {
+final class ServiceManager: ServiceManagerProvidable {
     
-    static func get<T: Decodable>(for: T.Type, mainUrl: String, path: String = "", completion: @escaping (Result<T, Error>?) -> Void) {
+    private lazy var session: URLSession = {
         let configuration = URLSessionConfiguration.default
         configuration.waitsForConnectivity = true
         
-        let session = URLSession(configuration: configuration)
+        return URLSession(configuration: configuration)
+    }()
+    
+    func get<T: Decodable>(for: T.Type, mainUrl: String, path: String = "", completion: @escaping (Result<T, Error>?) -> Void) {
         
         guard let url = URL(string: mainUrl + path) else {
-            debugPrint("Invalid URL")
+            debugPrint(Strings.Errors.invalidURL.rawValue)
+            completion(.failure(ErrorManager.invalidURL))
+            
             return
         }
         
@@ -29,46 +34,42 @@ final class ServiceManager {
                 return
             }
             
-            if let data = data {
-                let decoder = JSONDecoder()
-                let response = try? decoder.decode(T.self, from: data)
-                
-                DispatchQueue.main.async {
-                    if let response = response {
-                        completion(.success(response))
-                    }
+            do {
+                if let data = data {
+                    let decoder = JSONDecoder()
+                    let response = try decoder.decode(T.self, from: data)
+                    
+                    completion(.success(response))
                 }
+            } catch {
+                completion(.failure(ErrorManager.unknown))
             }
             
         }.resume()
     }
     
-    static func getImage(with imageUrl: URL, completion: @escaping (Data) -> Void) -> URLSessionTask? {
-        let configuration = URLSessionConfiguration.default
-        configuration.waitsForConnectivity = true
+    func getImage(with imageUrl: URL, completion: @escaping (Result<Data, Error>?) -> Void) -> URLSessionTask? {
         
-        let session = URLSession(configuration: configuration)
         let urlRequest = URLRequest(url: imageUrl)
         
         if let cachedImageData = ImageCache.shared().getImageData(with: imageUrl) {
-            DispatchQueue.main.async {
-                completion(cachedImageData)
-            }
+            completion(.success(cachedImageData))
             
             return nil
         }
         
         let task = session.dataTask(with: urlRequest){ data, response, error in
-            guard error == nil else {
-                debugPrint(error.debugDescription)
+            if let error = error {
+                debugPrint(error.localizedDescription)
+                completion(.failure(error))
                 return
             }
             
             if let data = data {
-                DispatchQueue.main.async {
-                    completion(data)
-                }
+                completion(.success(data))
                 ImageCache.shared().insertImage(data: data, with: imageUrl)
+            } else {
+                completion(.failure(ErrorManager.unknown))
             }
         }
         

@@ -30,6 +30,22 @@ extension Product: Identifiable {
     }
 }
 
+extension Product {
+    static func copy(of product: Product) -> Product {
+        let newProduct = Product()
+        
+        newProduct.productId = product.productId
+        newProduct.name = product.name
+        newProduct.category = product.category
+        newProduct.price = product.price
+        newProduct.stock = product.stock
+        newProduct.oldPrice = product.oldPrice
+        newProduct.image = product.image
+        
+        return newProduct
+    }
+}
+
 enum Category: String, Codable {
     case pants = "Pants"
     case shoes = "Shoes"

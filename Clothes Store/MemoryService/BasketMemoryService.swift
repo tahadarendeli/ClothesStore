@@ -9,11 +9,9 @@
 import Foundation
 import Combine
 
-final class BasketMemoryService: ProductMemoryServiceProtocol {
+final class BasketMemoryService: MemoryServiceProtocol {
     
-    private static let sharedMemoryService: BasketMemoryService = {
-        return BasketMemoryService()
-    }()
+    private static let sharedMemoryService: BasketMemoryService = .init()
     
     let action = PassthroughSubject<Int, Never>()
     
@@ -40,9 +38,10 @@ final class BasketMemoryService: ProductMemoryServiceProtocol {
             }
             
         } else if let stock = product.stock, stock > 0 {
-            
-            let newProduct = product
+    
+            let newProduct = Product.copy(of: product)
             newProduct.stock = 1
+            
             products.append(newProduct)
             
         }

@@ -1,5 +1,5 @@
 //
-//  ProductMemoryServiceProtocol.swift
+//  MemoryServiceProtocol.swift
 //  Clothes Store
 //
 //  Created by Mentor on 30.05.2021.
@@ -8,10 +8,13 @@
 
 import Combine
 
-protocol ProductMemoryServiceProtocol {
-    var action: PassthroughSubject<Int, Never> { get }
-    
+protocol MemoryServiceProtocol {
     func add(product: Product)
     func remove(product: Product)
     func get() -> [Product]
+}
+
+extension MemoryServiceProtocol {
+    func add(product: Product) { }
+    func remove(product: Product) { }
 }

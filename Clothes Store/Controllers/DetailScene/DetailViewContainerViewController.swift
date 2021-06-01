@@ -8,26 +8,21 @@
 
 import UIKit
 
-class DetailViewContainerViewController: UIViewController{
+protocol DetailViewProtocol: AnyObject {
+}
 
-
+final class DetailViewContainerViewController: UIViewController, DetailViewProtocol, Storyboarded {
+    
     //Views
-    var backButton : UIBarButtonItem!
-    @IBOutlet var wishListButton: UIButton!
-    @IBOutlet var addToCartButton: UIButton!
-    @IBOutlet var addedToWishlistLabel: UILabel!
-    @IBOutlet var addedToBasketLabel: UILabel!
+    private var backButton : UIBarButtonItem!
+    @IBOutlet private var wishListButton: UIButton!
+    @IBOutlet private var addToCartButton: UIButton!
+    @IBOutlet private var addedToWishlistLabel: UILabel!
+    @IBOutlet private var addedToBasketLabel: UILabel!
 
     //Variables
-    var product : Product!
-    
-    private var basketMemoryService: BasketMemoryService {
-        return BasketMemoryService.shared()
-    }
-    
-    private var wishlistMemoryService: WishlistMemoryService {
-        return WishlistMemoryService.shared()
-    }
+    private lazy var presenter: DetailPresentation = DetailPresenter(with: self)
+    var product: Product!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +30,7 @@ class DetailViewContainerViewController: UIViewController{
         setUpButtons()
     }
     
-    func setUpButtons(){
-
+    private func setUpButtons(){
         wishListButton.dropShadow(radius: 8, opacity: 0.2, color: .black)
         addToCartButton.dropShadow(radius: 8, opacity: 0.4, color: UIColor.primaryColour)
     }
@@ -52,19 +46,19 @@ class DetailViewContainerViewController: UIViewController{
 
 
     // MARK: - Actions
-    @IBAction func close(_ sender: Any) {
+    @IBAction private func close(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
 
-    @IBAction func addToCartAction(_ sender: Any) {
+    @IBAction private func addToCartAction(_ sender: Any) {
         Haptic.feedBack()
         
-        basketMemoryService.add(product: product)
+        presenter.addProductToBakset(product: product)
     }
 
-    @IBAction func addToWishListAction(_ sender: Any) {
+    @IBAction private func addToWishListAction(_ sender: Any) {
         Haptic.feedBack()
         
-        wishlistMemoryService.add(product: product)
+        presenter.addProductToWishlist(product: product)
     }
 }

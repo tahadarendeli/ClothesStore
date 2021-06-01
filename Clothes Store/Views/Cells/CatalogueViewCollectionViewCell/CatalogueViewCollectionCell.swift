@@ -8,13 +8,13 @@
 
 import UIKit
 
-class CatalogueViewCollectionViewCell: UICollectionViewCell {
+final class CatalogueViewCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet var productName: UILabel!
-    @IBOutlet var productPrice: UILabel!
-    @IBOutlet var cellView: UIView!
-    @IBOutlet var wishListed: UIImageView!
-    @IBOutlet weak var productImage: UIImageView!
+    @IBOutlet private weak var productName: UILabel!
+    @IBOutlet private weak var productPrice: UILabel!
+    @IBOutlet private weak var cellView: UIView!
+    @IBOutlet private weak var wishListed: UIImageView!
+    @IBOutlet private weak var productImage: UIImageView!
     
     func configureWithProduct(product: Product){
         
@@ -24,11 +24,11 @@ class CatalogueViewCollectionViewCell: UICollectionViewCell {
         let placeHolderImage = UIImage(named: Strings.Images.placeholder.rawValue)
         
         if let image = product.image, let url = URL(string: image) {
-            productImage.getImage(with: url, completion: nil)
+            productImage.getImage(with: url)
         } else {
             productImage.image = placeHolderImage
         }
-        
+        wishListed.isHidden = !WishlistMemoryService.shared().get().contains(where: { $0.productId == product.productId })
     }
     
     override func prepareForReuse() {
