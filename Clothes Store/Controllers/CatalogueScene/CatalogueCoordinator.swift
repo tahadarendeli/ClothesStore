@@ -13,19 +13,21 @@ final class CatalogueCoordinator: Coordinator {
     var children: [Coordinator]? = nil
     
     func start() {
-        var viewController: CoordinatingViewController = CatalogueViewController.instantiate(with: Strings.Identifiers.Storyboard.catalogue.rawValue)
+        let viewController = CatalogueViewController.instantiate(with: Strings.Identifiers.Storyboard.catalogue.rawValue)
+        let presenter = CataloguePresenter(with: viewController,
+                                           productMemoryService: ProductMemoryService.shared(),
+                                           wishlistMemoryService: WishlistMemoryService.shared())
+        viewController.presenter = presenter
         viewController.coordinator = self
         
         navigationController?.setViewControllers([viewController], animated: false)
     }
     
     func showDetail(product: CatalogueProduct) {
-        let rootViewController = DetailViewContainerViewController.instantiate(with: Strings.Identifiers.Storyboard.detail.rawValue)
-        let viewController = UINavigationController(rootViewController: rootViewController)
+        let coordinator = DetailContainerCoordinator(product: product.0)
+        coordinator.navigationController = UINavigationController()
+        coordinator.start()
         
-        rootViewController.product = product.0
-        
-        self.navigationController?.modalPresentationStyle = .formSheet
-        self.navigationController?.present(viewController, animated: true, completion: nil)
+        self.navigationController?.present(coordinator.navigationController ?? UINavigationController(), animated: true, completion: nil)
     }
 }

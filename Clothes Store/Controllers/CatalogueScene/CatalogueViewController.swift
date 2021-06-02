@@ -23,8 +23,7 @@ final class CatalogueViewController: UIViewController, CatalogueViewProtocol, Co
     internal var products : [CatalogueProduct] = []
     
     var coordinator: Coordinator?
-    
-    private lazy var presenter: CataloguePresentation = CataloguePresenter(with: self)
+    var presenter: CataloguePresentation!
 
     override func viewDidLoad() {
         super.viewDidLoad()

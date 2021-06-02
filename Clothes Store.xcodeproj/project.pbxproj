@@ -34,6 +34,7 @@
 		F31B9DD426629442006C6C19 /* CatalogueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31B9DD326629442006C6C19 /* CatalogueView.swift */; };
 		F31B9DD926629924006C6C19 /* CatalogueViewHostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31B9DD826629924006C6C19 /* CatalogueViewHostingViewController.swift */; };
 		F31B9DDE2662F032006C6C19 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31B9DDD2662F032006C6C19 /* ImageView.swift */; };
+		F3202BFB266831C300BA4073 /* DetailContainerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3202BFA266831C300BA4073 /* DetailContainerCoordinator.swift */; };
 		F33B15C2266189360082130B /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33B15C1266189360082130B /* ServiceManager.swift */; };
 		F35086B12665493F000BF458 /* CatalogueViewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F35086B02665493F000BF458 /* CatalogueViewCollectionViewCell.xib */; };
 		F35086BB26654D0F000BF458 /* SavedViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F35086BA26654D0F000BF458 /* SavedViewTableViewCell.xib */; };
@@ -97,6 +98,7 @@
 		F31B9DD326629442006C6C19 /* CatalogueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueView.swift; sourceTree = "<group>"; };
 		F31B9DD826629924006C6C19 /* CatalogueViewHostingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueViewHostingViewController.swift; sourceTree = "<group>"; };
 		F31B9DDD2662F032006C6C19 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
+		F3202BFA266831C300BA4073 /* DetailContainerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailContainerCoordinator.swift; sourceTree = "<group>"; };
 		F33B15C1266189360082130B /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
 		F35086B02665493F000BF458 /* CatalogueViewCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CatalogueViewCollectionViewCell.xib; sourceTree = "<group>"; };
 		F35086BA26654D0F000BF458 /* SavedViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SavedViewTableViewCell.xib; sourceTree = "<group>"; };
@@ -268,6 +270,14 @@
 			path = SwiftUIViews;
 			sourceTree = "<group>";
 		};
+		F3202BFE2668323F00BA4073 /* ProductDetailTableView */ = {
+			isa = PBXGroup;
+			children = (
+				BE5F281D22F0E00800F2C97D /* ProductDetailTableViewController.swift */,
+			);
+			path = ProductDetailTableView;
+			sourceTree = "<group>";
+		};
 		F33B15C0266189190082130B /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -356,9 +366,10 @@
 		F380837C2666359900B63CCB /* DetailScene */ = {
 			isa = PBXGroup;
 			children = (
+				F3202BFE2668323F00BA4073 /* ProductDetailTableView */,
 				F376CFBD2666A2D30064EDD2 /* Detail.storyboard */,
+				F3202BFA266831C300BA4073 /* DetailContainerCoordinator.swift */,
 				F380837D266635B600B63CCB /* DetailPresenter.swift */,
-				BE5F281D22F0E00800F2C97D /* ProductDetailTableViewController.swift */,
 				BE5F281F22F0E4C600F2C97D /* DetailViewContainerViewController.swift */,
 			);
 			path = DetailScene;
@@ -476,6 +487,7 @@
 				F3808386266653FD00B63CCB /* DataServiceProtocol.swift in Sources */,
 				F380837E266635B600B63CCB /* DetailPresenter.swift in Sources */,
 				BE5F283022F24FF800F2C97D /* BasketViewTableViewCell.swift in Sources */,
+				F3202BFB266831C300BA4073 /* DetailContainerCoordinator.swift in Sources */,
 				BE5F282222F19C0300F2C97D /* HapticFeedback.swift in Sources */,
 				F33B15C2266189360082130B /* ServiceManager.swift in Sources */,
 				F380837A2666347700B63CCB /* BasketViewController+TableView.swift in Sources */,

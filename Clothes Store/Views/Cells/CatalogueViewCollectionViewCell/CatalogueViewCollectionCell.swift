@@ -21,7 +21,7 @@ final class CatalogueViewCollectionViewCell: UICollectionViewCell {
         let didWishlisted = product.1
         
         self.productName.text = selectedProduct.name
-        self.productPrice.text = CurrencyHelper.getMoneyString(selectedProduct.price ?? 0)
+        self.productPrice.text = selectedProduct.presentablePrice
         self.cellView.dropShadow(radius: 10, opacity: 0.1, color: .black)
         let placeHolderImage = UIImage(named: Strings.Images.placeholder.rawValue)
         

@@ -13,7 +13,12 @@ final class BasketCoordinator: Coordinator {
     var children: [Coordinator]? = nil
     
     func start() {
-        var viewController: CoordinatingViewController = BasketViewController.instantiate(with: Strings.Identifiers.Storyboard.basket.rawValue)
+        let viewController = BasketViewController.instantiate(with: Strings.Identifiers.Storyboard.basket.rawValue)
+        let presenter = BasketPresenter(with: viewController,
+                                        basketMemoryService: BasketMemoryService.shared(),
+                                        productMemoryService: ProductMemoryService.shared())
+        
+        viewController.presenter = presenter
         viewController.coordinator = self
         
         navigationController?.setViewControllers([viewController], animated: false)

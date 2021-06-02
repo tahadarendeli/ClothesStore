@@ -15,14 +15,14 @@ final class DetailViewContainerViewController: UIViewController, DetailViewProto
     
     //Views
     private var backButton : UIBarButtonItem!
-    @IBOutlet private var wishListButton: UIButton!
-    @IBOutlet private var addToCartButton: UIButton!
-    @IBOutlet private var addedToWishlistLabel: UILabel!
-    @IBOutlet private var addedToBasketLabel: UILabel!
+    @IBOutlet private weak var wishListButton: UIButton!
+    @IBOutlet private weak var addToCartButton: UIButton!
+    @IBOutlet private weak var addedToWishlistLabel: UILabel!
+    @IBOutlet private weak var addedToBasketLabel: UILabel!
 
     //Variables
-    private lazy var presenter: DetailPresentation = DetailPresenter(with: self)
-    var product: Product!
+    var presenter: DetailPresentation!
+    var coordinator: Coordinator?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +40,7 @@ final class DetailViewContainerViewController: UIViewController, DetailViewProto
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Strings.Identifiers.detailContainer.rawValue {
             let dest = segue.destination as! ProductDetailTableViewController
-            dest.product = product
+            dest.product = presenter.product
         }
     }
 
@@ -53,12 +53,12 @@ final class DetailViewContainerViewController: UIViewController, DetailViewProto
     @IBAction private func addToCartAction(_ sender: Any) {
         Haptic.feedBack()
         
-        presenter.addProductToBakset(product: product)
+        presenter.addProductToBasket()
     }
 
     @IBAction private func addToWishListAction(_ sender: Any) {
         Haptic.feedBack()
         
-        presenter.addProductToWishlist(product: product)
+        presenter.addProductToWishlist()
     }
 }

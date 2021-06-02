@@ -11,16 +11,16 @@ import UIKit
 final class ProductDetailTableViewController: UITableViewController {
 
     //Views
-    @IBOutlet private var productPrice: UILabel!
-    @IBOutlet private var productOldPrice: UILabel!
-    @IBOutlet private var productInStock: UILabel!
-    @IBOutlet private var productName: UILabel!
-    @IBOutlet private var productCategory: UILabel!
-    @IBOutlet private var productStockCount: UILabel!
+    @IBOutlet private weak var productPrice: UILabel!
+    @IBOutlet private weak var productOldPrice: UILabel!
+    @IBOutlet private weak var productInStock: UILabel!
+    @IBOutlet private weak var productName: UILabel!
+    @IBOutlet private weak var productCategory: UILabel!
+    @IBOutlet private weak var productStockCount: UILabel!
     @IBOutlet private weak var productImageView: UIImageView!
     
     //Variables
-    var product : Product?
+    var product : ProductPresentable?
     private var productImage : UIImage?
 
     override func viewDidLoad() {
@@ -31,9 +31,9 @@ final class ProductDetailTableViewController: UITableViewController {
     
     private func configureViews() {
         productName.text = product?.name
-        productPrice.text = CurrencyHelper.getMoneyString(product?.price ?? 0)
+        productPrice.text = product?.presentablePrice
 
-        let attributedString = NSMutableAttributedString(string: CurrencyHelper.getMoneyString(product?.oldPrice ?? 0))
+        let attributedString = NSMutableAttributedString(string: product?.presentablePrice ?? "")
         attributedString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: NSNumber(value: NSUnderlineStyle.single.rawValue), range: NSMakeRange(0, attributedString.length))
         attributedString.addAttribute(NSAttributedString.Key.strikethroughColor, value: UIColor.primaryColour, range: NSMakeRange(0, attributedString.length))
 

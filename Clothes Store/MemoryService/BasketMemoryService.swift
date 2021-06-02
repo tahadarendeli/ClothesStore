@@ -15,7 +15,7 @@ final class BasketMemoryService: MemoryServiceProtocol {
     
     let action = PassthroughSubject<Int, Never>()
     
-    private var products: [Product] = [] {
+    private var products: [ProductPresentable] = [] {
         didSet {
             action.send(products.count)
         }
@@ -27,7 +27,7 @@ final class BasketMemoryService: MemoryServiceProtocol {
         return sharedMemoryService
     }
     
-    func add(product: Product) {
+    func add(product: ProductPresentable) {
         if products.contains(where: { $0.productId == product.productId }) {
             
             if let index = products.firstIndex(where: { $0.productId == product.productId }),
@@ -39,7 +39,7 @@ final class BasketMemoryService: MemoryServiceProtocol {
             
         } else if let stock = product.stock, stock > 0 {
     
-            let newProduct = Product.copy(of: product)
+            var newProduct = product.copy()
             newProduct.stock = 1
             
             products.append(newProduct)
@@ -47,14 +47,14 @@ final class BasketMemoryService: MemoryServiceProtocol {
         }
     }
     
-    func remove(product: Product) {
+    func remove(product: ProductPresentable) {
         if let index = products.firstIndex(where: { $0.productId == product.productId }) {
             products.remove(at: index)
             
         }
     }
     
-    func get() -> [Product] {
+    func get() -> [ProductPresentable] {
         return products
     }
 }

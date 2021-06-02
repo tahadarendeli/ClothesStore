@@ -9,7 +9,7 @@
 import UIKit
 
 protocol BasketViewProtocol: AnyObject {
-    func updateBasket(with products: [Product])
+    func updateBasket()
     func updateCheckoutText(with text: String)
 }
 
@@ -23,10 +23,8 @@ final class BasketViewController: UIViewController, BasketViewProtocol, Coordina
     @IBOutlet private weak var checkoutView: UIView!
     
     //Variables
-    internal lazy var presenter: BasketPresentation = BasketPresenter(with: self)
-    internal var products: [Product] = []
-    
     var coordinator: Coordinator?
+    var presenter: BasketPresentation!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,12 +45,10 @@ final class BasketViewController: UIViewController, BasketViewProtocol, Coordina
         tableView.register(UINib(nibName: Strings.Identifiers.basketCellNibName.rawValue, bundle: nil), forCellReuseIdentifier: Strings.Identifiers.basketCell.rawValue)
     }
     
-    func updateBasket(with products: [Product]) {
-        self.products = products
-        
-        noProductsLabel.isHidden = !products.isEmpty
-        checkoutView.isHidden = products.isEmpty
-        tableView.separatorStyle = products.isEmpty ? .none : .singleLine
+    func updateBasket() {
+        noProductsLabel.isHidden = !presenter.products.isEmpty
+        checkoutView.isHidden = presenter.products.isEmpty
+        tableView.separatorStyle = presenter.products.isEmpty ? .none : .singleLine
         
         tableView.reloadData()
     }
@@ -62,6 +58,6 @@ final class BasketViewController: UIViewController, BasketViewProtocol, Coordina
     }
     
     @IBAction func checkoutTapped(_ sender: Any) {
-        presenter.buy(products)
+        presenter.buy()
     }
 }

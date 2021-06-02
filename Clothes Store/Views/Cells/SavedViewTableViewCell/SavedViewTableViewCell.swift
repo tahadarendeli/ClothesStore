@@ -20,10 +20,10 @@ final class SavedViewTableViewCell: UITableViewCell{
     //Variables
     weak var delegate : BuyCellButtonTapped?
 
-    func configureWithProduct(product: Product){
+    func configureWithProduct(product: ProductPresentable){
 
         self.productName.text = product.name
-        self.productPrice.text = CurrencyHelper.getMoneyString(product.price ?? 0)
+        self.productPrice.text = product.presentablePrice
         self.cellView.dropShadow(radius: 10, opacity: 0.1, color: .black)
 
         if let imageUrlString = product.image,

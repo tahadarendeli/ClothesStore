@@ -30,20 +30,37 @@ extension Product: Identifiable {
     }
 }
 
-extension Product {
-    static func copy(of product: Product) -> Product {
+extension Product: ProductPresentable {
+    var presentablePrice: String? {
+        return CurrencyHelper.getMoneyString(price ?? 0)
+    }
+    
+    func copy() -> ProductPresentable {
         let newProduct = Product()
         
-        newProduct.productId = product.productId
-        newProduct.name = product.name
-        newProduct.category = product.category
-        newProduct.price = product.price
-        newProduct.stock = product.stock
-        newProduct.oldPrice = product.oldPrice
-        newProduct.image = product.image
+        newProduct.productId = productId
+        newProduct.name = name
+        newProduct.category = category
+        newProduct.price = price
+        newProduct.stock = stock
+        newProduct.oldPrice = oldPrice
+        newProduct.image = image
         
         return newProduct
     }
+}
+
+protocol ProductPresentable {
+    var productId: String? { get }
+    var name: String? { get }
+    var category: Category? { get }
+    var price: Float? { get }
+    var presentablePrice: String? { get }
+    var stock: Int? { get set }
+    var oldPrice: Float? { get }
+    var image: String? { get }
+    
+    func copy() -> ProductPresentable
 }
 
 enum Category: String, Codable {

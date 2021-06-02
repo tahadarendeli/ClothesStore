@@ -15,7 +15,7 @@ final class WishlistMemoryService: MemoryServiceProtocol {
     
     let action = PassthroughSubject<Int, Never>()
     
-    private var products: [Product] = [] {
+    private var products: [ProductPresentable] = [] {
         didSet {
             action.send(products.count)
         }
@@ -27,7 +27,7 @@ final class WishlistMemoryService: MemoryServiceProtocol {
         return sharedMemoryService
     }
     
-    func add(product: Product) {
+    func add(product: ProductPresentable) {
         guard products.contains(where: { $0.productId == product.productId }) else {
             products.append(product)
             
@@ -35,13 +35,13 @@ final class WishlistMemoryService: MemoryServiceProtocol {
         }
     }
     
-    func remove(product: Product) {
+    func remove(product: ProductPresentable) {
         if let index = products.firstIndex(where: { $0.productId == product.productId }) {
             products.remove(at: index)
         }
     }
     
-    func get() -> [Product] {
+    func get() -> [ProductPresentable] {
         return products
     }
 }

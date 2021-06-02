@@ -9,7 +9,7 @@
 import UIKit
 
 protocol WishlistViewProtocol: AnyObject {
-    func updateWishlist(with products: [Product])
+    func updateWishlist(with products: [ProductPresentable])
 }
 
 protocol BuyCellButtonTapped: class {
@@ -23,10 +23,10 @@ final class WishlistViewController: UIViewController, BuyCellButtonTapped, Wishl
     @IBOutlet private var noProductsLabel: UILabel!
 
     //Variable
-    internal lazy var presenter: WishlistPresentation = WishlistPresenter(with: self)
-    internal var products: [Product] = []
+    internal var products: [ProductPresentable] = []
     
     var coordinator: Coordinator?
+    var presenter: WishlistPresentation!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +46,7 @@ final class WishlistViewController: UIViewController, BuyCellButtonTapped, Wishl
         tableView.register(UINib(nibName: Strings.Identifiers.wishlistCellNibName.rawValue, bundle: nil), forCellReuseIdentifier: Strings.Identifiers.wishlistCell.rawValue)
     }
     
-    func updateWishlist(with products: [Product]) {
+    func updateWishlist(with products: [ProductPresentable]) {
         self.products = products
         
         noProductsLabel.isHidden = !products.isEmpty

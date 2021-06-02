@@ -8,36 +8,38 @@
 
 protocol WishlistPresentation {
     func getProducts()
-    func addProductToBasket(product: Product)
-    func removeProductFromWishlist(product: Product)
+    func addProductToBasket(product: ProductPresentable)
+    func removeProductFromWishlist(product: ProductPresentable)
 }
 
 final class WishlistPresenter: WishlistPresentation {
     weak var view: WishlistViewProtocol?
     
-    private var basketMemoryService = BasketMemoryService.shared()
-    private var wishlistMemoryService = WishlistMemoryService.shared()
+    private var basketMemoryService: MemoryServiceProtocol!
+    private var wishlistMemoryService: MemoryServiceProtocol!
     
-    private var products : [Product] {
+    private var products : [ProductPresentable] {
         return wishlistMemoryService.get()
     }
     
-    init(with view: WishlistViewProtocol) {
+    init(with view: WishlistViewProtocol, basketMemoryService: MemoryServiceProtocol, wishlistMemoryService: MemoryServiceProtocol) {
         self.view = view
+        self.basketMemoryService = basketMemoryService
+        self.wishlistMemoryService = wishlistMemoryService
     }
     
     func getProducts() {
         view?.updateWishlist(with: products)
     }
     
-    func addProductToBasket(product: Product) {
+    func addProductToBasket(product: ProductPresentable) {
         basketMemoryService.add(product: product)
         
         removeProductFromWishlist(product: product)
         getProducts()
     }
     
-    func removeProductFromWishlist(product: Product) {
+    func removeProductFromWishlist(product: ProductPresentable) {
         wishlistMemoryService.remove(product: product)
         
         getProducts()

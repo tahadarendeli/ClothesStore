@@ -7,31 +7,35 @@
 //
 
 protocol BasketPresentation {
+    var products : [ProductPresentable] { get }
+     
     func getProducts()
-    func removeProductFromBasket(product: Product)
-    func buy(_ products: [Product])
+    func removeProductFromBasket(product: ProductPresentable)
+    func buy()
 }
 
 final class BasketPresenter: BasketPresentation {
     weak var view: BasketViewProtocol?
     
-    private var basketMemoryService = BasketMemoryService.shared()
-    private var productMemoryService = ProductMemoryService.shared()
+    private var basketMemoryService: BasketMemoryService!
+    private var productMemoryService: ProductMemoryService!
     
-    private var products : [Product] {
+    var products : [ProductPresentable] {
         return basketMemoryService.get()
     }
     
-    init(with view: BasketViewProtocol) {
+    init(with view: BasketViewProtocol, basketMemoryService: BasketMemoryService, productMemoryService: ProductMemoryService) {
         self.view = view
+        self.basketMemoryService = basketMemoryService
+        self.productMemoryService = productMemoryService
     }
     
     func getProducts() {
-        view?.updateBasket(with: products)
+        view?.updateBasket()
         calculateTotalPrice()
     }
     
-    func removeProductFromBasket(product: Product) {
+    func removeProductFromBasket(product: ProductPresentable) {
         basketMemoryService.remove(product: product)
         
         getProducts()
@@ -52,7 +56,7 @@ final class BasketPresenter: BasketPresentation {
         view?.updateCheckoutText(with: checkoutText)
     }
     
-    func buy(_ products: [Product]) {
+    func buy() {
         products.forEach({
             productMemoryService.buy(product: $0)
             removeProductFromBasket(product: $0)
