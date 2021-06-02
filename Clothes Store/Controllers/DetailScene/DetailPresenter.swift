@@ -7,25 +7,31 @@
 //
 
 protocol DetailPresentation {
-    func addProductToWishlist(product: Product)
-    func addProductToBakset(product: Product)
+    var product: ProductPresentable! { get set }
+    
+    func addProductToWishlist()
+    func addProductToBasket()
 }
 
 final class DetailPresenter: DetailPresentation {
     weak var view: DetailViewProtocol?
     
-    private var basketMemoryService = BasketMemoryService.shared()
-    private var wishlistMemoryService = WishlistMemoryService.shared()
+    private var basketMemoryService: BasketMemoryService!
+    private var wishlistMemoryService: WishlistMemoryService!
     
-    init(with view: DetailViewProtocol) {
+    var product: ProductPresentable!
+    
+    init(with view: DetailViewProtocol, basketMemoryService: BasketMemoryService, wishlistMemoryService: WishlistMemoryService) {
         self.view = view
+        self.basketMemoryService = basketMemoryService
+        self.wishlistMemoryService = wishlistMemoryService
     }
     
-    func addProductToWishlist(product: Product) {
+    func addProductToWishlist() {
         wishlistMemoryService.add(product: product)
     }
     
-    func addProductToBakset(product: Product) {
+    func addProductToBasket() {
         basketMemoryService.add(product: product)
     }
 }

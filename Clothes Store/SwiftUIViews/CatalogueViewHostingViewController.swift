@@ -20,7 +20,9 @@ final class CatalogueViewHostingViewController: UIHostingController<CatalogueVie
     
     required init?(coder aDecoder: NSCoder){
         let store = CatalogueStore()
-        let presenter = CataloguePresenter(with: store)
+        let presenter = CataloguePresenter(with: store,
+                                           productMemoryService: ProductMemoryService.shared(),
+                                           wishlistMemoryService: WishlistMemoryService.shared())
         super.init(coder: aDecoder, rootView: CatalogueView(store: store, presenter: presenter, coordinator: coordinator))
         
     }

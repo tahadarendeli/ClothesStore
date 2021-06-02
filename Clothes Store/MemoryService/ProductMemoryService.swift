@@ -10,15 +10,15 @@ import Foundation
 import Combine
 
 protocol ProductMemoryServiceProtocol: MemoryServiceProtocol {
-    func add(productList: [Product])
-    func buy(product: Product)
+    func add(productList: [ProductPresentable])
+    func buy(product: ProductPresentable)
 }
 
 final class ProductMemoryService: ProductMemoryServiceProtocol {
     
     private static let sharedMemoryService: ProductMemoryService = .init()
     
-    private var products: [Product] = []
+    private var products: [ProductPresentable] = []
     
     private init() { }
     
@@ -26,22 +26,22 @@ final class ProductMemoryService: ProductMemoryServiceProtocol {
         return sharedMemoryService
     }
     
-    func add(productList: [Product]) {
+    func add(productList: [ProductPresentable]) {
         products.append(contentsOf: productList)
     }
     
-    func remove(product: Product) {
+    func remove(product: ProductPresentable) {
         if let index = products.firstIndex(where: { $0.productId == product.productId }) {
             products.remove(at: index)
         }
     }
     
-    func get() -> [Product] {
+    func get() -> [ProductPresentable] {
         return products
     }
     
-    func buy(product: Product) {
-        let storedProduct = products.first(where: { $0.productId == product.productId })
+    func buy(product: ProductPresentable) {
+        var storedProduct = products.first(where: { $0.productId == product.productId })
         
         if let stockCount = storedProduct?.stock,
            let quantity = product.stock {

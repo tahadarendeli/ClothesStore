@@ -14,7 +14,9 @@ final class CatalogueViewCoordinator: Coordinator {
     
     func start() {
         let store = CatalogueStore()
-        let presenter = CataloguePresenter(with: store)
+        let presenter = CataloguePresenter(with: store,
+                                           productMemoryService: ProductMemoryService.shared(),
+                                           wishlistMemoryService: WishlistMemoryService.shared())
         let catalogueView = CatalogueView(store: store, presenter: presenter, coordinator: self)
         let viewController: CatalogueViewHostingViewController = CatalogueViewHostingViewController(rootView: catalogueView)
         
@@ -24,12 +26,10 @@ final class CatalogueViewCoordinator: Coordinator {
     }
     
     func showDetail(product: CatalogueProduct) {
-        let rootViewController = DetailViewContainerViewController.instantiate(with: Strings.Identifiers.Storyboard.detail.rawValue)
-        let viewController = UINavigationController(rootViewController: rootViewController)
+        let coordinator = DetailContainerCoordinator(product: product.0)
+        coordinator.navigationController = UINavigationController()
+        coordinator.start()
         
-        rootViewController.product = product.0
-        
-        self.navigationController?.modalPresentationStyle = .formSheet
-        self.navigationController?.present(viewController, animated: true, completion: nil)
+        self.navigationController?.present(coordinator.navigationController ?? UINavigationController(), animated: true, completion: nil)
     }
 }

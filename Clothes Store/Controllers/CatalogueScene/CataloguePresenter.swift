@@ -13,22 +13,24 @@ protocol CataloguePresentation {
     func fetchProducts()
 }
 
-typealias CatalogueProduct = (Product, Bool)
+typealias CatalogueProduct = (ProductPresentable, Bool)
 
 final class CataloguePresenter: CataloguePresentation {
     weak var view: CatalogueViewProtocol?
     
     private var observer: AnyCancellable?
-    private var productMemoryService = ProductMemoryService.shared()
-    private var wishlistMemoryService = WishlistMemoryService.shared()
+    private var productMemoryService: ProductMemoryService!
+    private var wishlistMemoryService: WishlistMemoryService!
     
     private var products : [CatalogueProduct] {
         return productMemoryService.get().map({ product in
                                                 return (product, didWished(product))})
     }
     
-    init(with view: CatalogueViewProtocol?) {
+    init(with view: CatalogueViewProtocol?, productMemoryService: ProductMemoryService, wishlistMemoryService: WishlistMemoryService) {
         self.view = view
+        self.productMemoryService = productMemoryService
+        self.wishlistMemoryService = wishlistMemoryService
         
         observer = WishlistMemoryService.shared().action.sink(receiveValue: { [weak self] _ in
             guard let self = self else { return }
@@ -37,7 +39,7 @@ final class CataloguePresenter: CataloguePresentation {
         })
     }
     
-    private func didWished(_ product: Product) -> Bool {
+    private func didWished(_ product: ProductPresentable) -> Bool {
         return getWishlistedProducts().contains(where: { wished in
                                                     product.productId == wished.productId })
     }
@@ -46,7 +48,7 @@ final class CataloguePresenter: CataloguePresentation {
         view?.updateProductList(products: products)
     }
     
-    func getWishlistedProducts() -> [Product] {
+    func getWishlistedProducts() -> [ProductPresentable] {
         return wishlistMemoryService.get()
     }
     

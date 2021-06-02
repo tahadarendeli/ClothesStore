@@ -11,7 +11,7 @@ import UIKit
 extension BasketViewController: UITableViewDelegate{
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 125
+        return presenter.heightForRow
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -27,26 +27,26 @@ extension BasketViewController: UITableViewDelegate{
             
             Haptic.feedBack()
             
-            self.presenter.removeProductFromBasket(product: self.products[indexPath.row])
+            self.presenter.removeProductFromBasket(product: self.presenter.products[indexPath.row])
         })
 
         deleteAction.backgroundColor = UIColor.primaryColour
 
         let config = UISwipeActionsConfiguration(actions: [deleteAction])
         config.performsFirstActionWithFullSwipe = true
+        
         return config
-
     }
 }
 
 extension BasketViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        products.count
+        presenter.products.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: Strings.Identifiers.basketCell.rawValue, for: indexPath) as? BasketViewTableViewCell {
-            cell.configureWithProduct(product: products[indexPath.row])
+            cell.configureWithProduct(product: presenter.products[indexPath.row])
             
             return cell
         }

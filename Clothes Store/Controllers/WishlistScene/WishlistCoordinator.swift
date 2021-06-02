@@ -13,7 +13,11 @@ final class WishlistCoordinator: Coordinator {
     var children: [Coordinator]? = nil
     
     func start() {
-        var viewController: CoordinatingViewController = WishlistViewController.instantiate(with: Strings.Identifiers.Storyboard.wishlist.rawValue)
+        let viewController = WishlistViewController.instantiate(with: Strings.Identifiers.Storyboard.wishlist.rawValue)
+        let presenter = WishlistPresenter(with: viewController,
+                                          basketMemoryService: BasketMemoryService.shared(),
+                                          wishlistMemoryService: WishlistMemoryService.shared())
+        viewController.presenter = presenter
         viewController.coordinator = self
         
         navigationController?.setViewControllers([viewController], animated: false)
