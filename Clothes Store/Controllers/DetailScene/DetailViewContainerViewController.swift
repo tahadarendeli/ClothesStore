@@ -31,16 +31,18 @@ final class DetailViewContainerViewController: UIViewController, DetailViewProto
     }
     
     private func setUpButtons(){
-        wishListButton.dropShadow(radius: 8, opacity: 0.2, color: .black)
-        addToCartButton.dropShadow(radius: 8, opacity: 0.4, color: UIColor.primaryColour)
+        let radius: CGFloat = 8
+        wishListButton.dropShadow(radius: radius, opacity: 0.2, color: .black)
+        addToCartButton.dropShadow(radius: radius, opacity: 0.4, color: .primaryColour)
     }
 
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Strings.Identifiers.detailContainer.rawValue {
-            let dest = segue.destination as! ProductDetailTableViewController
-            dest.product = presenter.product
+            if let destination = segue.destination as? ProductDetailTableViewController {
+                destination.presenter = ProductDetailTableViewPresenter(with: destination, product: presenter.product)
+            }
         }
     }
 

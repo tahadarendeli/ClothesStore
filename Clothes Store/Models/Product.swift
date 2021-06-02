@@ -35,6 +35,10 @@ extension Product: ProductPresentable {
         return CurrencyHelper.getMoneyString(price ?? 0)
     }
     
+    var presentableOldPrice: String? {
+        return CurrencyHelper.getMoneyString(oldPrice ?? 0)
+    }
+    
     func copy() -> ProductPresentable {
         let newProduct = Product()
         
@@ -58,6 +62,7 @@ protocol ProductPresentable {
     var presentablePrice: String? { get }
     var stock: Int? { get set }
     var oldPrice: Float? { get }
+    var presentableOldPrice: String? { get }
     var image: String? { get }
     
     func copy() -> ProductPresentable

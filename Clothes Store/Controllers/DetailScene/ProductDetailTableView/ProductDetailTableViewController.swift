@@ -8,7 +8,11 @@
 
 import UIKit
 
-final class ProductDetailTableViewController: UITableViewController {
+protocol ProductDetailTableViewProtocol: AnyObject {
+    func configureViews(with viewModel: ProductDetailTableViewModel?)
+}
+
+final class ProductDetailTableViewController: UITableViewController, ProductDetailTableViewProtocol {
 
     //Views
     @IBOutlet private weak var productPrice: UILabel!
@@ -20,58 +24,42 @@ final class ProductDetailTableViewController: UITableViewController {
     @IBOutlet private weak var productImageView: UIImageView!
     
     //Variables
-    var product : ProductPresentable?
+    var presenter: ProductDetailTableViewPresentation!
     private var productImage : UIImage?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        configureViews()
+        presenter.prepareViewModel()
     }
     
-    private func configureViews() {
-        productName.text = product?.name
-        productPrice.text = product?.presentablePrice
-
-        let attributedString = NSMutableAttributedString(string: product?.presentablePrice ?? "")
-        attributedString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: NSNumber(value: NSUnderlineStyle.single.rawValue), range: NSMakeRange(0, attributedString.length))
-        attributedString.addAttribute(NSAttributedString.Key.strikethroughColor, value: UIColor.primaryColour, range: NSMakeRange(0, attributedString.length))
-
-        if product?.oldPrice != nil{
-        productOldPrice.attributedText = attributedString
-        }
-
-        productCategory.text = product?.category?.rawValue
-        productStockCount.text = "\(product?.stock ?? 0)"
-        if (product?.stock ?? 0) > 0 {
-            productInStock.text = Strings.Texts.inStock.rawValue
-        }else{
-            productInStock.text = Strings.Texts.outStock.rawValue
-        }
+    func configureViews(with viewModel: ProductDetailTableViewModel?) {
+        productName.text = viewModel?.productName
+        productPrice.text = viewModel?.productPresentablePrice
+        productOldPrice.attributedText = viewModel?.productOldPrice
+        productCategory.text = viewModel?.productCategory
+        productStockCount.text = viewModel?.productStockCount
+        productInStock.text = viewModel?.productInStockText
+        productImageView.image = viewModel?.productPlaceholderImage
         
-        let placeHolderImage = UIImage(named: Strings.Images.placeholder.rawValue)
-        
-        if let image = product?.image, let url = URL(string: image) {
-            productImageView.getImage(with: url, completion: nil)
-        } else {
-            productImageView.image = placeHolderImage
+        if let url = viewModel?.productImageUrl {
+            productImageView.getImage(with: url)
         }
     }
 
     // MARK: - Table view data source & delegates
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
-        return 4
+        presenter.numberOfRows
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         switch indexPath.row {
         case 0:
-            return 275
+            return presenter.bigSectionHeight
         default:
-            return 75
+            return presenter.smallSectionHeight
         }
     }
     

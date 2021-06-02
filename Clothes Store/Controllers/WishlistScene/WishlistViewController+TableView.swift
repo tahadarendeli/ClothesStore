@@ -11,11 +11,10 @@ import UIKit
 extension WishlistViewController: UITableViewDelegate{
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 125
+        return presenter.heightForRow
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
         tableView.deselectRow(at: indexPath, animated: true)
     }
 
@@ -33,8 +32,8 @@ extension WishlistViewController: UITableViewDelegate{
 
         let config = UISwipeActionsConfiguration(actions: [deleteAction])
         config.performsFirstActionWithFullSwipe = true
+        
         return config
-
     }
 }
 

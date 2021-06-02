@@ -6,7 +6,10 @@
 //  Copyright © 2021 RichieHope. All rights reserved.
 //
 
+import UIKit
+
 protocol WishlistPresentation {
+    var heightForRow: CGFloat { get }
     func getProducts()
     func addProductToBasket(product: ProductPresentable)
     func removeProductFromWishlist(product: ProductPresentable)
@@ -20,6 +23,10 @@ final class WishlistPresenter: WishlistPresentation {
     
     private var products : [ProductPresentable] {
         return wishlistMemoryService.get()
+    }
+    
+    var heightForRow: CGFloat {
+        return 125
     }
     
     init(with view: WishlistViewProtocol, basketMemoryService: MemoryServiceProtocol, wishlistMemoryService: MemoryServiceProtocol) {

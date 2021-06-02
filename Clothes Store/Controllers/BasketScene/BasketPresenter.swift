@@ -6,8 +6,11 @@
 //  Copyright © 2021 RichieHope. All rights reserved.
 //
 
+import UIKit
+
 protocol BasketPresentation {
     var products : [ProductPresentable] { get }
+    var heightForRow: CGFloat { get }
      
     func getProducts()
     func removeProductFromBasket(product: ProductPresentable)
@@ -22,6 +25,10 @@ final class BasketPresenter: BasketPresentation {
     
     var products : [ProductPresentable] {
         return basketMemoryService.get()
+    }
+    
+    var heightForRow: CGFloat {
+        return 125
     }
     
     init(with view: BasketViewProtocol, basketMemoryService: BasketMemoryService, productMemoryService: ProductMemoryService) {
