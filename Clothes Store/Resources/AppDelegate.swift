@@ -13,9 +13,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        decorateGlobalInterface()
         
         let navigationController = UINavigationController()
         let coordinator = MainCoordinator()
@@ -28,11 +28,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         coordinator.start()
         
-        decorateGlobalInterface()
         return true
     }
 
-    func decorateGlobalInterface() {
+    private func decorateGlobalInterface() {
 
         let navigationTitleAttributes = [NSAttributedString.Key.foregroundColor: UIColor.primaryColour]
 
@@ -47,6 +46,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITabBar.appearance().backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         UITabBarItem.appearance().badgeColor = UIColor.primaryColour
     }
-
 }
 
