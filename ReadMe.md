@@ -10,6 +10,8 @@ List of things that has been done in this project:
 
 -To use Coordinator more efficiently, entry points of app removed. Instead, an AppDelegate initialization implemented programmatically with a Coordinator.
 
+-Storyboarded protocol conformed to the ViewCotnrollers to intiliaze them programmatically and all ViewControllers have their class name as identifier.
+
 -A SwiftUI implementation of CatalogueViewController made. Switching between 2 implementation can be done in MainCoordinator with toggling them. A comment line left there.
 
 -Basket and Wishlist changes are inform over Combine Framework to TabBar.
@@ -26,4 +28,4 @@ List of things that has been done in this project:
 
 -Checkout button BasketViewController implemented with removing items from Memory Service. It changes the stock counts of selected products.
 
--Unfortunately, due to time restriction test classes couldn't be written.
+-Unfortunately, due to time restriction test classes couldn't be written. It wasn't declared on the task guide but I wanted to implement them. Unfortuantely, I couldn't made it.
